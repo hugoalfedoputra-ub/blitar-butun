@@ -1,14 +1,30 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 
-<div class="artikel" id="artikel-blank">
-	<div class="col-lg-12 col-md-12 col-sm-12">
-		<div class="error_page_content">
-			<h1>404</h1>
-			<h2>Maaf</h2>
-			<h3>Halaman ini belum tersedia atau sedang dalam perbaikan</h3>
-			<p class="wow fadeInLeftBig">
-				<a href="<?= site_url(); ?>">Silahkan kembali lagi ke halaman Beranda</a>
-			</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Halaman Gagal Ditemukan</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+	<div class="w-dvw min-h-screen flex justify-center items-center">
+		<div class="w-[60%]">
+			<div class="flex flex-row gap-x-8 items-center">
+				<div class="text-yellow-500 text-6xl">404</div>
+				<div class="text-lg">
+					<p>
+						Kami tidak dapat menemukan halaman yang Anda inginkan.
+						Untuk sementara Anda dapat kembali ke halaman <a href="<?= APP_URL ?>">awal</a> atau ke <a href="<?= $previous ?>">halaman sebelumnya.</a>
+					</p>
+					<i>
+						<p>(<?= strip_tags($message); ?>)</p>
+					</i>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</body>
+
+</html>
