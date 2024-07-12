@@ -24,7 +24,10 @@
 
 <?php $favicon = LOKASI_LOGO_DESA . 'favicon.ico'; ?>
 <link rel="shortcut icon" href="<?= base_url(is_file($favicon) ? $favicon : 'favicon.ico') ?>" />
-<link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/bootstrap.min.css"); ?>">
+
+<!-- KKN pakai tailwindcss -->
+<!-- <link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/bootstrap.min.css"); ?>"> -->
+
 <link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/font-awesome.min.css"); ?>">
 <link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/animate.css"); ?>">
 <link rel="stylesheet" href="<?= base_url("$this->theme_folder/$this->theme/assets/css/slick.css"); ?>">
@@ -60,7 +63,10 @@
 <script language='javascript' src="<?= base_url('assets/front/js/jquery.min.js'); ?>"></script>
 <script language='javascript' src="<?= base_url('assets/front/js/jquery.cycle2.min.js'); ?>"></script>
 <script language='javascript' src="<?= base_url('assets/front/js/jquery.cycle2.carousel.js'); ?>"></script>
-<script src="<?= base_url("$this->theme_folder/$this->theme/assets/js/bootstrap.min.js"); ?>"></script>
+<!-- <script src="<?= base_url("$this->theme_folder/$this->theme/assets/js/bootstrap.min.js"); ?>"></script> -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+
 <script src="<?= base_url('assets/js/leaflet.js'); ?>"></script>
 <script src="<?= base_url('assets/front/js/layout.js'); ?>"></script>
 <script src="<?= base_url('assets/front/js/jquery.colorbox.js'); ?>"></script>

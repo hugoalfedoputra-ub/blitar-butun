@@ -2,36 +2,39 @@
 
 <?php $previous = 'javascript:history.go(-1)';
 if (isset($_SERVER['HTTP_REFERER'])) {
-    $previous = $_SERVER['HTTP_REFERER'];
+	$previous = $_SERVER['HTTP_REFERER'];
 }
 $CI = &get_instance();
-if (! isset($CI)) {
-    $CI = new CI_Controller();
+if (!isset($CI)) {
+	$CI = new CI_Controller();
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>404 Page Not Found</title>
-	<link rel="stylesheet" type="text/css" href="<?= $CI->config->base_url()?>assets/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="<?= $CI->config->base_url()?>assets/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="<?= $CI->config->base_url()?>assets/css/AdminLTE.css" />
+	<title>Halaman Gagal Ditemukan</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-<div class="container">
-	<div class="error-page">
-		<h2 class="headline text-yellow">404</h2>
-
-		<div class="error-content">
-			<h3><i class="fa fa-warning text-yellow"></i> <?= strip_tags($message); ?></h3>
-			<p>
-				Kami tidak dapat menemukan halaman yang Anda inginkan.
-				Untuk sementara Anda dapat kembali ke halaman <a href="<?= APP_URL ?>">awal</a> atau ke <a href="<?= $previous ?>">halaman sebelumnya.</a>
-			</p>
+	<div class="w-dvw min-h-screen flex justify-center items-center">
+		<div class="w-[60%]">
+			<div class="flex flex-row gap-x-8 items-center">
+				<div class="text-yellow-500 text-6xl">404</div>
+				<div class="text-lg">
+					<p>
+						Kami tidak dapat menemukan halaman yang Anda inginkan.
+						Untuk sementara Anda dapat kembali ke halaman <a href="<?= APP_URL ?>">awal</a> atau ke <a href="<?= $previous ?>">halaman sebelumnya.</a>
+					</p>
+					<i>
+						<p>(<?= strip_tags($message); ?>)</p>
+					</i>
+				</div>
+			</div>
 		</div>
-
 	</div>
-</div>
 </body>
+
 </html>

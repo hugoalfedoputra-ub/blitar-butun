@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed'); ?>
 <?php
 $CI = &get_instance();
-if (! isset($CI)) {
-    $CI = new CI_Controller();
+if (!isset($CI)) {
+	$CI = new CI_Controller();
 }
 ?>
 
@@ -33,17 +33,17 @@ if (! isset($CI)) {
 						<br><br>
 						Harap laporkan masalah ini, agar kami dapat mencari solusinya dengan melampirkan file log terakhir atau saat masalah ini terjadi.
 						Untuk memperoleh file log ikuti langkah berikut:
-						<ol>
-							<li>Masuk ke modul pengaturan</li>
-							<li>Info sistem</li>
-							<li>Logs</li>
-							<li>Pilih log terakhir atau saat masalah ini terjadi</li>
-							<li>Klik unduh</li>
-						</ol>
-						<br>
-						Untuk sementara Anda dapat kembali ke halaman <a href="<?= APP_URL ?>">awal</a>.
-					<?php endif ?>
-				</p>
+				<ol>
+					<li>Masuk ke modul pengaturan</li>
+					<li>Info sistem</li>
+					<li>Logs</li>
+					<li>Pilih log terakhir atau saat masalah ini terjadi</li>
+					<li>Klik unduh</li>
+				</ol>
+				<br>
+				Untuk sementara Anda dapat kembali ke halaman <a href="<?= APP_URL ?>">awal</a>.
+			<?php endif ?>
+			</p>
 			</div>
 
 		</div>
