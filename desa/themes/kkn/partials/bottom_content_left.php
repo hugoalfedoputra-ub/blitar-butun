@@ -48,7 +48,7 @@
             </div>
         <?php endif; ?>
     </div>
-    <?php $title = (!empty($judul_kategori)) ? $judul_kategori : "Artikel Terkini" ?>
+    <?php $title = (!empty($judul_kategori)) ? $judul_kategori : "Artikel Terkini Bosku" ?>
     <?php if (is_array($title)) : ?>
         <?php foreach ($title as $item) : ?>
             <?php $title = $item ?>
