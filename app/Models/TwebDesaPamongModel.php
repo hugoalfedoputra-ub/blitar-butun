@@ -39,7 +39,7 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $disposisisuratmasuk belongsToMany
    
  */
-class TwebDesaPamongModel extends Model 
+class TwebDesaPamong extends Model 
 {
     
     /**
@@ -100,7 +100,7 @@ class TwebDesaPamongModel extends Model
     */
     public function disposisisuratmasuks()
     {
-        return $this->belongsToMany(Disposisisuratmasuk::class,'disposisi_surat_masuk');
+        return $this->belongsToMany(Disposisisuratmasuks::class,'disposisi_surat_masuk');
     }
 
 

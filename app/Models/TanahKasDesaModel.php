@@ -33,7 +33,7 @@ use Illuminate\Database\Eloquent\Model;
 @property tinyint $visible visible
    
  */
-class TanahKasDesaModel extends Model 
+class TanahKasDesa extends Model 
 {
     
     /**

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 @property datetime $created created
    
  */
-class UrlsModel extends Model 
+class Urls extends Model 
 {
     
     /**

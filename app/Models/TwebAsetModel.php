@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $nama nama
    
  */
-class TwebAsetModel extends Model 
+class TwebAset extends Model 
 {
     
     /**

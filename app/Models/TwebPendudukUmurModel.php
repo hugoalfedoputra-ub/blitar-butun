@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 @property int $status status
    
  */
-class TwebPendudukUmurModel extends Model 
+class TwebPendudukUmur extends Model 
 {
     
     /**

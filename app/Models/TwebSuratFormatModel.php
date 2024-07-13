@@ -33,7 +33,7 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class TwebSuratFormatModel extends Model 
+class TwebSuratFormat extends Model 
 {
     
     /**

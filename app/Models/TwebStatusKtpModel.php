@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $status_rekam status rekam
    
  */
-class TwebStatusKtpModel extends Model 
+class TwebStatusKtp extends Model 
 {
     
     /**

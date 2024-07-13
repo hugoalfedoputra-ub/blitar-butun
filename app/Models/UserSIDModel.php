@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $session session
    
  */
-class UserSIDModel extends Model 
+class UserSID extends Model 
 {
     
     /**

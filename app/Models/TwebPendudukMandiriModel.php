@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 @property IdPend $twebPenduduk belongsTo
    
  */
-class TwebPendudukMandiriModel extends Model 
+class TwebPendudukMandiri extends Model 
 {
     
     /**

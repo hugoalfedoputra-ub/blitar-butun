@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 @property mediumtext $setting setting
    
  */
-class WidgetModel extends Model 
+class Widget extends Model 
 {
     
     /**

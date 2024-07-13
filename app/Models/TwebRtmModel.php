@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $dtksLampiran hasMany
    
  */
-class TwebRtmModel extends Model 
+class TwebRtm extends Model 
 {
     
     /**
@@ -44,7 +44,7 @@ class TwebRtmModel extends Model
     */
     public function dtks()
     {
-        return $this->hasMany(Dtk::class,'id_rtm');
+        return $this->hasMany(Dtks::class,'id_rtm');
     }
     /**
     * dtksLampirans

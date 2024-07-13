@@ -81,7 +81,7 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $mandiri belongsToMany
    
  */
-class TwebPendudukModel extends Model 
+class TwebPenduduk extends Model 
 {
     
     /**

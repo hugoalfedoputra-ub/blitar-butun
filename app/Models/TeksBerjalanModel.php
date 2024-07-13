@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $judul_tautan judul tautan
    
  */
-class TeksBerjalanModel extends Model 
+class TeksBerjalan extends Model 
 {
     
     /**

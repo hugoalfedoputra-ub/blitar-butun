@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $lng lng
    
  */
-class TwebPendudukMapModel extends Model 
+class TwebPendudukMap extends Model 
 {
     
     /**

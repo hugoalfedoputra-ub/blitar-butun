@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
    @property varchar $nama nama
    
  */
-class TwebStatusDasarModel extends Model 
+class TwebStatusDasar extends Model 
 {
     
     /**

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
    @property varchar $nama nama
    
  */
-class TwebKeluargaSejahteraModel extends Model 
+class TwebKeluargaSejahtera extends Model 
 {
     
     /**

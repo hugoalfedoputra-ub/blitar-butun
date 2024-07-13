@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 @property tinyint $sex sex
    
  */
-class TwebCaraKbModel extends Model 
+class TwebCaraKb extends Model 
 {
     
     /**

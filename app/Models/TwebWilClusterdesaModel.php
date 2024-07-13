@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 @property int $urut_cetak urut cetak
    
  */
-class TwebWilClusterdesaModel extends Model 
+class TwebWilClusterdesa extends Model 
 {
     
     /**

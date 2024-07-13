@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $grupAkse hasMany
    
  */
-class UserGrupModel extends Model 
+class UserGrup extends Model 
 {
     
     /**
@@ -41,7 +41,7 @@ class UserGrupModel extends Model
     */
     public function grupAkses()
     {
-        return $this->hasMany(GrupAkse::class,'id_grup');
+        return $this->hasMany(GrupAkses::class,'id_grup');
     }
 
 

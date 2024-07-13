@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $dtksAnggotum hasMany
    
  */
-class TwebKeluargaModel extends Model 
+class TwebKeluarga extends Model 
 {
     
     /**
@@ -50,7 +50,7 @@ class TwebKeluargaModel extends Model
     */
     public function dtks()
     {
-        return $this->hasMany(Dtk::class,'id_keluarga');
+        return $this->hasMany(Dtks::class,'id_keluarga');
     }
     /**
     * dtksAnggota
@@ -59,7 +59,7 @@ class TwebKeluargaModel extends Model
     */
     public function dtksAnggota()
     {
-        return $this->hasMany(DtksAnggotum::class,'id_keluarga');
+        return $this->hasMany(DtksAnggota::class,'id_keluarga');
     }
 
 
