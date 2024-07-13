@@ -8,6 +8,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     </head>
     <body class="font-sans antialiased center">
-        Made with &lt;3 Brawijaya University
+        Made with &lt;3 <br> 
+        By Brawijaya University
     </body>
 </html>
