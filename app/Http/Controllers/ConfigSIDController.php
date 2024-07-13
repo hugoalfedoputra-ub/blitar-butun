@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Agenda;
-use App\Models\Artikel;
+use App\Models\ConfigSID;
 
 
 /**
- * Description of AgendaController
+ * Description of ConfigController
  *
  * @author Tuhin Bepari <digitaldreams40@gmail.com>
  */
 
-class AgendaController extends Controller
+class ConfigSIDController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,20 +23,19 @@ class AgendaController extends Controller
      */
     public function index(Request $request)
     {
-        // return view('pages.agenda.index', ['records' => Agenda::paginate(10)]);
-        return Agenda::paginate(10);
+        return view('pages.config.index', ['records' => ConfigSID::paginate(10)]);
     }
     /**
      * Display the specified resource.
      *
      * @param  Request  $request
-     * @param  Agenda  $agenda
+     * @param  ConfigSID  $configsid
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Agenda $agenda)
+    public function show(Request $request, ConfigSID $configsid)
     {
-        return view('pages.agenda.show', [
-            'record' => $agenda,
+        return view('pages.config.show', [
+            'record' => $configsid,
         ]);
     }
     /**
@@ -48,11 +46,9 @@ class AgendaController extends Controller
      */
     public function create(Request $request)
     {
-        $artikel = Artikel::all(['id']);
 
-        return view('pages.agenda.create', [
-            'model' => new Agenda,
-            "artikel" => $artikel,
+        return view('pages.config.create', [
+            'model' => new ConfigSID,
 
         ]);
     }
@@ -64,15 +60,15 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Agenda;
+        $model = new ConfigSID;
         $model->fill($request->all());
 
         if ($model->save()) {
 
-            session()->flash('app_message', 'Agenda saved successfully');
-            return redirect()->route('agenda.index');
+            session()->flash('app_message', 'ConfigSID saved successfully');
+            return redirect()->route('config.index');
         } else {
-            session()->flash('app_message', 'Something is wrong while saving Agenda');
+            session()->flash('app_message', 'Something is wrong while saving ConfigSID');
         }
         return redirect()->back();
     }
@@ -80,16 +76,14 @@ class AgendaController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  Request  $request
-     * @param  Agenda  $agenda
+     * @param  ConfigSID  $configsid
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, Agenda $agenda)
+    public function edit(Request $request, ConfigSID $configsid)
     {
-        $artikel = Artikel::all(['id']);
 
-        return view('pages.agenda.edit', [
-            'model' => $agenda,
-            "artikel" => $artikel,
+        return view('pages.config.edit', [
+            'model' => $configsid,
 
         ]);
     }
@@ -97,19 +91,19 @@ class AgendaController extends Controller
      * Update a existing resource in storage.
      *
      * @param  Request  $request
-     * @param  Agenda  $agenda
+     * @param  ConfigSID  $configsid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agenda $agenda)
+    public function update(Request $request, ConfigSID $configsid)
     {
-        $agenda->fill($request->all());
+        $configsid->fill($request->all());
 
-        if ($agenda->save()) {
+        if ($configsid->save()) {
 
-            session()->flash('app_message', 'Agenda successfully updated');
-            return redirect()->route('agenda.index');
+            session()->flash('app_message', 'ConfigSID successfully updated');
+            return redirect()->route('config.index');
         } else {
-            session()->flash('app_error', 'Something is wrong while updating Agenda');
+            session()->flash('app_error', 'Something is wrong while updating ConfigSID');
         }
         return redirect()->back();
     }
@@ -117,16 +111,16 @@ class AgendaController extends Controller
      * Delete a  resource from  storage.
      *
      * @param  Request  $request
-     * @param  Agenda  $agenda
+     * @param  ConfigSID  $configsid
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
-    public function destroy(Request $request, Agenda $agenda)
+    public function destroy(Request $request, ConfigSID $configsid)
     {
-        if ($agenda->delete()) {
-            session()->flash('app_message', 'Agenda successfully deleted');
+        if ($configsid->delete()) {
+            session()->flash('app_message', 'ConfigSID successfully deleted');
         } else {
-            session()->flash('app_error', 'Error occurred while deleting Agenda');
+            session()->flash('app_error', 'Error occurred while deleting ConfigSID');
         }
 
         return redirect()->back();

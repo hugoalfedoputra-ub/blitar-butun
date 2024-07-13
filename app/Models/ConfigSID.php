@@ -36,7 +36,7 @@ use Illuminate\Database\Eloquent\Model;
 @property int $pamong_id pamong id
    
  */
-class Config extends Model
+class ConfigSID extends Model
 {
 
     /**
