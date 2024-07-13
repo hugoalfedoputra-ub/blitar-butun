@@ -31,12 +31,13 @@ class RefSinkronisasiController extends Controller
      * @param  RefSinkronisasi  $refsinkronisasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefSinkronisasi $refsinkronisasi)
+    public function show(string $id)
     {
-        return view('pages.ref_sinkronisasi.show', [
-                'record' =>$refsinkronisasi,
-        ]);
-
+        $refsinkronisasi = RefSinkronisasi::find($id);
+        if ($refsinkronisasi) {
+            return response()->json($refsinkronisasi);
+        }
+        return response()->json(['message' => 'RefSinkronisasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

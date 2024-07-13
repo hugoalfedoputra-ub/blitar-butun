@@ -31,12 +31,13 @@ class AnalisisRefStateController extends Controller
      * @param  AnalisisRefState  $analisisrefstate
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisRefState $analisisrefstate)
+    public function show(string $id)
     {
-        return view('pages.analisis_ref_state.show', [
-                'record' =>$analisisrefstate,
-        ]);
-
+        $analisisrefstate = AnalisisRefState::find($id);
+        if ($analisisrefstate) {
+            return response()->json($analisisrefstate);
+        }
+        return response()->json(['message' => 'AnalisisRefState not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

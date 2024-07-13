@@ -31,12 +31,13 @@ class AnalisisTipeIndikatorController extends Controller
      * @param  AnalisisTipeIndikator  $analisistipeindikator
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisTipeIndikator $analisistipeindikator)
+    public function show(string $id)
     {
-        return view('pages.analisis_tipe_indikator.show', [
-                'record' =>$analisistipeindikator,
-        ]);
-
+        $analisistipeindikator = AnalisisTipeIndikator::find($id);
+        if ($analisistipeindikator) {
+            return response()->json($analisistipeindikator);
+        }
+        return response()->json(['message' => 'AnalisisTipeIndikator not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

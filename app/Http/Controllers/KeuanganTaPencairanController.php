@@ -32,12 +32,13 @@ class KeuanganTaPencairanController extends Controller
      * @param  KeuanganTaPencairan  $keuangantapencairan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaPencairan $keuangantapencairan)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_pencairan.show', [
-                'record' =>$keuangantapencairan,
-        ]);
-
+        $keuangantapencairan = KeuanganTaPencairan::find($id);
+        if ($keuangantapencairan) {
+            return response()->json($keuangantapencairan);
+        }
+        return response()->json(['message' => 'KeuanganTaPencairan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

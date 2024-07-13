@@ -31,12 +31,13 @@ class GarisController extends Controller
      * @param  Garis  $garis
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Garis $garis)
+    public function show(string $id)
     {
-        return view('pages.garis.show', [
-                'record' =>$garis,
-        ]);
-
+        $garis = Garis::find($id);
+        if ($garis) {
+            return response()->json($garis);
+        }
+        return response()->json(['message' => 'Garis not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

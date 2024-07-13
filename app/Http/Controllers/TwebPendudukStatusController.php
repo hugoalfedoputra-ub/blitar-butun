@@ -31,12 +31,13 @@ class TwebPendudukStatusController extends Controller
      * @param  TwebPendudukStatus  $twebpendudukstatus
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukStatus $twebpendudukstatus)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_status.show', [
-                'record' =>$twebpendudukstatus,
-        ]);
-
+        $twebpendudukstatus = TwebPendudukStatus::find($id);
+        if ($twebpendudukstatus) {
+            return response()->json($twebpendudukstatus);
+        }
+        return response()->json(['message' => 'TwebPendudukStatus not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

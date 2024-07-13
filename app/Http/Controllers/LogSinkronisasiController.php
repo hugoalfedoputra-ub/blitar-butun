@@ -31,12 +31,13 @@ class LogSinkronisasiController extends Controller
      * @param  LogSinkronisasi  $logsinkronisasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogSinkronisasi $logsinkronisasi)
+    public function show(string $id)
     {
-        return view('pages.log_sinkronisasi.show', [
-                'record' =>$logsinkronisasi,
-        ]);
-
+        $logsinkronisasi = LogSinkronisasi::find($id);
+        if ($logsinkronisasi) {
+            return response()->json($logsinkronisasi);
+        }
+        return response()->json(['message' => 'LogSinkronisasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

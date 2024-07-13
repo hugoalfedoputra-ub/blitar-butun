@@ -31,12 +31,13 @@ class TwebPendudukPekerjaanController extends Controller
      * @param  TwebPendudukPekerjaan  $twebpendudukpekerjaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukPekerjaan $twebpendudukpekerjaan)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_pekerjaan.show', [
-                'record' =>$twebpendudukpekerjaan,
-        ]);
-
+        $twebpendudukpekerjaan = TwebPendudukPekerjaan::find($id);
+        if ($twebpendudukpekerjaan) {
+            return response()->json($twebpendudukpekerjaan);
+        }
+        return response()->json(['message' => 'TwebPendudukPekerjaan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class RefPeruntukanTanahKasController extends Controller
      * @param  RefPeruntukanTanahKas  $refperuntukantanahkas
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefPeruntukanTanahKas $refperuntukantanahkas)
+    public function show(string $id)
     {
-        return view('pages.ref_peruntukan_tanah_kas.show', [
-                'record' =>$refperuntukantanahkas,
-        ]);
-
+        $refperuntukantanahkas = RefPeruntukanTanahKas::find($id);
+        if ($refperuntukantanahkas) {
+            return response()->json($refperuntukantanahkas);
+        }
+        return response()->json(['message' => 'RefPeruntukanTanahKas not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

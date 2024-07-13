@@ -31,12 +31,13 @@ class SettingAplikasiController extends Controller
      * @param  SettingAplikasi  $settingaplikasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, SettingAplikasi $settingaplikasi)
+    public function show(string $id)
     {
-        return view('pages.setting_aplikasi.show', [
-                'record' =>$settingaplikasi,
-        ]);
-
+        $settingaplikasi = SettingAplikasi::find($id);
+        if ($settingaplikasi) {
+            return response()->json($settingaplikasi);
+        }
+        return response()->json(['message' => 'SettingAplikasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

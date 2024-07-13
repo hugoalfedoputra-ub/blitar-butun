@@ -31,12 +31,13 @@ class CaptchaCodesController extends Controller
      * @param  CaptchaCodes  $captchacodes
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, CaptchaCodes $captchacodes)
+    public function show(string $id)
     {
-        return view('pages.captcha_codes.show', [
-                'record' =>$captchacodes,
-        ]);
-
+        $captchacodes = CaptchaCodes::find($id);
+        if ($captchacodes) {
+            return response()->json($captchacodes);
+        }
+        return response()->json(['message' => 'CaptchaCodes not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

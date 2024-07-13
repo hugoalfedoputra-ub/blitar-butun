@@ -31,12 +31,13 @@ class RefPeristiwaController extends Controller
      * @param  RefPeristiwa  $refperistiwa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefPeristiwa $refperistiwa)
+    public function show(string $id)
     {
-        return view('pages.ref_peristiwa.show', [
-                'record' =>$refperistiwa,
-        ]);
-
+        $refperistiwa = RefPeristiwa::find($id);
+        if ($refperistiwa) {
+            return response()->json($refperistiwa);
+        }
+        return response()->json(['message' => 'RefPeristiwa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

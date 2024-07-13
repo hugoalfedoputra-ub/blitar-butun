@@ -31,12 +31,13 @@ class RefPindahController extends Controller
      * @param  RefPindah  $refpindah
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefPindah $refpindah)
+    public function show(string $id)
     {
-        return view('pages.ref_pindah.show', [
-                'record' =>$refpindah,
-        ]);
-
+        $refpindah = RefPindah::find($id);
+        if ($refpindah) {
+            return response()->json($refpindah);
+        }
+        return response()->json(['message' => 'RefPindah not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

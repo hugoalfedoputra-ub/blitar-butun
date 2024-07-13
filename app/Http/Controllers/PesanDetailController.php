@@ -31,12 +31,13 @@ class PesanDetailController extends Controller
      * @param  PesanDetail  $pesandetail
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, PesanDetail $pesandetail)
+    public function show(string $id)
     {
-        return view('pages.pesan_detail.show', [
-                'record' =>$pesandetail,
-        ]);
-
+        $pesandetail = PesanDetail::find($id);
+        if ($pesandetail) {
+            return response()->json($pesandetail);
+        }
+        return response()->json(['message' => 'PesanDetail not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

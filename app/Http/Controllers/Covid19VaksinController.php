@@ -31,12 +31,13 @@ class Covid19VaksinController extends Controller
      * @param  Covid19Vaksin  $covid19vaksin
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Covid19Vaksin $covid19vaksin)
+    public function show(string $id)
     {
-        return view('pages.covid19_vaksin.show', [
-                'record' =>$covid19vaksin,
-        ]);
-
+        $covid19vaksin = Covid19Vaksin::find($id);
+        if ($covid19vaksin) {
+            return response()->json($covid19vaksin);
+        }
+        return response()->json(['message' => 'Covid19Vaksin not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

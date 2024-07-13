@@ -31,12 +31,13 @@ class AnalisisResponBuktiController extends Controller
      * @param  AnalisisResponBukti  $analisisresponbukti
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisResponBukti $analisisresponbukti)
+    public function show(string $id)
     {
-        return view('pages.analisis_respon_bukti.show', [
-                'record' =>$analisisresponbukti,
-        ]);
-
+        $analisisresponbukti = AnalisisResponBukti::find($id);
+        if ($analisisresponbukti) {
+            return response()->json($analisisresponbukti);
+        }
+        return response()->json(['message' => 'AnalisisResponBukti not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

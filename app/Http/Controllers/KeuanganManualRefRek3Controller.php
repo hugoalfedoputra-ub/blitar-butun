@@ -31,12 +31,13 @@ class KeuanganManualRefRek3Controller extends Controller
      * @param  KeuanganManualRefRek3  $keuanganmanualrefrek3
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganManualRefRek3 $keuanganmanualrefrek3)
+    public function show(string $id)
     {
-        return view('pages.keuangan_manual_ref_rek3.show', [
-                'record' =>$keuanganmanualrefrek3,
-        ]);
-
+        $keuanganmanualrefrek3 = KeuanganManualRefRek3::find($id);
+        if ($keuanganmanualrefrek3) {
+            return response()->json($keuanganmanualrefrek3);
+        }
+        return response()->json(['message' => 'KeuanganManualRefRek3 not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

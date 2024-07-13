@@ -31,12 +31,13 @@ class PembangunanController extends Controller
      * @param  Pembangunan  $pembangunan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Pembangunan $pembangunan)
+    public function show(string $id)
     {
-        return view('pages.pembangunan.show', [
-                'record' =>$pembangunan,
-        ]);
-
+        $pembangunan = Pembangunan::find($id);
+        if ($pembangunan) {
+            return response()->json($pembangunan);
+        }
+        return response()->json(['message' => 'Pembangunan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

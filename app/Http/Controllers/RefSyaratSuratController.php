@@ -31,12 +31,13 @@ class RefSyaratSuratController extends Controller
      * @param  RefSyaratSurat  $refsyaratsurat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefSyaratSurat $refsyaratsurat)
+    public function show(string $id)
     {
-        return view('pages.ref_syarat_surat.show', [
-                'record' =>$refsyaratsurat,
-        ]);
-
+        $refsyaratsurat = RefSyaratSurat::find($id);
+        if ($refsyaratsurat) {
+            return response()->json($refsyaratsurat);
+        }
+        return response()->json(['message' => 'RefSyaratSurat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

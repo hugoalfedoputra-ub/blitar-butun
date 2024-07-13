@@ -31,12 +31,13 @@ class KelompokMasterController extends Controller
      * @param  KelompokMaster  $kelompokmaster
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KelompokMaster $kelompokmaster)
+    public function show(string $id)
     {
-        return view('pages.kelompok_master.show', [
-                'record' =>$kelompokmaster,
-        ]);
-
+        $kelompokmaster = KelompokMaster::find($id);
+        if ($kelompokmaster) {
+            return response()->json($kelompokmaster);
+        }
+        return response()->json(['message' => 'KelompokMaster not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

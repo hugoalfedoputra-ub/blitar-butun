@@ -31,12 +31,13 @@ class TwebPendudukAsuransiController extends Controller
      * @param  TwebPendudukAsuransi  $twebpendudukasuransi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukAsuransi $twebpendudukasuransi)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_asuransi.show', [
-                'record' =>$twebpendudukasuransi,
-        ]);
-
+        $twebpendudukasuransi = TwebPendudukAsuransi::find($id);
+        if ($twebpendudukasuransi) {
+            return response()->json($twebpendudukasuransi);
+        }
+        return response()->json(['message' => 'TwebPendudukAsuransi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

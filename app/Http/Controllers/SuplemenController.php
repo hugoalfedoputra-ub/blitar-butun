@@ -31,12 +31,13 @@ class SuplemenController extends Controller
      * @param  Suplemen  $suplemen
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Suplemen $suplemen)
+    public function show(string $id)
     {
-        return view('pages.suplemen.show', [
-                'record' =>$suplemen,
-        ]);
-
+        $suplemen = Suplemen::find($id);
+        if ($suplemen) {
+            return response()->json($suplemen);
+        }
+        return response()->json(['message' => 'Suplemen not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

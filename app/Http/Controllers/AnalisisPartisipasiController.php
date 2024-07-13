@@ -31,12 +31,13 @@ class AnalisisPartisipasiController extends Controller
      * @param  AnalisisPartisipasi  $analisispartisipasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisPartisipasi $analisispartisipasi)
+    public function show(string $id)
     {
-        return view('pages.analisis_partisipasi.show', [
-                'record' =>$analisispartisipasi,
-        ]);
-
+        $analisispartisipasi = AnalisisPartisipasi::find($id);
+        if ($analisispartisipasi) {
+            return response()->json($analisispartisipasi);
+        }
+        return response()->json(['message' => 'AnalisisPartisipasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

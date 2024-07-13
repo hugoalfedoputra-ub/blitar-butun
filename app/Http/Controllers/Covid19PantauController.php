@@ -32,12 +32,13 @@ class Covid19PantauController extends Controller
      * @param  Covid19Pantau  $covid19pantau
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Covid19Pantau $covid19pantau)
+    public function show(string $id)
     {
-        return view('pages.covid19_pantau.show', [
-                'record' =>$covid19pantau,
-        ]);
-
+        $covid19pantau = Covid19Pantau::find($id);
+        if ($covid19pantau) {
+            return response()->json($covid19pantau);
+        }
+        return response()->json(['message' => 'Covid19Pantau not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

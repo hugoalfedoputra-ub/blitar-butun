@@ -31,12 +31,13 @@ class LoginAttemptsController extends Controller
      * @param  LoginAttempts  $loginattempts
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LoginAttempts $loginattempts)
+    public function show(string $id)
     {
-        return view('pages.login_attempts.show', [
-                'record' =>$loginattempts,
-        ]);
-
+        $loginattempts = LoginAttempts::find($id);
+        if ($loginattempts) {
+            return response()->json($loginattempts);
+        }
+        return response()->json(['message' => 'LoginAttempts not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

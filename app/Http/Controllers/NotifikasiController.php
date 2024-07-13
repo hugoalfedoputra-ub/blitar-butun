@@ -31,12 +31,13 @@ class NotifikasiController extends Controller
      * @param  Notifikasi  $notifikasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Notifikasi $notifikasi)
+    public function show(string $id)
     {
-        return view('pages.notifikasi.show', [
-                'record' =>$notifikasi,
-        ]);
-
+        $notifikasi = Notifikasi::find($id);
+        if ($notifikasi) {
+            return response()->json($notifikasi);
+        }
+        return response()->json(['message' => 'Notifikasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

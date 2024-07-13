@@ -31,12 +31,13 @@ class IbuHamilController extends Controller
      * @param  IbuHamil  $ibuhamil
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, IbuHamil $ibuhamil)
+    public function show(string $id)
     {
-        return view('pages.ibu_hamil.show', [
-                'record' =>$ibuhamil,
-        ]);
-
+        $ibuhamil = IbuHamil::find($id);
+        if ($ibuhamil) {
+            return response()->json($ibuhamil);
+        }
+        return response()->json(['message' => 'IbuHamil not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class TwebSuratFormatController extends Controller
      * @param  TwebSuratFormat  $twebsuratformat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebSuratFormat $twebsuratformat)
+    public function show(string $id)
     {
-        return view('pages.tweb_surat_format.show', [
-                'record' =>$twebsuratformat,
-        ]);
-
+        $twebsuratformat = TwebSuratFormat::find($id);
+        if ($twebsuratformat) {
+            return response()->json($twebsuratformat);
+        }
+        return response()->json(['message' => 'TwebSuratFormat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

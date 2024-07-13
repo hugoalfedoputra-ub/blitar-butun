@@ -31,12 +31,13 @@ class LogEksporController extends Controller
      * @param  LogEkspor  $logekspor
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogEkspor $logekspor)
+    public function show(string $id)
     {
-        return view('pages.log_ekspor.show', [
-                'record' =>$logekspor,
-        ]);
-
+        $logekspor = LogEkspor::find($id);
+        if ($logekspor) {
+            return response()->json($logekspor);
+        }
+        return response()->json(['message' => 'LogEkspor not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -33,12 +33,13 @@ class DtksController extends Controller
      * @param  Dtks  $dtks
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Dtks $dtks)
+    public function show(string $id)
     {
-        return view('pages.dtks.show', [
-                'record' =>$dtks,
-        ]);
-
+        $dtks = Dtks::find($id);
+        if ($dtks) {
+            return response()->json($dtks);
+        }
+        return response()->json(['message' => 'Dtks not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

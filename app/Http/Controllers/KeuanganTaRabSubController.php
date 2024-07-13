@@ -32,12 +32,13 @@ class KeuanganTaRabSubController extends Controller
      * @param  KeuanganTaRabSub  $keuangantarabsub
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaRabSub $keuangantarabsub)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_rab_sub.show', [
-                'record' =>$keuangantarabsub,
-        ]);
-
+        $keuangantarabsub = KeuanganTaRabSub::find($id);
+        if ($keuangantarabsub) {
+            return response()->json($keuangantarabsub);
+        }
+        return response()->json(['message' => 'KeuanganTaRabSub not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class TwebCacatController extends Controller
      * @param  TwebCacat  $twebcacat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebCacat $twebcacat)
+    public function show(string $id)
     {
-        return view('pages.tweb_cacat.show', [
-                'record' =>$twebcacat,
-        ]);
-
+        $twebcacat = TwebCacat::find($id);
+        if ($twebcacat) {
+            return response()->json($twebcacat);
+        }
+        return response()->json(['message' => 'TwebCacat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

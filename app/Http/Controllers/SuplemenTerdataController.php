@@ -32,12 +32,13 @@ class SuplemenTerdataController extends Controller
      * @param  SuplemenTerdata  $suplementerdata
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, SuplemenTerdata $suplementerdata)
+    public function show(string $id)
     {
-        return view('pages.suplemen_terdata.show', [
-                'record' =>$suplementerdata,
-        ]);
-
+        $suplementerdata = SuplemenTerdata::find($id);
+        if ($suplementerdata) {
+            return response()->json($suplementerdata);
+        }
+        return response()->json(['message' => 'SuplemenTerdata not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

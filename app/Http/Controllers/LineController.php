@@ -31,12 +31,13 @@ class LineController extends Controller
      * @param  Line  $line
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Line $line)
+    public function show(string $id)
     {
-        return view('pages.line.show', [
-                'record' =>$line,
-        ]);
-
+        $line = Line::find($id);
+        if ($line) {
+            return response()->json($line);
+        }
+        return response()->json(['message' => 'Line not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

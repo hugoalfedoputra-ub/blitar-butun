@@ -31,12 +31,13 @@ class LogSuratController extends Controller
      * @param  LogSurat  $logsurat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogSurat $logsurat)
+    public function show(string $id)
     {
-        return view('pages.log_surat.show', [
-                'record' =>$logsurat,
-        ]);
-
+        $logsurat = LogSurat::find($id);
+        if ($logsurat) {
+            return response()->json($logsurat);
+        }
+        return response()->json(['message' => 'LogSurat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

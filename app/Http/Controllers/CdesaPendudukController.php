@@ -32,12 +32,13 @@ class CdesaPendudukController extends Controller
      * @param  CdesaPenduduk  $cdesapenduduk
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, CdesaPenduduk $cdesapenduduk)
+    public function show(string $id)
     {
-        return view('pages.cdesa_penduduk.show', [
-                'record' =>$cdesapenduduk,
-        ]);
-
+        $cdesapenduduk = CdesaPenduduk::find($id);
+        if ($cdesapenduduk) {
+            return response()->json($cdesapenduduk);
+        }
+        return response()->json(['message' => 'CdesaPenduduk not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

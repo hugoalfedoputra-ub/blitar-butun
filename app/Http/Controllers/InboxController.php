@@ -31,12 +31,13 @@ class InboxController extends Controller
      * @param  Inbox  $inbox
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Inbox $inbox)
+    public function show(string $id)
     {
-        return view('pages.inbox.show', [
-                'record' =>$inbox,
-        ]);
-
+        $inbox = Inbox::find($id);
+        if ($inbox) {
+            return response()->json($inbox);
+        }
+        return response()->json(['message' => 'Inbox not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

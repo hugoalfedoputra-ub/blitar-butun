@@ -31,12 +31,13 @@ class TwebRtmController extends Controller
      * @param  TwebRtm  $twebrtm
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebRtm $twebrtm)
+    public function show(string $id)
     {
-        return view('pages.tweb_rtm.show', [
-                'record' =>$twebrtm,
-        ]);
-
+        $twebrtm = TwebRtm::find($id);
+        if ($twebrtm) {
+            return response()->json($twebrtm);
+        }
+        return response()->json(['message' => 'TwebRtm not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

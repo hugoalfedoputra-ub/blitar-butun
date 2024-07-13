@@ -32,12 +32,13 @@ class KeuanganTaStsController extends Controller
      * @param  KeuanganTaSts  $keuangantasts
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaSts $keuangantasts)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_sts.show', [
-                'record' =>$keuangantasts,
-        ]);
-
+        $keuangantasts = KeuanganTaSts::find($id);
+        if ($keuangantasts) {
+            return response()->json($keuangantasts);
+        }
+        return response()->json(['message' => 'KeuanganTaSts not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

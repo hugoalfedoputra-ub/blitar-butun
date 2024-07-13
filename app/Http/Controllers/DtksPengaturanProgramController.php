@@ -32,12 +32,13 @@ class DtksPengaturanProgramController extends Controller
      * @param  DtksPengaturanProgram  $dtkspengaturanprogram
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DtksPengaturanProgram $dtkspengaturanprogram)
+    public function show(string $id)
     {
-        return view('pages.dtks_pengaturan_program.show', [
-                'record' =>$dtkspengaturanprogram,
-        ]);
-
+        $dtkspengaturanprogram = DtksPengaturanProgram::find($id);
+        if ($dtkspengaturanprogram) {
+            return response()->json($dtkspengaturanprogram);
+        }
+        return response()->json(['message' => 'DtksPengaturanProgram not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

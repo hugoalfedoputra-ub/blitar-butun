@@ -32,12 +32,13 @@ class TwebPendudukMandiriController extends Controller
      * @param  TwebPendudukMandiri  $twebpendudukmandiri
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukMandiri $twebpendudukmandiri)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_mandiri.show', [
-                'record' =>$twebpendudukmandiri,
-        ]);
-
+        $twebpendudukmandiri = TwebPendudukMandiri::find($id);
+        if ($twebpendudukmandiri) {
+            return response()->json($twebpendudukmandiri);
+        }
+        return response()->json(['message' => 'TwebPendudukMandiri not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

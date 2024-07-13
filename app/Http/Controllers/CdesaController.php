@@ -31,12 +31,13 @@ class CdesaController extends Controller
      * @param  Cdesa  $cdesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Cdesa $cdesa)
+    public function show(string $id)
     {
-        return view('pages.cdesa.show', [
-                'record' =>$cdesa,
-        ]);
-
+        $cdesa = Cdesa::find($id);
+        if ($cdesa) {
+            return response()->json($cdesa);
+        }
+        return response()->json(['message' => 'Cdesa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

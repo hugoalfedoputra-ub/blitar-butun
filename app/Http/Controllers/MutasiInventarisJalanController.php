@@ -32,12 +32,13 @@ class MutasiInventarisJalanController extends Controller
      * @param  MutasiInventarisJalan  $mutasiinventarisjalan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, MutasiInventarisJalan $mutasiinventarisjalan)
+    public function show(string $id)
     {
-        return view('pages.mutasi_inventaris_jalan.show', [
-                'record' =>$mutasiinventarisjalan,
-        ]);
-
+        $mutasiinventarisjalan = MutasiInventarisJalan::find($id);
+        if ($mutasiinventarisjalan) {
+            return response()->json($mutasiinventarisjalan);
+        }
+        return response()->json(['message' => 'MutasiInventarisJalan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

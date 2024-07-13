@@ -31,12 +31,13 @@ class DataPersilJenisController extends Controller
      * @param  DataPersilJenis  $datapersiljenis
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DataPersilJenis $datapersiljenis)
+    public function show(string $id)
     {
-        return view('pages.data_persil_jenis.show', [
-                'record' =>$datapersiljenis,
-        ]);
-
+        $datapersiljenis = DataPersilJenis::find($id);
+        if ($datapersiljenis) {
+            return response()->json($datapersiljenis);
+        }
+        return response()->json(['message' => 'DataPersilJenis not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

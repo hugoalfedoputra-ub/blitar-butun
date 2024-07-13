@@ -31,12 +31,13 @@ class PelapakController extends Controller
      * @param  Pelapak  $pelapak
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Pelapak $pelapak)
+    public function show(string $id)
     {
-        return view('pages.pelapak.show', [
-                'record' =>$pelapak,
-        ]);
-
+        $pelapak = Pelapak::find($id);
+        if ($pelapak) {
+            return response()->json($pelapak);
+        }
+        return response()->json(['message' => 'Pelapak not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

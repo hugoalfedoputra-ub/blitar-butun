@@ -31,12 +31,13 @@ class RefJabatanController extends Controller
      * @param  RefJabatan  $refjabatan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefJabatan $refjabatan)
+    public function show(string $id)
     {
-        return view('pages.ref_jabatan.show', [
-                'record' =>$refjabatan,
-        ]);
-
+        $refjabatan = RefJabatan::find($id);
+        if ($refjabatan) {
+            return response()->json($refjabatan);
+        }
+        return response()->json(['message' => 'RefJabatan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

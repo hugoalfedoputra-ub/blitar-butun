@@ -31,12 +31,13 @@ class ArtikelController extends Controller
      * @param  Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Artikel $artikel)
+    public function show(string $id)
     {
-        return view('pages.artikel.show', [
-                'record' =>$artikel,
-        ]);
-
+        $artikel = Artikel::find($id);
+        if ($artikel) {
+            return response()->json($artikel);
+        }
+        return response()->json(['message' => 'Artikel not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

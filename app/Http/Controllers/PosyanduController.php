@@ -31,12 +31,13 @@ class PosyanduController extends Controller
      * @param  Posyandu  $posyandu
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Posyandu $posyandu)
+    public function show(string $id)
     {
-        return view('pages.posyandu.show', [
-                'record' =>$posyandu,
-        ]);
-
+        $posyandu = Posyandu::find($id);
+        if ($posyandu) {
+            return response()->json($posyandu);
+        }
+        return response()->json(['message' => 'Posyandu not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

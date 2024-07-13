@@ -32,12 +32,13 @@ class HubungWargaController extends Controller
      * @param  HubungWarga  $hubungwarga
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, HubungWarga $hubungwarga)
+    public function show(string $id)
     {
-        return view('pages.hubung_warga.show', [
-                'record' =>$hubungwarga,
-        ]);
-
+        $hubungwarga = HubungWarga::find($id);
+        if ($hubungwarga) {
+            return response()->json($hubungwarga);
+        }
+        return response()->json(['message' => 'HubungWarga not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

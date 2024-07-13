@@ -31,12 +31,13 @@ class LogBackupController extends Controller
      * @param  LogBackup  $logbackup
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogBackup $logbackup)
+    public function show(string $id)
     {
-        return view('pages.log_backup.show', [
-                'record' =>$logbackup,
-        ]);
-
+        $logbackup = LogBackup::find($id);
+        if ($logbackup) {
+            return response()->json($logbackup);
+        }
+        return response()->json(['message' => 'LogBackup not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

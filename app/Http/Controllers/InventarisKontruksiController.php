@@ -31,12 +31,13 @@ class InventarisKontruksiController extends Controller
      * @param  InventarisKontruksi  $inventariskontruksi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, InventarisKontruksi $inventariskontruksi)
+    public function show(string $id)
     {
-        return view('pages.inventaris_kontruksi.show', [
-                'record' =>$inventariskontruksi,
-        ]);
-
+        $inventariskontruksi = InventarisKontruksi::find($id);
+        if ($inventariskontruksi) {
+            return response()->json($inventariskontruksi);
+        }
+        return response()->json(['message' => 'InventarisKontruksi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

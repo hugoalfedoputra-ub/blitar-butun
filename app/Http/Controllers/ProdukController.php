@@ -33,12 +33,13 @@ class ProdukController extends Controller
      * @param  Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Produk $produk)
+    public function show(string $id)
     {
-        return view('pages.produk.show', [
-                'record' =>$produk,
-        ]);
-
+        $produk = Produk::find($id);
+        if ($produk) {
+            return response()->json($produk);
+        }
+        return response()->json(['message' => 'Produk not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

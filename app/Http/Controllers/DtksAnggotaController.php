@@ -34,12 +34,13 @@ class DtksAnggotaController extends Controller
      * @param  DtksAnggota  $dtksanggota
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DtksAnggota $dtksanggota)
+    public function show(string $id)
     {
-        return view('pages.dtks_anggota.show', [
-                'record' =>$dtksanggota,
-        ]);
-
+        $dtksanggota = DtksAnggota::find($id);
+        if ($dtksanggota) {
+            return response()->json($dtksanggota);
+        }
+        return response()->json(['message' => 'DtksAnggota not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

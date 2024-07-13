@@ -32,12 +32,13 @@ class Covid19PemudikController extends Controller
      * @param  Covid19Pemudik  $covid19pemudik
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Covid19Pemudik $covid19pemudik)
+    public function show(string $id)
     {
-        return view('pages.covid19_pemudik.show', [
-                'record' =>$covid19pemudik,
-        ]);
-
+        $covid19pemudik = Covid19Pemudik::find($id);
+        if ($covid19pemudik) {
+            return response()->json($covid19pemudik);
+        }
+        return response()->json(['message' => 'Covid19Pemudik not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

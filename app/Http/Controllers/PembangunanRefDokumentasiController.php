@@ -31,12 +31,13 @@ class PembangunanRefDokumentasiController extends Controller
      * @param  PembangunanRefDokumentasi  $pembangunanrefdokumentasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, PembangunanRefDokumentasi $pembangunanrefdokumentasi)
+    public function show(string $id)
     {
-        return view('pages.pembangunan_ref_dokumentasi.show', [
-                'record' =>$pembangunanrefdokumentasi,
-        ]);
-
+        $pembangunanrefdokumentasi = PembangunanRefDokumentasi::find($id);
+        if ($pembangunanrefdokumentasi) {
+            return response()->json($pembangunanrefdokumentasi);
+        }
+        return response()->json(['message' => 'PembangunanRefDokumentasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

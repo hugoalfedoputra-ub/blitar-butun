@@ -31,12 +31,13 @@ class TwebCaraKbController extends Controller
      * @param  TwebCaraKb  $twebcarakb
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebCaraKb $twebcarakb)
+    public function show(string $id)
     {
-        return view('pages.tweb_cara_kb.show', [
-                'record' =>$twebcarakb,
-        ]);
-
+        $twebcarakb = TwebCaraKb::find($id);
+        if ($twebcarakb) {
+            return response()->json($twebcarakb);
+        }
+        return response()->json(['message' => 'TwebCaraKb not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

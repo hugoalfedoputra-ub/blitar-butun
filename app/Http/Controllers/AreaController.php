@@ -31,12 +31,13 @@ class AreaController extends Controller
      * @param  Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Area $area)
+    public function show(string $id)
     {
-        return view('pages.area.show', [
-                'record' =>$area,
-        ]);
-
+        $area = Area::find($id);
+        if ($area) {
+            return response()->json($area);
+        }
+        return response()->json(['message' => 'Area not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

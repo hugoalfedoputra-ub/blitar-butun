@@ -31,12 +31,13 @@ class RefPersilMutasiController extends Controller
      * @param  RefPersilMutasi  $refpersilmutasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefPersilMutasi $refpersilmutasi)
+    public function show(string $id)
     {
-        return view('pages.ref_persil_mutasi.show', [
-                'record' =>$refpersilmutasi,
-        ]);
-
+        $refpersilmutasi = RefPersilMutasi::find($id);
+        if ($refpersilmutasi) {
+            return response()->json($refpersilmutasi);
+        }
+        return response()->json(['message' => 'RefPersilMutasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

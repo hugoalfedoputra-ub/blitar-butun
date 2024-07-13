@@ -31,12 +31,13 @@ class AnalisisResponController extends Controller
      * @param  AnalisisRespon  $analisisrespon
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisRespon $analisisrespon)
+    public function show(string $id)
     {
-        return view('pages.analisis_respon.show', [
-                'record' =>$analisisrespon,
-        ]);
-
+        $analisisrespon = AnalisisRespon::find($id);
+        if ($analisisrespon) {
+            return response()->json($analisisrespon);
+        }
+        return response()->json(['message' => 'AnalisisRespon not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

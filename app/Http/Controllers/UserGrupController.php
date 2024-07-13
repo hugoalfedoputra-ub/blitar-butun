@@ -31,12 +31,13 @@ class UserGrupController extends Controller
      * @param  UserGrup  $usergrup
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, UserGrup $usergrup)
+    public function show(string $id)
     {
-        return view('pages.user_grup.show', [
-                'record' =>$usergrup,
-        ]);
-
+        $usergrup = UserGrup::find($id);
+        if ($usergrup) {
+            return response()->json($usergrup);
+        }
+        return response()->json(['message' => 'UserGrup not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

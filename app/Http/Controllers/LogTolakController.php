@@ -31,12 +31,13 @@ class LogTolakController extends Controller
      * @param  LogTolak  $logtolak
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogTolak $logtolak)
+    public function show(string $id)
     {
-        return view('pages.log_tolak.show', [
-                'record' =>$logtolak,
-        ]);
-
+        $logtolak = LogTolak::find($id);
+        if ($logtolak) {
+            return response()->json($logtolak);
+        }
+        return response()->json(['message' => 'LogTolak not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

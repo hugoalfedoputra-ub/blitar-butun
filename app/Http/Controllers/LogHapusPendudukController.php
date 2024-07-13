@@ -31,12 +31,13 @@ class LogHapusPendudukController extends Controller
      * @param  LogHapusPenduduk  $loghapuspenduduk
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogHapusPenduduk $loghapuspenduduk)
+    public function show(string $id)
     {
-        return view('pages.log_hapus_penduduk.show', [
-                'record' =>$loghapuspenduduk,
-        ]);
-
+        $loghapuspenduduk = LogHapusPenduduk::find($id);
+        if ($loghapuspenduduk) {
+            return response()->json($loghapuspenduduk);
+        }
+        return response()->json(['message' => 'LogHapusPenduduk not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

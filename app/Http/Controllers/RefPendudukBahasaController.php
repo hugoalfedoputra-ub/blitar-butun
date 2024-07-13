@@ -31,12 +31,13 @@ class RefPendudukBahasaController extends Controller
      * @param  RefPendudukBahasa  $refpendudukbahasa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefPendudukBahasa $refpendudukbahasa)
+    public function show(string $id)
     {
-        return view('pages.ref_penduduk_bahasa.show', [
-                'record' =>$refpendudukbahasa,
-        ]);
-
+        $refpendudukbahasa = RefPendudukBahasa::find($id);
+        if ($refpendudukbahasa) {
+            return response()->json($refpendudukbahasa);
+        }
+        return response()->json(['message' => 'RefPendudukBahasa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

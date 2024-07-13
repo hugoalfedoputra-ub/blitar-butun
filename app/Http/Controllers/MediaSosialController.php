@@ -31,12 +31,13 @@ class MediaSosialController extends Controller
      * @param  MediaSosial  $mediasosial
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, MediaSosial $mediasosial)
+    public function show(string $id)
     {
-        return view('pages.media_sosial.show', [
-                'record' =>$mediasosial,
-        ]);
-
+        $mediasosial = MediaSosial::find($id);
+        if ($mediasosial) {
+            return response()->json($mediasosial);
+        }
+        return response()->json(['message' => 'MediaSosial not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class PendapatController extends Controller
      * @param  Pendapat  $pendapat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Pendapat $pendapat)
+    public function show(string $id)
     {
-        return view('pages.pendapat.show', [
-                'record' =>$pendapat,
-        ]);
-
+        $pendapat = Pendapat::find($id);
+        if ($pendapat) {
+            return response()->json($pendapat);
+        }
+        return response()->json(['message' => 'Pendapat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

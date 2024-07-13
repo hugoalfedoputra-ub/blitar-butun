@@ -32,12 +32,13 @@ class LogKeluargaController extends Controller
      * @param  LogKeluarga  $logkeluarga
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogKeluarga $logkeluarga)
+    public function show(string $id)
     {
-        return view('pages.log_keluarga.show', [
-                'record' =>$logkeluarga,
-        ]);
-
+        $logkeluarga = LogKeluarga::find($id);
+        if ($logkeluarga) {
+            return response()->json($logkeluarga);
+        }
+        return response()->json(['message' => 'LogKeluarga not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

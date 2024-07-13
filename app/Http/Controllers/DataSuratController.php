@@ -31,12 +31,13 @@ class DataSuratController extends Controller
      * @param  DataSurat  $datasurat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DataSurat $datasurat)
+    public function show(string $id)
     {
-        return view('pages.data_surat.show', [
-                'record' =>$datasurat,
-        ]);
-
+        $datasurat = DataSurat::find($id);
+        if ($datasurat) {
+            return response()->json($datasurat);
+        }
+        return response()->json(['message' => 'DataSurat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

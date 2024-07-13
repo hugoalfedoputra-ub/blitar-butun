@@ -31,12 +31,13 @@ class UrlsController extends Controller
      * @param  Urls  $urls
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Urls $urls)
+    public function show(string $id)
     {
-        return view('pages.urls.show', [
-                'record' =>$urls,
-        ]);
-
+        $urls = Urls::find($id);
+        if ($urls) {
+            return response()->json($urls);
+        }
+        return response()->json(['message' => 'Urls not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

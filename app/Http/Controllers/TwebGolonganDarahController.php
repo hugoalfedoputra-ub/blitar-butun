@@ -31,12 +31,13 @@ class TwebGolonganDarahController extends Controller
      * @param  TwebGolonganDarah  $twebgolongandarah
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebGolonganDarah $twebgolongandarah)
+    public function show(string $id)
     {
-        return view('pages.tweb_golongan_darah.show', [
-                'record' =>$twebgolongandarah,
-        ]);
-
+        $twebgolongandarah = TwebGolonganDarah::find($id);
+        if ($twebgolongandarah) {
+            return response()->json($twebgolongandarah);
+        }
+        return response()->json(['message' => 'TwebGolonganDarah not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

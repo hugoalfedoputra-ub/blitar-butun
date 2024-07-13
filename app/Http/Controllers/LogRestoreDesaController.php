@@ -31,12 +31,13 @@ class LogRestoreDesaController extends Controller
      * @param  LogRestoreDesa  $logrestoredesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogRestoreDesa $logrestoredesa)
+    public function show(string $id)
     {
-        return view('pages.log_restore_desa.show', [
-                'record' =>$logrestoredesa,
-        ]);
-
+        $logrestoredesa = LogRestoreDesa::find($id);
+        if ($logrestoredesa) {
+            return response()->json($logrestoredesa);
+        }
+        return response()->json(['message' => 'LogRestoreDesa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

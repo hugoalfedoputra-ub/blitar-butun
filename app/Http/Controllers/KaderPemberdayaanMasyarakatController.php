@@ -31,12 +31,13 @@ class KaderPemberdayaanMasyarakatController extends Controller
      * @param  KaderPemberdayaanMasyarakat  $kaderpemberdayaanmasyarakat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KaderPemberdayaanMasyarakat $kaderpemberdayaanmasyarakat)
+    public function show(string $id)
     {
-        return view('pages.kader_pemberdayaan_masyarakat.show', [
-                'record' =>$kaderpemberdayaanmasyarakat,
-        ]);
-
+        $kaderpemberdayaanmasyarakat = KaderPemberdayaanMasyarakat::find($id);
+        if ($kaderpemberdayaanmasyarakat) {
+            return response()->json($kaderpemberdayaanmasyarakat);
+        }
+        return response()->json(['message' => 'KaderPemberdayaanMasyarakat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

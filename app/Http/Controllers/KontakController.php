@@ -31,12 +31,13 @@ class KontakController extends Controller
      * @param  Kontak  $kontak
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Kontak $kontak)
+    public function show(string $id)
     {
-        return view('pages.kontak.show', [
-                'record' =>$kontak,
-        ]);
-
+        $kontak = Kontak::find($id);
+        if ($kontak) {
+            return response()->json($kontak);
+        }
+        return response()->json(['message' => 'Kontak not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class AnalisisKlasifikasiController extends Controller
      * @param  AnalisisKlasifikasi  $analisisklasifikasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisKlasifikasi $analisisklasifikasi)
+    public function show(string $id)
     {
-        return view('pages.analisis_klasifikasi.show', [
-                'record' =>$analisisklasifikasi,
-        ]);
-
+        $analisisklasifikasi = AnalisisKlasifikasi::find($id);
+        if ($analisisklasifikasi) {
+            return response()->json($analisisklasifikasi);
+        }
+        return response()->json(['message' => 'AnalisisKlasifikasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

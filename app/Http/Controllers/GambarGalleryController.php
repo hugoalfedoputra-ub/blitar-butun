@@ -31,12 +31,13 @@ class GambarGalleryController extends Controller
      * @param  GambarGallery  $gambargallery
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, GambarGallery $gambargallery)
+    public function show(string $id)
     {
-        return view('pages.gambar_gallery.show', [
-                'record' =>$gambargallery,
-        ]);
-
+        $gambargallery = GambarGallery::find($id);
+        if ($gambargallery) {
+            return response()->json($gambargallery);
+        }
+        return response()->json(['message' => 'GambarGallery not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

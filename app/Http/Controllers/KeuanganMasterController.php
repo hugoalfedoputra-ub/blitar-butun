@@ -31,12 +31,13 @@ class KeuanganMasterController extends Controller
      * @param  KeuanganMaster  $keuanganmaster
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganMaster $keuanganmaster)
+    public function show(string $id)
     {
-        return view('pages.keuangan_master.show', [
-                'record' =>$keuanganmaster,
-        ]);
-
+        $keuanganmaster = KeuanganMaster::find($id);
+        if ($keuanganmaster) {
+            return response()->json($keuanganmaster);
+        }
+        return response()->json(['message' => 'KeuanganMaster not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

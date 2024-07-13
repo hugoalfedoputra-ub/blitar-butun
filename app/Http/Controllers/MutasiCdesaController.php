@@ -32,12 +32,13 @@ class MutasiCdesaController extends Controller
      * @param  MutasiCdesa  $mutasicdesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, MutasiCdesa $mutasicdesa)
+    public function show(string $id)
     {
-        return view('pages.mutasi_cdesa.show', [
-                'record' =>$mutasicdesa,
-        ]);
-
+        $mutasicdesa = MutasiCdesa::find($id);
+        if ($mutasicdesa) {
+            return response()->json($mutasicdesa);
+        }
+        return response()->json(['message' => 'MutasiCdesa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

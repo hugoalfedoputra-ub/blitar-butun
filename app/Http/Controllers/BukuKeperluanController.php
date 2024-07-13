@@ -31,12 +31,13 @@ class BukuKeperluanController extends Controller
      * @param  BukuKeperluan  $bukukeperluan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, BukuKeperluan $bukukeperluan)
+    public function show(string $id)
     {
-        return view('pages.buku_keperluan.show', [
-                'record' =>$bukukeperluan,
-        ]);
-
+        $bukukeperluan = BukuKeperluan::find($id);
+        if ($bukukeperluan) {
+            return response()->json($bukukeperluan);
+        }
+        return response()->json(['message' => 'BukuKeperluan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

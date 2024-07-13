@@ -31,12 +31,13 @@ class RefStatusCovidController extends Controller
      * @param  RefStatusCovid  $refstatuscovid
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefStatusCovid $refstatuscovid)
+    public function show(string $id)
     {
-        return view('pages.ref_status_covid.show', [
-                'record' =>$refstatuscovid,
-        ]);
-
+        $refstatuscovid = RefStatusCovid::find($id);
+        if ($refstatuscovid) {
+            return response()->json($refstatuscovid);
+        }
+        return response()->json(['message' => 'RefStatusCovid not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class AnalisisPeriodeController extends Controller
      * @param  AnalisisPeriode  $analisisperiode
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisPeriode $analisisperiode)
+    public function show(string $id)
     {
-        return view('pages.analisis_periode.show', [
-                'record' =>$analisisperiode,
-        ]);
-
+        $analisisperiode = AnalisisPeriode::find($id);
+        if ($analisisperiode) {
+            return response()->json($analisisperiode);
+        }
+        return response()->json(['message' => 'AnalisisPeriode not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

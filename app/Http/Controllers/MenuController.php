@@ -31,12 +31,13 @@ class MenuController extends Controller
      * @param  Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Menu $menu)
+    public function show(string $id)
     {
-        return view('pages.menu.show', [
-                'record' =>$menu,
-        ]);
-
+        $menu = Menu::find($id);
+        if ($menu) {
+            return response()->json($menu);
+        }
+        return response()->json(['message' => 'Menu not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

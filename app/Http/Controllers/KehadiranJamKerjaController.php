@@ -31,12 +31,13 @@ class KehadiranJamKerjaController extends Controller
      * @param  KehadiranJamKerja  $kehadiranjamkerja
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KehadiranJamKerja $kehadiranjamkerja)
+    public function show(string $id)
     {
-        return view('pages.kehadiran_jam_kerja.show', [
-                'record' =>$kehadiranjamkerja,
-        ]);
-
+        $kehadiranjamkerja = KehadiranJamKerja::find($id);
+        if ($kehadiranjamkerja) {
+            return response()->json($kehadiranjamkerja);
+        }
+        return response()->json(['message' => 'KehadiranJamKerja not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

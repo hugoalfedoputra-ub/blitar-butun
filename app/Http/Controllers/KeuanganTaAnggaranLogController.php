@@ -32,12 +32,13 @@ class KeuanganTaAnggaranLogController extends Controller
      * @param  KeuanganTaAnggaranLog  $keuangantaanggaranlog
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaAnggaranLog $keuangantaanggaranlog)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_anggaran_log.show', [
-                'record' =>$keuangantaanggaranlog,
-        ]);
-
+        $keuangantaanggaranlog = KeuanganTaAnggaranLog::find($id);
+        if ($keuangantaanggaranlog) {
+            return response()->json($keuangantaanggaranlog);
+        }
+        return response()->json(['message' => 'KeuanganTaAnggaranLog not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

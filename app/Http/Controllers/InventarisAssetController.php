@@ -31,12 +31,13 @@ class InventarisAssetController extends Controller
      * @param  InventarisAsset  $inventarisasset
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, InventarisAsset $inventarisasset)
+    public function show(string $id)
     {
-        return view('pages.inventaris_asset.show', [
-                'record' =>$inventarisasset,
-        ]);
-
+        $inventarisasset = InventarisAsset::find($id);
+        if ($inventarisasset) {
+            return response()->json($inventarisasset);
+        }
+        return response()->json(['message' => 'InventarisAsset not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class InventarisPeralatanController extends Controller
      * @param  InventarisPeralatan  $inventarisperalatan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, InventarisPeralatan $inventarisperalatan)
+    public function show(string $id)
     {
-        return view('pages.inventaris_peralatan.show', [
-                'record' =>$inventarisperalatan,
-        ]);
-
+        $inventarisperalatan = InventarisPeralatan::find($id);
+        if ($inventarisperalatan) {
+            return response()->json($inventarisperalatan);
+        }
+        return response()->json(['message' => 'InventarisPeralatan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

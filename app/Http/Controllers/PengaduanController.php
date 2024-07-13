@@ -31,12 +31,13 @@ class PengaduanController extends Controller
      * @param  Pengaduan  $pengaduan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Pengaduan $pengaduan)
+    public function show(string $id)
     {
-        return view('pages.pengaduan.show', [
-                'record' =>$pengaduan,
-        ]);
-
+        $pengaduan = Pengaduan::find($id);
+        if ($pengaduan) {
+            return response()->json($pengaduan);
+        }
+        return response()->json(['message' => 'Pengaduan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

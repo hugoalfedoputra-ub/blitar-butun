@@ -32,12 +32,13 @@ class KeuanganTaRpjmPaguIndikatifController extends Controller
      * @param  KeuanganTaRpjmPaguIndikatif  $keuangantarpjmpaguindikatif
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaRpjmPaguIndikatif $keuangantarpjmpaguindikatif)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_rpjm_pagu_indikatif.show', [
-                'record' =>$keuangantarpjmpaguindikatif,
-        ]);
-
+        $keuangantarpjmpaguindikatif = KeuanganTaRpjmPaguIndikatif::find($id);
+        if ($keuangantarpjmpaguindikatif) {
+            return response()->json($keuangantarpjmpaguindikatif);
+        }
+        return response()->json(['message' => 'KeuanganTaRpjmPaguIndikatif not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

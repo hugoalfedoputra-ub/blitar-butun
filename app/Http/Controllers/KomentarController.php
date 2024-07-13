@@ -31,12 +31,13 @@ class KomentarController extends Controller
      * @param  Komentar  $komentar
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Komentar $komentar)
+    public function show(string $id)
     {
-        return view('pages.komentar.show', [
-                'record' =>$komentar,
-        ]);
-
+        $komentar = Komentar::find($id);
+        if ($komentar) {
+            return response()->json($komentar);
+        }
+        return response()->json(['message' => 'Komentar not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

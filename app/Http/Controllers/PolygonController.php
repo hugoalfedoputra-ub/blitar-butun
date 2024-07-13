@@ -31,12 +31,13 @@ class PolygonController extends Controller
      * @param  Polygon  $polygon
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Polygon $polygon)
+    public function show(string $id)
     {
-        return view('pages.polygon.show', [
-                'record' =>$polygon,
-        ]);
-
+        $polygon = Polygon::find($id);
+        if ($polygon) {
+            return response()->json($polygon);
+        }
+        return response()->json(['message' => 'Polygon not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

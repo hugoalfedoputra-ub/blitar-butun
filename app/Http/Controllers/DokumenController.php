@@ -31,12 +31,13 @@ class DokumenController extends Controller
      * @param  Dokumen  $dokumen
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Dokumen $dokumen)
+    public function show(string $id)
     {
-        return view('pages.dokumen.show', [
-                'record' =>$dokumen,
-        ]);
-
+        $dokumen = Dokumen::find($id);
+        if ($dokumen) {
+            return response()->json($dokumen);
+        }
+        return response()->json(['message' => 'Dokumen not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class TwebPendudukMapController extends Controller
      * @param  TwebPendudukMap  $twebpendudukmap
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukMap $twebpendudukmap)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_map.show', [
-                'record' =>$twebpendudukmap,
-        ]);
-
+        $twebpendudukmap = TwebPendudukMap::find($id);
+        if ($twebpendudukmap) {
+            return response()->json($twebpendudukmap);
+        }
+        return response()->json(['message' => 'TwebPendudukMap not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

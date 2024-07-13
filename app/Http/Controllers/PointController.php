@@ -31,12 +31,13 @@ class PointController extends Controller
      * @param  Point  $point
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Point $point)
+    public function show(string $id)
     {
-        return view('pages.point.show', [
-                'record' =>$point,
-        ]);
-
+        $point = Point::find($id);
+        if ($point) {
+            return response()->json($point);
+        }
+        return response()->json(['message' => 'Point not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -33,11 +33,13 @@ class AgendaController extends Controller
      * @param  Agenda  $agenda
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Agenda $agenda)
+    public function show(string $id)
     {
-        return view('pages.agenda.show', [
-            'record' => $agenda,
-        ]);
+        $agenda = Agenda::find($id);
+        if ($agenda) {
+            return response()->json($agenda);
+        }
+        return response()->json(['message' => 'Agenda not found'], 404);
     }
     /**
      * Show the form for creating a new resource.

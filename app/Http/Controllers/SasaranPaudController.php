@@ -31,12 +31,13 @@ class SasaranPaudController extends Controller
      * @param  SasaranPaud  $sasaranpaud
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, SasaranPaud $sasaranpaud)
+    public function show(string $id)
     {
-        return view('pages.sasaran_paud.show', [
-                'record' =>$sasaranpaud,
-        ]);
-
+        $sasaranpaud = SasaranPaud::find($id);
+        if ($sasaranpaud) {
+            return response()->json($sasaranpaud);
+        }
+        return response()->json(['message' => 'SasaranPaud not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

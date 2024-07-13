@@ -31,12 +31,13 @@ class TwebStatusDasarController extends Controller
      * @param  TwebStatusDasar  $twebstatusdasar
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebStatusDasar $twebstatusdasar)
+    public function show(string $id)
     {
-        return view('pages.tweb_status_dasar.show', [
-                'record' =>$twebstatusdasar,
-        ]);
-
+        $twebstatusdasar = TwebStatusDasar::find($id);
+        if ($twebstatusdasar) {
+            return response()->json($twebstatusdasar);
+        }
+        return response()->json(['message' => 'TwebStatusDasar not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

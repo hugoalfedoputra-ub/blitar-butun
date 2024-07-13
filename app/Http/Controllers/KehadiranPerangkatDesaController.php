@@ -31,12 +31,13 @@ class KehadiranPerangkatDesaController extends Controller
      * @param  KehadiranPerangkatDesa  $kehadiranperangkatdesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KehadiranPerangkatDesa $kehadiranperangkatdesa)
+    public function show(string $id)
     {
-        return view('pages.kehadiran_perangkat_desa.show', [
-                'record' =>$kehadiranperangkatdesa,
-        ]);
-
+        $kehadiranperangkatdesa = KehadiranPerangkatDesa::find($id);
+        if ($kehadiranperangkatdesa) {
+            return response()->json($kehadiranperangkatdesa);
+        }
+        return response()->json(['message' => 'KehadiranPerangkatDesa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

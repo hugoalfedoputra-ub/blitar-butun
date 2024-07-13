@@ -31,12 +31,13 @@ class AnalisisRefSubjekController extends Controller
      * @param  AnalisisRefSubjek  $analisisrefsubjek
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisRefSubjek $analisisrefsubjek)
+    public function show(string $id)
     {
-        return view('pages.analisis_ref_subjek.show', [
-                'record' =>$analisisrefsubjek,
-        ]);
-
+        $analisisrefsubjek = AnalisisRefSubjek::find($id);
+        if ($analisisrefsubjek) {
+            return response()->json($analisisrefsubjek);
+        }
+        return response()->json(['message' => 'AnalisisRefSubjek not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

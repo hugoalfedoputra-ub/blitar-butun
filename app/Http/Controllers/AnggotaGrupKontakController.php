@@ -34,12 +34,13 @@ class AnggotaGrupKontakController extends Controller
      * @param  AnggotaGrupKontak  $anggotagrupkontak
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnggotaGrupKontak $anggotagrupkontak)
+    public function show(string $id)
     {
-        return view('pages.anggota_grup_kontak.show', [
-                'record' =>$anggotagrupkontak,
-        ]);
-
+        $anggotagrupkontak = AnggotaGrupKontak::find($id);
+        if ($anggotagrupkontak) {
+            return response()->json($anggotagrupkontak);
+        }
+        return response()->json(['message' => 'AnggotaGrupKontak not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

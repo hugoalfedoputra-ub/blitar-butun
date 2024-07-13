@@ -31,12 +31,13 @@ class RekapMutasiInventarisController extends Controller
      * @param  RekapMutasiInventaris  $rekapmutasiinventaris
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RekapMutasiInventaris $rekapmutasiinventaris)
+    public function show(string $id)
     {
-        return view('pages.rekap_mutasi_inventaris.show', [
-                'record' =>$rekapmutasiinventaris,
-        ]);
-
+        $rekapmutasiinventaris = RekapMutasiInventaris::find($id);
+        if ($rekapmutasiinventaris) {
+            return response()->json($rekapmutasiinventaris);
+        }
+        return response()->json(['message' => 'RekapMutasiInventaris not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -32,12 +32,13 @@ class KeuanganTaPemdaController extends Controller
      * @param  KeuanganTaPemda  $keuangantapemda
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaPemda $keuangantapemda)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_pemda.show', [
-                'record' =>$keuangantapemda,
-        ]);
-
+        $keuangantapemda = KeuanganTaPemda::find($id);
+        if ($keuangantapemda) {
+            return response()->json($keuangantapemda);
+        }
+        return response()->json(['message' => 'KeuanganTaPemda not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

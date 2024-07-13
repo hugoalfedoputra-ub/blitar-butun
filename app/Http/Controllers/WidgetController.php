@@ -31,12 +31,13 @@ class WidgetController extends Controller
      * @param  Widget  $widget
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Widget $widget)
+    public function show(string $id)
     {
-        return view('pages.widget.show', [
-                'record' =>$widget,
-        ]);
-
+        $widget = Widget::find($id);
+        if ($widget) {
+            return response()->json($widget);
+        }
+        return response()->json(['message' => 'Widget not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

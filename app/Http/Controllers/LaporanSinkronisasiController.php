@@ -31,12 +31,13 @@ class LaporanSinkronisasiController extends Controller
      * @param  LaporanSinkronisasi  $laporansinkronisasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LaporanSinkronisasi $laporansinkronisasi)
+    public function show(string $id)
     {
-        return view('pages.laporan_sinkronisasi.show', [
-                'record' =>$laporansinkronisasi,
-        ]);
-
+        $laporansinkronisasi = LaporanSinkronisasi::find($id);
+        if ($laporansinkronisasi) {
+            return response()->json($laporansinkronisasi);
+        }
+        return response()->json(['message' => 'LaporanSinkronisasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

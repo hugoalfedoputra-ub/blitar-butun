@@ -31,12 +31,13 @@ class StatisticsController extends Controller
      * @param  Statistics  $statistics
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Statistics $statistics)
+    public function show(string $id)
     {
-        return view('pages.statistics.show', [
-                'record' =>$statistics,
-        ]);
-
+        $statistics = Statistics::find($id);
+        if ($statistics) {
+            return response()->json($statistics);
+        }
+        return response()->json(['message' => 'Statistics not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class KlasifikasiSuratController extends Controller
      * @param  KlasifikasiSurat  $klasifikasisurat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KlasifikasiSurat $klasifikasisurat)
+    public function show(string $id)
     {
-        return view('pages.klasifikasi_surat.show', [
-                'record' =>$klasifikasisurat,
-        ]);
-
+        $klasifikasisurat = KlasifikasiSurat::find($id);
+        if ($klasifikasisurat) {
+            return response()->json($klasifikasisurat);
+        }
+        return response()->json(['message' => 'KlasifikasiSurat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

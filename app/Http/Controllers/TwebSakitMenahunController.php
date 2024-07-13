@@ -31,12 +31,13 @@ class TwebSakitMenahunController extends Controller
      * @param  TwebSakitMenahun  $twebsakitmenahun
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebSakitMenahun $twebsakitmenahun)
+    public function show(string $id)
     {
-        return view('pages.tweb_sakit_menahun.show', [
-                'record' =>$twebsakitmenahun,
-        ]);
-
+        $twebsakitmenahun = TwebSakitMenahun::find($id);
+        if ($twebsakitmenahun) {
+            return response()->json($twebsakitmenahun);
+        }
+        return response()->json(['message' => 'TwebSakitMenahun not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

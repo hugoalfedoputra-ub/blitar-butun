@@ -31,12 +31,13 @@ class InventarisGedungController extends Controller
      * @param  InventarisGedung  $inventarisgedung
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, InventarisGedung $inventarisgedung)
+    public function show(string $id)
     {
-        return view('pages.inventaris_gedung.show', [
-                'record' =>$inventarisgedung,
-        ]);
-
+        $inventarisgedung = InventarisGedung::find($id);
+        if ($inventarisgedung) {
+            return response()->json($inventarisgedung);
+        }
+        return response()->json(['message' => 'InventarisGedung not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

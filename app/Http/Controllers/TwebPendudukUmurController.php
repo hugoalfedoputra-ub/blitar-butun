@@ -31,12 +31,13 @@ class TwebPendudukUmurController extends Controller
      * @param  TwebPendudukUmur  $twebpendudukumur
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukUmur $twebpendudukumur)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_umur.show', [
-                'record' =>$twebpendudukumur,
-        ]);
-
+        $twebpendudukumur = TwebPendudukUmur::find($id);
+        if ($twebpendudukumur) {
+            return response()->json($twebpendudukumur);
+        }
+        return response()->json(['message' => 'TwebPendudukUmur not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

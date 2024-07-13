@@ -32,12 +32,13 @@ class DtksLampiranController extends Controller
      * @param  DtksLampiran  $dtkslampiran
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DtksLampiran $dtkslampiran)
+    public function show(string $id)
     {
-        return view('pages.dtks_lampiran.show', [
-                'record' =>$dtkslampiran,
-        ]);
-
+        $dtkslampiran = DtksLampiran::find($id);
+        if ($dtkslampiran) {
+            return response()->json($dtkslampiran);
+        }
+        return response()->json(['message' => 'DtksLampiran not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

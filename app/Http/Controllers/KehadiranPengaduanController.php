@@ -31,12 +31,13 @@ class KehadiranPengaduanController extends Controller
      * @param  KehadiranPengaduan  $kehadiranpengaduan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KehadiranPengaduan $kehadiranpengaduan)
+    public function show(string $id)
     {
-        return view('pages.kehadiran_pengaduan.show', [
-                'record' =>$kehadiranpengaduan,
-        ]);
-
+        $kehadiranpengaduan = KehadiranPengaduan::find($id);
+        if ($kehadiranpengaduan) {
+            return response()->json($kehadiranpengaduan);
+        }
+        return response()->json(['message' => 'KehadiranPengaduan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

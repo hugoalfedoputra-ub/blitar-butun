@@ -31,12 +31,13 @@ class AnjunganMenuController extends Controller
      * @param  AnjunganMenu  $anjunganmenu
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnjunganMenu $anjunganmenu)
+    public function show(string $id)
     {
-        return view('pages.anjungan_menu.show', [
-                'record' =>$anjunganmenu,
-        ]);
-
+        $anjunganmenu = AnjunganMenu::find($id);
+        if ($anjunganmenu) {
+            return response()->json($anjunganmenu);
+        }
+        return response()->json(['message' => 'AnjunganMenu not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class KontakGrupController extends Controller
      * @param  KontakGrup  $kontakgrup
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KontakGrup $kontakgrup)
+    public function show(string $id)
     {
-        return view('pages.kontak_grup.show', [
-                'record' =>$kontakgrup,
-        ]);
-
+        $kontakgrup = KontakGrup::find($id);
+        if ($kontakgrup) {
+            return response()->json($kontakgrup);
+        }
+        return response()->json(['message' => 'KontakGrup not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

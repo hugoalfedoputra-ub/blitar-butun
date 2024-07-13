@@ -31,12 +31,13 @@ class SettingModulController extends Controller
      * @param  SettingModul  $settingmodul
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, SettingModul $settingmodul)
+    public function show(string $id)
     {
-        return view('pages.setting_modul.show', [
-                'record' =>$settingmodul,
-        ]);
-
+        $settingmodul = SettingModul::find($id);
+        if ($settingmodul) {
+            return response()->json($settingmodul);
+        }
+        return response()->json(['message' => 'SettingModul not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

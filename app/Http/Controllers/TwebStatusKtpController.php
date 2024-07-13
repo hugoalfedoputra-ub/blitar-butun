@@ -31,12 +31,13 @@ class TwebStatusKtpController extends Controller
      * @param  TwebStatusKtp  $twebstatusktp
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebStatusKtp $twebstatusktp)
+    public function show(string $id)
     {
-        return view('pages.tweb_status_ktp.show', [
-                'record' =>$twebstatusktp,
-        ]);
-
+        $twebstatusktp = TwebStatusKtp::find($id);
+        if ($twebstatusktp) {
+            return response()->json($twebstatusktp);
+        }
+        return response()->json(['message' => 'TwebStatusKtp not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

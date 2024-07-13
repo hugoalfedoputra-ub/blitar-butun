@@ -32,12 +32,13 @@ class KeuanganRefBankDesaController extends Controller
      * @param  KeuanganRefBankDesa  $keuanganrefbankdesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganRefBankDesa $keuanganrefbankdesa)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ref_bank_desa.show', [
-                'record' =>$keuanganrefbankdesa,
-        ]);
-
+        $keuanganrefbankdesa = KeuanganRefBankDesa::find($id);
+        if ($keuanganrefbankdesa) {
+            return response()->json($keuanganrefbankdesa);
+        }
+        return response()->json(['message' => 'KeuanganRefBankDesa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

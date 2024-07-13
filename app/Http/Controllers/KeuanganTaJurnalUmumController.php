@@ -32,12 +32,13 @@ class KeuanganTaJurnalUmumController extends Controller
      * @param  KeuanganTaJurnalUmum  $keuangantajurnalumum
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaJurnalUmum $keuangantajurnalumum)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_jurnal_umum.show', [
-                'record' =>$keuangantajurnalumum,
-        ]);
-
+        $keuangantajurnalumum = KeuanganTaJurnalUmum::find($id);
+        if ($keuangantajurnalumum) {
+            return response()->json($keuangantajurnalumum);
+        }
+        return response()->json(['message' => 'KeuanganTaJurnalUmum not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

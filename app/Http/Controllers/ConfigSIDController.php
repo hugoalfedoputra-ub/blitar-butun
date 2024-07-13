@@ -32,11 +32,13 @@ class ConfigSIDController extends Controller
      * @param  ConfigSID  $configsid
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, ConfigSID $configsid)
+    public function show(string $id)
     {
-        return view('pages.config.show', [
-            'record' => $configsid,
-        ]);
+        $configsid = ConfigSID::find($id);
+        if ($configsid) {
+            return response()->json($configsid);
+        }
+        return response()->json(['message' => 'ConfigSID not found'], 404);
     }
     /**
      * Show the form for creating a new resource.

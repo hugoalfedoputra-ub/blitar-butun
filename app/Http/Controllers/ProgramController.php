@@ -31,12 +31,13 @@ class ProgramController extends Controller
      * @param  Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Program $program)
+    public function show(string $id)
     {
-        return view('pages.program.show', [
-                'record' =>$program,
-        ]);
-
+        $program = Program::find($id);
+        if ($program) {
+            return response()->json($program);
+        }
+        return response()->json(['message' => 'Program not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

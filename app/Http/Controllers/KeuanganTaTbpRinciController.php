@@ -32,12 +32,13 @@ class KeuanganTaTbpRinciController extends Controller
      * @param  KeuanganTaTbpRinci  $keuangantatbprinci
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaTbpRinci $keuangantatbprinci)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_tbp_rinci.show', [
-                'record' =>$keuangantatbprinci,
-        ]);
-
+        $keuangantatbprinci = KeuanganTaTbpRinci::find($id);
+        if ($keuangantatbprinci) {
+            return response()->json($keuangantatbprinci);
+        }
+        return response()->json(['message' => 'KeuanganTaTbpRinci not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

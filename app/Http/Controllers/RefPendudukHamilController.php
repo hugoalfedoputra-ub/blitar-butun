@@ -31,12 +31,13 @@ class RefPendudukHamilController extends Controller
      * @param  RefPendudukHamil  $refpendudukhamil
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefPendudukHamil $refpendudukhamil)
+    public function show(string $id)
     {
-        return view('pages.ref_penduduk_hamil.show', [
-                'record' =>$refpendudukhamil,
-        ]);
-
+        $refpendudukhamil = RefPendudukHamil::find($id);
+        if ($refpendudukhamil) {
+            return response()->json($refpendudukhamil);
+        }
+        return response()->json(['message' => 'RefPendudukHamil not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class LogTteController extends Controller
      * @param  LogTte  $logtte
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, LogTte $logtte)
+    public function show(string $id)
     {
-        return view('pages.log_tte.show', [
-                'record' =>$logtte,
-        ]);
-
+        $logtte = LogTte::find($id);
+        if ($logtte) {
+            return response()->json($logtte);
+        }
+        return response()->json(['message' => 'LogTte not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

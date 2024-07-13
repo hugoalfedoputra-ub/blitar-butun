@@ -31,12 +31,13 @@ class DokumenHidupController extends Controller
      * @param  DokumenHidup  $dokumenhidup
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DokumenHidup $dokumenhidup)
+    public function show(string $id)
     {
-        return view('pages.dokumen_hidup.show', [
-                'record' =>$dokumenhidup,
-        ]);
-
+        $dokumenhidup = DokumenHidup::find($id);
+        if ($dokumenhidup) {
+            return response()->json($dokumenhidup);
+        }
+        return response()->json(['message' => 'DokumenHidup not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

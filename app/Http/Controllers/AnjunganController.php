@@ -31,12 +31,13 @@ class AnjunganController extends Controller
      * @param  Anjungan  $anjungan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Anjungan $anjungan)
+    public function show(string $id)
     {
-        return view('pages.anjungan.show', [
-                'record' =>$anjungan,
-        ]);
-
+        $anjungan = Anjungan::find($id);
+        if ($anjungan) {
+            return response()->json($anjungan);
+        }
+        return response()->json(['message' => 'Anjungan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

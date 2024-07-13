@@ -31,12 +31,13 @@ class KelompokController extends Controller
      * @param  Kelompok  $kelompok
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Kelompok $kelompok)
+    public function show(string $id)
     {
-        return view('pages.kelompok.show', [
-                'record' =>$kelompok,
-        ]);
-
+        $kelompok = Kelompok::find($id);
+        if ($kelompok) {
+            return response()->json($kelompok);
+        }
+        return response()->json(['message' => 'Kelompok not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

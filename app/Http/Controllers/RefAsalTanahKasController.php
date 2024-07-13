@@ -31,12 +31,13 @@ class RefAsalTanahKasController extends Controller
      * @param  RefAsalTanahKas  $refasaltanahkas
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefAsalTanahKas $refasaltanahkas)
+    public function show(string $id)
     {
-        return view('pages.ref_asal_tanah_kas.show', [
-                'record' =>$refasaltanahkas,
-        ]);
-
+        $refasaltanahkas = RefAsalTanahKas::find($id);
+        if ($refasaltanahkas) {
+            return response()->json($refasaltanahkas);
+        }
+        return response()->json(['message' => 'RefAsalTanahKas not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class SentitemsController extends Controller
      * @param  Sentitems  $sentitems
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Sentitems $sentitems)
+    public function show(string $id)
     {
-        return view('pages.sentitems.show', [
-                'record' =>$sentitems,
-        ]);
-
+        $sentitems = Sentitems::find($id);
+        if ($sentitems) {
+            return response()->json($sentitems);
+        }
+        return response()->json(['message' => 'Sentitems not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

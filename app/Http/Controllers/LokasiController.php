@@ -31,12 +31,13 @@ class LokasiController extends Controller
      * @param  Lokasi  $lokasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Lokasi $lokasi)
+    public function show(string $id)
     {
-        return view('pages.lokasi.show', [
-                'record' =>$lokasi,
-        ]);
-
+        $lokasi = Lokasi::find($id);
+        if ($lokasi) {
+            return response()->json($lokasi);
+        }
+        return response()->json(['message' => 'Lokasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

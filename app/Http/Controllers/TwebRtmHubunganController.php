@@ -31,12 +31,13 @@ class TwebRtmHubunganController extends Controller
      * @param  TwebRtmHubungan  $twebrtmhubungan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebRtmHubungan $twebrtmhubungan)
+    public function show(string $id)
     {
-        return view('pages.tweb_rtm_hubungan.show', [
-                'record' =>$twebrtmhubungan,
-        ]);
-
+        $twebrtmhubungan = TwebRtmHubungan::find($id);
+        if ($twebrtmhubungan) {
+            return response()->json($twebrtmhubungan);
+        }
+        return response()->json(['message' => 'TwebRtmHubungan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

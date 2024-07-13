@@ -32,12 +32,13 @@ class KeuanganTaRpjmTujuanController extends Controller
      * @param  KeuanganTaRpjmTujuan  $keuangantarpjmtujuan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaRpjmTujuan $keuangantarpjmtujuan)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_rpjm_tujuan.show', [
-                'record' =>$keuangantarpjmtujuan,
-        ]);
-
+        $keuangantarpjmtujuan = KeuanganTaRpjmTujuan::find($id);
+        if ($keuangantarpjmtujuan) {
+            return response()->json($keuangantarpjmtujuan);
+        }
+        return response()->json(['message' => 'KeuanganTaRpjmTujuan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

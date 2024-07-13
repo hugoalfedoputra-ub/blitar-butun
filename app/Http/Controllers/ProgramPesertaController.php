@@ -31,12 +31,13 @@ class ProgramPesertaController extends Controller
      * @param  ProgramPeserta  $programpeserta
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, ProgramPeserta $programpeserta)
+    public function show(string $id)
     {
-        return view('pages.program_peserta.show', [
-                'record' =>$programpeserta,
-        ]);
-
+        $programpeserta = ProgramPeserta::find($id);
+        if ($programpeserta) {
+            return response()->json($programpeserta);
+        }
+        return response()->json(['message' => 'ProgramPeserta not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

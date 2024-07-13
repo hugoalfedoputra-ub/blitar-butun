@@ -31,12 +31,13 @@ class TwebDesaPamongController extends Controller
      * @param  TwebDesaPamong  $twebdesapamong
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebDesaPamong $twebdesapamong)
+    public function show(string $id)
     {
-        return view('pages.tweb_desa_pamong.show', [
-                'record' =>$twebdesapamong,
-        ]);
-
+        $twebdesapamong = TwebDesaPamong::find($id);
+        if ($twebdesapamong) {
+            return response()->json($twebdesapamong);
+        }
+        return response()->json(['message' => 'TwebDesaPamong not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

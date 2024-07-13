@@ -31,12 +31,13 @@ class AnalisisMasterController extends Controller
      * @param  AnalisisMaster  $analisismaster
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisMaster $analisismaster)
+    public function show(string $id)
     {
-        return view('pages.analisis_master.show', [
-                'record' =>$analisismaster,
-        ]);
-
+        $analisismaster = AnalisisMaster::find($id);
+        if ($analisismaster) {
+            return response()->json($analisismaster);
+        }
+        return response()->json(['message' => 'AnalisisMaster not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class KeluargaAktifController extends Controller
      * @param  KeluargaAktif  $keluargaaktif
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeluargaAktif $keluargaaktif)
+    public function show(string $id)
     {
-        return view('pages.keluarga_aktif.show', [
-                'record' =>$keluargaaktif,
-        ]);
-
+        $keluargaaktif = KeluargaAktif::find($id);
+        if ($keluargaaktif) {
+            return response()->json($keluargaaktif);
+        }
+        return response()->json(['message' => 'KeluargaAktif not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

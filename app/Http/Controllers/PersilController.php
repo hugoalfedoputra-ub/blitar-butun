@@ -31,12 +31,13 @@ class PersilController extends Controller
      * @param  Persil  $persil
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Persil $persil)
+    public function show(string $id)
     {
-        return view('pages.persil.show', [
-                'record' =>$persil,
-        ]);
-
+        $persil = Persil::find($id);
+        if ($persil) {
+            return response()->json($persil);
+        }
+        return response()->json(['message' => 'Persil not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class BulananAnakController extends Controller
      * @param  BulananAnak  $bulanananak
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, BulananAnak $bulanananak)
+    public function show(string $id)
     {
-        return view('pages.bulanan_anak.show', [
-                'record' =>$bulanananak,
-        ]);
-
+        $bulanananak = BulananAnak::find($id);
+        if ($bulanananak) {
+            return response()->json($bulanananak);
+        }
+        return response()->json(['message' => 'BulananAnak not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

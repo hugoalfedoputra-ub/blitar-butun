@@ -31,12 +31,13 @@ class PasswordResetsController extends Controller
      * @param  PasswordResets  $passwordresets
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, PasswordResets $passwordresets)
+    public function show(string $id)
     {
-        return view('pages.password_resets.show', [
-                'record' =>$passwordresets,
-        ]);
-
+        $passwordresets = PasswordResets::find($id);
+        if ($passwordresets) {
+            return response()->json($passwordresets);
+        }
+        return response()->json(['message' => 'PasswordResets not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

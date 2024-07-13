@@ -31,12 +31,13 @@ class TwebPendudukHubunganController extends Controller
      * @param  TwebPendudukHubungan  $twebpendudukhubungan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukHubungan $twebpendudukhubungan)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_hubungan.show', [
-                'record' =>$twebpendudukhubungan,
-        ]);
-
+        $twebpendudukhubungan = TwebPendudukHubungan::find($id);
+        if ($twebpendudukhubungan) {
+            return response()->json($twebpendudukhubungan);
+        }
+        return response()->json(['message' => 'TwebPendudukHubungan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

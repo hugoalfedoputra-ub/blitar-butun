@@ -31,12 +31,13 @@ class AnalisisKategoriIndikatorController extends Controller
      * @param  AnalisisKategoriIndikator  $analisiskategoriindikator
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisKategoriIndikator $analisiskategoriindikator)
+    public function show(string $id)
     {
-        return view('pages.analisis_kategori_indikator.show', [
-                'record' =>$analisiskategoriindikator,
-        ]);
-
+        $analisiskategoriindikator = AnalisisKategoriIndikator::find($id);
+        if ($analisiskategoriindikator) {
+            return response()->json($analisiskategoriindikator);
+        }
+        return response()->json(['message' => 'AnalisisKategoriIndikator not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class TwebPendudukPendidikanKkController extends Controller
      * @param  TwebPendudukPendidikanKk  $twebpendudukpendidikankk
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukPendidikanKk $twebpendudukpendidikankk)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_pendidikan_kk.show', [
-                'record' =>$twebpendudukpendidikankk,
-        ]);
-
+        $twebpendudukpendidikankk = TwebPendudukPendidikanKk::find($id);
+        if ($twebpendudukpendidikankk) {
+            return response()->json($twebpendudukpendidikankk);
+        }
+        return response()->json(['message' => 'TwebPendudukPendidikanKk not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

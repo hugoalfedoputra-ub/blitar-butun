@@ -31,12 +31,13 @@ class RefDokumenController extends Controller
      * @param  RefDokumen  $refdokumen
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, RefDokumen $refdokumen)
+    public function show(string $id)
     {
-        return view('pages.ref_dokumen.show', [
-                'record' =>$refdokumen,
-        ]);
-
+        $refdokumen = RefDokumen::find($id);
+        if ($refdokumen) {
+            return response()->json($refdokumen);
+        }
+        return response()->json(['message' => 'RefDokumen not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

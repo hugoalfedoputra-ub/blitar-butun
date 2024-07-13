@@ -31,12 +31,13 @@ class MasterInventarisController extends Controller
      * @param  MasterInventaris  $masterinventaris
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, MasterInventaris $masterinventaris)
+    public function show(string $id)
     {
-        return view('pages.master_inventaris.show', [
-                'record' =>$masterinventaris,
-        ]);
-
+        $masterinventaris = MasterInventaris::find($id);
+        if ($masterinventaris) {
+            return response()->json($masterinventaris);
+        }
+        return response()->json(['message' => 'MasterInventaris not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

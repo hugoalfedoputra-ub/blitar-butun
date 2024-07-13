@@ -31,12 +31,13 @@ class PendudukHidupController extends Controller
      * @param  PendudukHidup  $pendudukhidup
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, PendudukHidup $pendudukhidup)
+    public function show(string $id)
     {
-        return view('pages.penduduk_hidup.show', [
-                'record' =>$pendudukhidup,
-        ]);
-
+        $pendudukhidup = PendudukHidup::find($id);
+        if ($pendudukhidup) {
+            return response()->json($pendudukhidup);
+        }
+        return response()->json(['message' => 'PendudukHidup not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

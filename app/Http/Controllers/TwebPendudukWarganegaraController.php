@@ -31,12 +31,13 @@ class TwebPendudukWarganegaraController extends Controller
      * @param  TwebPendudukWarganegara  $twebpendudukwarganegara
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebPendudukWarganegara $twebpendudukwarganegara)
+    public function show(string $id)
     {
-        return view('pages.tweb_penduduk_warganegara.show', [
-                'record' =>$twebpendudukwarganegara,
-        ]);
-
+        $twebpendudukwarganegara = TwebPendudukWarganegara::find($id);
+        if ($twebpendudukwarganegara) {
+            return response()->json($twebpendudukwarganegara);
+        }
+        return response()->json(['message' => 'TwebPendudukWarganegara not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

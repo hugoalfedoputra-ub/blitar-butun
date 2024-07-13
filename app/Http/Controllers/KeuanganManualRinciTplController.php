@@ -31,12 +31,13 @@ class KeuanganManualRinciTplController extends Controller
      * @param  KeuanganManualRinciTpl  $keuanganmanualrincitpl
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganManualRinciTpl $keuanganmanualrincitpl)
+    public function show(string $id)
     {
-        return view('pages.keuangan_manual_rinci_tpl.show', [
-                'record' =>$keuanganmanualrincitpl,
-        ]);
-
+        $keuanganmanualrincitpl = KeuanganManualRinciTpl::find($id);
+        if ($keuanganmanualrincitpl) {
+            return response()->json($keuanganmanualrincitpl);
+        }
+        return response()->json(['message' => 'KeuanganManualRinciTpl not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

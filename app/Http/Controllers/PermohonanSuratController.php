@@ -31,12 +31,13 @@ class PermohonanSuratController extends Controller
      * @param  PermohonanSurat  $permohonansurat
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, PermohonanSurat $permohonansurat)
+    public function show(string $id)
     {
-        return view('pages.permohonan_surat.show', [
-                'record' =>$permohonansurat,
-        ]);
-
+        $permohonansurat = PermohonanSurat::find($id);
+        if ($permohonansurat) {
+            return response()->json($permohonansurat);
+        }
+        return response()->json(['message' => 'PermohonanSurat not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -31,12 +31,13 @@ class TanahKasDesaController extends Controller
      * @param  TanahKasDesa  $tanahkasdesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TanahKasDesa $tanahkasdesa)
+    public function show(string $id)
     {
-        return view('pages.tanah_kas_desa.show', [
-                'record' =>$tanahkasdesa,
-        ]);
-
+        $tanahkasdesa = TanahKasDesa::find($id);
+        if ($tanahkasdesa) {
+            return response()->json($tanahkasdesa);
+        }
+        return response()->json(['message' => 'TanahKasDesa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

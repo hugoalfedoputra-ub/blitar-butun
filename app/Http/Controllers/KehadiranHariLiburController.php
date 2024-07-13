@@ -31,12 +31,13 @@ class KehadiranHariLiburController extends Controller
      * @param  KehadiranHariLibur  $kehadiranharilibur
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KehadiranHariLibur $kehadiranharilibur)
+    public function show(string $id)
     {
-        return view('pages.kehadiran_hari_libur.show', [
-                'record' =>$kehadiranharilibur,
-        ]);
-
+        $kehadiranharilibur = KehadiranHariLibur::find($id);
+        if ($kehadiranharilibur) {
+            return response()->json($kehadiranharilibur);
+        }
+        return response()->json(['message' => 'KehadiranHariLibur not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

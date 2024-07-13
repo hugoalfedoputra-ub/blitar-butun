@@ -31,12 +31,13 @@ class SuratMasukController extends Controller
      * @param  SuratMasuk  $suratmasuk
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, SuratMasuk $suratmasuk)
+    public function show(string $id)
     {
-        return view('pages.surat_masuk.show', [
-                'record' =>$suratmasuk,
-        ]);
-
+        $suratmasuk = SuratMasuk::find($id);
+        if ($suratmasuk) {
+            return response()->json($suratmasuk);
+        }
+        return response()->json(['message' => 'SuratMasuk not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

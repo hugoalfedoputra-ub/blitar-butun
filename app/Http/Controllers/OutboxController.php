@@ -31,12 +31,13 @@ class OutboxController extends Controller
      * @param  Outbox  $outbox
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Outbox $outbox)
+    public function show(string $id)
     {
-        return view('pages.outbox.show', [
-                'record' =>$outbox,
-        ]);
-
+        $outbox = Outbox::find($id);
+        if ($outbox) {
+            return response()->json($outbox);
+        }
+        return response()->json(['message' => 'Outbox not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

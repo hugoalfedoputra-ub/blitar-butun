@@ -31,12 +31,13 @@ class TwebWilClusterdesaController extends Controller
      * @param  TwebWilClusterdesa  $twebwilclusterdesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebWilClusterdesa $twebwilclusterdesa)
+    public function show(string $id)
     {
-        return view('pages.tweb_wil_clusterdesa.show', [
-                'record' =>$twebwilclusterdesa,
-        ]);
-
+        $twebwilclusterdesa = TwebWilClusterdesa::find($id);
+        if ($twebwilclusterdesa) {
+            return response()->json($twebwilclusterdesa);
+        }
+        return response()->json(['message' => 'TwebWilClusterdesa not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

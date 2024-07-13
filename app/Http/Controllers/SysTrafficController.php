@@ -31,12 +31,13 @@ class SysTrafficController extends Controller
      * @param  SysTraffic  $systraffic
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, SysTraffic $systraffic)
+    public function show(string $id)
     {
-        return view('pages.sys_traffic.show', [
-                'record' =>$systraffic,
-        ]);
-
+        $systraffic = SysTraffic::find($id);
+        if ($systraffic) {
+            return response()->json($systraffic);
+        }
+        return response()->json(['message' => 'SysTraffic not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

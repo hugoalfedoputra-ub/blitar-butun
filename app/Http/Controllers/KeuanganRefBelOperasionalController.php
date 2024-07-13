@@ -32,12 +32,13 @@ class KeuanganRefBelOperasionalController extends Controller
      * @param  KeuanganRefBelOperasional  $keuanganrefbeloperasional
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganRefBelOperasional $keuanganrefbeloperasional)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ref_bel_operasional.show', [
-                'record' =>$keuanganrefbeloperasional,
-        ]);
-
+        $keuanganrefbeloperasional = KeuanganRefBelOperasional::find($id);
+        if ($keuanganrefbeloperasional) {
+            return response()->json($keuanganrefbeloperasional);
+        }
+        return response()->json(['message' => 'KeuanganRefBelOperasional not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

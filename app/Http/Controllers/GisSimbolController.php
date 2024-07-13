@@ -31,12 +31,13 @@ class GisSimbolController extends Controller
      * @param  GisSimbol  $gissimbol
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, GisSimbol $gissimbol)
+    public function show(string $id)
     {
-        return view('pages.gis_simbol.show', [
-                'record' =>$gissimbol,
-        ]);
-
+        $gissimbol = GisSimbol::find($id);
+        if ($gissimbol) {
+            return response()->json($gissimbol);
+        }
+        return response()->json(['message' => 'GisSimbol not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

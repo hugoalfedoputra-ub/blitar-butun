@@ -31,12 +31,13 @@ class DataPersilPeruntukanController extends Controller
      * @param  DataPersilPeruntukan  $datapersilperuntukan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DataPersilPeruntukan $datapersilperuntukan)
+    public function show(string $id)
     {
-        return view('pages.data_persil_peruntukan.show', [
-                'record' =>$datapersilperuntukan,
-        ]);
-
+        $datapersilperuntukan = DataPersilPeruntukan::find($id);
+        if ($datapersilperuntukan) {
+            return response()->json($datapersilperuntukan);
+        }
+        return response()->json(['message' => 'DataPersilPeruntukan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

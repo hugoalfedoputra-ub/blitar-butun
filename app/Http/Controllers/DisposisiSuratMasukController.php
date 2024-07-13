@@ -33,12 +33,13 @@ class DisposisiSuratMasukController extends Controller
      * @param  DisposisiSuratMasuk  $disposisisuratmasuk
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, DisposisiSuratMasuk $disposisisuratmasuk)
+    public function show(string $id)
     {
-        return view('pages.disposisi_surat_masuk.show', [
-                'record' =>$disposisisuratmasuk,
-        ]);
-
+        $disposisisuratmasuk = DisposisiSuratMasuk::find($id);
+        if ($disposisisuratmasuk) {
+            return response()->json($disposisisuratmasuk);
+        }
+        return response()->json(['message' => 'DisposisiSuratMasuk not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

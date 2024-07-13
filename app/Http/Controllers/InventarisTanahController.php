@@ -31,12 +31,13 @@ class InventarisTanahController extends Controller
      * @param  InventarisTanah  $inventaristanah
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, InventarisTanah $inventaristanah)
+    public function show(string $id)
     {
-        return view('pages.inventaris_tanah.show', [
-                'record' =>$inventaristanah,
-        ]);
-
+        $inventaristanah = InventarisTanah::find($id);
+        if ($inventaristanah) {
+            return response()->json($inventaristanah);
+        }
+        return response()->json(['message' => 'InventarisTanah not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

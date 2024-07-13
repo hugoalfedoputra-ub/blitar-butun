@@ -31,12 +31,13 @@ class MigrasiController extends Controller
      * @param  Migrasi  $migrasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Migrasi $migrasi)
+    public function show(string $id)
     {
-        return view('pages.migrasi.show', [
-                'record' =>$migrasi,
-        ]);
-
+        $migrasi = Migrasi::find($id);
+        if ($migrasi) {
+            return response()->json($migrasi);
+        }
+        return response()->json(['message' => 'Migrasi not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -32,12 +32,13 @@ class KeuanganTaSppController extends Controller
      * @param  KeuanganTaSpp  $keuangantaspp
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaSpp $keuangantaspp)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_spp.show', [
-                'record' =>$keuangantaspp,
-        ]);
-
+        $keuangantaspp = KeuanganTaSpp::find($id);
+        if ($keuangantaspp) {
+            return response()->json($keuangantaspp);
+        }
+        return response()->json(['message' => 'KeuanganTaSpp not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

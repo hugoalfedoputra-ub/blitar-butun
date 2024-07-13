@@ -31,12 +31,13 @@ class TwebAsetController extends Controller
      * @param  TwebAset  $twebaset
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebAset $twebaset)
+    public function show(string $id)
     {
-        return view('pages.tweb_aset.show', [
-                'record' =>$twebaset,
-        ]);
-
+        $twebaset = TwebAset::find($id);
+        if ($twebaset) {
+            return response()->json($twebaset);
+        }
+        return response()->json(['message' => 'TwebAset not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

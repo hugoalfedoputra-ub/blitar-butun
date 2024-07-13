@@ -31,12 +31,13 @@ class AnalisisParameterController extends Controller
      * @param  AnalisisParameter  $analisisparameter
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, AnalisisParameter $analisisparameter)
+    public function show(string $id)
     {
-        return view('pages.analisis_parameter.show', [
-                'record' =>$analisisparameter,
-        ]);
-
+        $analisisparameter = AnalisisParameter::find($id);
+        if ($analisisparameter) {
+            return response()->json($analisisparameter);
+        }
+        return response()->json(['message' => 'AnalisisParameter not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

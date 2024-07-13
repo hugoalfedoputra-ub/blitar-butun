@@ -31,12 +31,13 @@ class TeksBerjalanController extends Controller
      * @param  TeksBerjalan  $teksberjalan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TeksBerjalan $teksberjalan)
+    public function show(string $id)
     {
-        return view('pages.teks_berjalan.show', [
-                'record' =>$teksberjalan,
-        ]);
-
+        $teksberjalan = TeksBerjalan::find($id);
+        if ($teksberjalan) {
+            return response()->json($teksberjalan);
+        }
+        return response()->json(['message' => 'TeksBerjalan not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

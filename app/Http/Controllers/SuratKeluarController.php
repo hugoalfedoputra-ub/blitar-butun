@@ -31,12 +31,13 @@ class SuratKeluarController extends Controller
      * @param  SuratKeluar  $suratkeluar
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, SuratKeluar $suratkeluar)
+    public function show(string $id)
     {
-        return view('pages.surat_keluar.show', [
-                'record' =>$suratkeluar,
-        ]);
-
+        $suratkeluar = SuratKeluar::find($id);
+        if ($suratkeluar) {
+            return response()->json($suratkeluar);
+        }
+        return response()->json(['message' => 'SuratKeluar not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

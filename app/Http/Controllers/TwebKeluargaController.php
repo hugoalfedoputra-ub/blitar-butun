@@ -31,12 +31,13 @@ class TwebKeluargaController extends Controller
      * @param  TwebKeluarga  $twebkeluarga
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TwebKeluarga $twebkeluarga)
+    public function show(string $id)
     {
-        return view('pages.tweb_keluarga.show', [
-                'record' =>$twebkeluarga,
-        ]);
-
+        $twebkeluarga = TwebKeluarga::find($id);
+        if ($twebkeluarga) {
+            return response()->json($twebkeluarga);
+        }
+        return response()->json(['message' => 'TwebKeluarga not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

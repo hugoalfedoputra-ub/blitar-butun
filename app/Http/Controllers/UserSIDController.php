@@ -31,12 +31,13 @@ class UserSIDController extends Controller
      * @param  UserSID  $usersid
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, UserSID $usersid)
+    public function show(string $id)
     {
-        return view('pages.user.show', [
-                'record' =>$usersid,
-        ]);
-
+        $usersid = UserSID::find($id);
+        if ($usersid) {
+            return response()->json($usersid);
+        }
+        return response()->json(['message' => 'UserSID not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

@@ -33,12 +33,13 @@ class GrupAksesController extends Controller
      * @param  GrupAkses  $grupakses
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, GrupAkses $grupakses)
+    public function show(string $id)
     {
-        return view('pages.grup_akses.show', [
-                'record' =>$grupakses,
-        ]);
-
+        $grupakses = GrupAkses::find($id);
+        if ($grupakses) {
+            return response()->json($grupakses);
+        }
+        return response()->json(['message' => 'GrupAkses not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

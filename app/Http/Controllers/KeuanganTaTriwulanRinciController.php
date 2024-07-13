@@ -32,12 +32,13 @@ class KeuanganTaTriwulanRinciController extends Controller
      * @param  KeuanganTaTriwulanRinci  $keuangantatriwulanrinci
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganTaTriwulanRinci $keuangantatriwulanrinci)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ta_triwulan_rinci.show', [
-                'record' =>$keuangantatriwulanrinci,
-        ]);
-
+        $keuangantatriwulanrinci = KeuanganTaTriwulanRinci::find($id);
+        if ($keuangantatriwulanrinci) {
+            return response()->json($keuangantatriwulanrinci);
+        }
+        return response()->json(['message' => 'KeuanganTaTriwulanRinci not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

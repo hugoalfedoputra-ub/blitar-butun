@@ -31,12 +31,13 @@ class KiaController extends Controller
      * @param  Kia  $kia
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Kia $kia)
+    public function show(string $id)
     {
-        return view('pages.kia.show', [
-                'record' =>$kia,
-        ]);
-
+        $kia = Kia::find($id);
+        if ($kia) {
+            return response()->json($kia);
+        }
+        return response()->json(['message' => 'Kia not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

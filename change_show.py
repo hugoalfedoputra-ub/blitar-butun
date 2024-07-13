@@ -59,7 +59,7 @@ def process_files(directory):
                 # Extract model name from file name (assuming it follows the convention)
                 model_name = file.replace('Controller.php', '')
                 variable_name = model_name.lower()
-                new_method = f"""    public function show(string $id)
+                new_method = f"""public function show(string $id)
     {{
         ${variable_name} = {model_name}::find($id);
         if (${variable_name}) {{

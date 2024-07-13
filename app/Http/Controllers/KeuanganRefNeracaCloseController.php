@@ -32,12 +32,13 @@ class KeuanganRefNeracaCloseController extends Controller
      * @param  KeuanganRefNeracaClose  $keuanganrefneracaclose
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, KeuanganRefNeracaClose $keuanganrefneracaclose)
+    public function show(string $id)
     {
-        return view('pages.keuangan_ref_neraca_close.show', [
-                'record' =>$keuanganrefneracaclose,
-        ]);
-
+        $keuanganrefneracaclose = KeuanganRefNeracaClose::find($id);
+        if ($keuanganrefneracaclose) {
+            return response()->json($keuanganrefneracaclose);
+        }
+        return response()->json(['message' => 'KeuanganRefNeracaClose not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *

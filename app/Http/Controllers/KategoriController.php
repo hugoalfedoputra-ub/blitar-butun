@@ -31,12 +31,13 @@ class KategoriController extends Controller
      * @param  Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Kategori $kategori)
+    public function show(string $id)
     {
-        return view('pages.kategori.show', [
-                'record' =>$kategori,
-        ]);
-
+        $kategori = Kategori::find($id);
+        if ($kategori) {
+            return response()->json($kategori);
+        }
+        return response()->json(['message' => 'Kategori not found'], 404);
     }    /**
      * Show the form for creating a new resource.
      *
