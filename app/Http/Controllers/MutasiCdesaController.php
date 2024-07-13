@@ -24,7 +24,7 @@ class MutasiCdesaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.mutasi_cdesa.index', ['records' => MutasiCdesa::paginate(10)]);
+        return MutasiCdesa::paginate(10);
     }    /**
      * Display the specified resource.
      *

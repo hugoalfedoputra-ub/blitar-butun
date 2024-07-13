@@ -23,7 +23,7 @@ class PendapatController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.pendapat.index', ['records' => Pendapat::paginate(10)]);
+        return Pendapat::paginate(10);
     }    /**
      * Display the specified resource.
      *

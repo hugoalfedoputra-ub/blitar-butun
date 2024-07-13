@@ -23,7 +23,7 @@ class AnalisisPartisipasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_partisipasi.index', ['records' => AnalisisPartisipasi::paginate(10)]);
+        return AnalisisPartisipasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class KomentarController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.komentar.index', ['records' => Komentar::paginate(10)]);
+        return Komentar::paginate(10);
     }    /**
      * Display the specified resource.
      *

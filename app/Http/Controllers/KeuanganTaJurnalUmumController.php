@@ -24,7 +24,7 @@ class KeuanganTaJurnalUmumController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_jurnal_umum.index', ['records' => KeuanganTaJurnalUmum::paginate(10)]);
+        return KeuanganTaJurnalUmum::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class LoginAttemptsController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.login_attempts.index', ['records' => LoginAttempts::paginate(10)]);
+        return LoginAttempts::paginate(10);
     }    /**
      * Display the specified resource.
      *

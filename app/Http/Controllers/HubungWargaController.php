@@ -24,7 +24,7 @@ class HubungWargaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.hubung_warga.index', ['records' => HubungWarga::paginate(10)]);
+        return HubungWarga::paginate(10);
     }    /**
      * Display the specified resource.
      *

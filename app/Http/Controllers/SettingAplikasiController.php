@@ -23,7 +23,7 @@ class SettingAplikasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.setting_aplikasi.index', ['records' => SettingAplikasi::paginate(10)]);
+        return SettingAplikasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

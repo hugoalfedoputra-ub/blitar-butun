@@ -23,7 +23,7 @@ class RefStatusCovidController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_status_covid.index', ['records' => RefStatusCovid::paginate(10)]);
+        return RefStatusCovid::paginate(10);
     }    /**
      * Display the specified resource.
      *

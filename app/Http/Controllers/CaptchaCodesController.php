@@ -23,7 +23,7 @@ class CaptchaCodesController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.captcha_codes.index', ['records' => CaptchaCodes::paginate(10)]);
+        return CaptchaCodes::paginate(10);
     }    /**
      * Display the specified resource.
      *

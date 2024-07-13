@@ -23,7 +23,7 @@ class KategoriController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kategori.index', ['records' => Kategori::paginate(10)]);
+        return Kategori::paginate(10);
     }    /**
      * Display the specified resource.
      *

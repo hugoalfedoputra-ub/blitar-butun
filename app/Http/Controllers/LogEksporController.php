@@ -23,7 +23,7 @@ class LogEksporController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.log_ekspor.index', ['records' => LogEkspor::paginate(10)]);
+        return LogEkspor::paginate(10);
     }    /**
      * Display the specified resource.
      *

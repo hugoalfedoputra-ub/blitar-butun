@@ -23,7 +23,7 @@ class MenuController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.menu.index', ['records' => Menu::paginate(10)]);
+        return Menu::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class RefAsalTanahKasController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_asal_tanah_kas.index', ['records' => RefAsalTanahKas::paginate(10)]);
+        return RefAsalTanahKas::paginate(10);
     }    /**
      * Display the specified resource.
      *

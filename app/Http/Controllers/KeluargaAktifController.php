@@ -23,7 +23,7 @@ class KeluargaAktifController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keluarga_aktif.index', ['records' => KeluargaAktif::paginate(10)]);
+        return KeluargaAktif::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -24,7 +24,7 @@ class KeuanganTaAnggaranLogController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_anggaran_log.index', ['records' => KeuanganTaAnggaranLog::paginate(10)]);
+        return KeuanganTaAnggaranLog::paginate(10);
     }    /**
      * Display the specified resource.
      *

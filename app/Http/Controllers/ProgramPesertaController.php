@@ -23,7 +23,7 @@ class ProgramPesertaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.program_peserta.index', ['records' => ProgramPeserta::paginate(10)]);
+        return ProgramPeserta::paginate(10);
     }    /**
      * Display the specified resource.
      *

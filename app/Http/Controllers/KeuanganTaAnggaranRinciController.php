@@ -24,7 +24,7 @@ class KeuanganTaAnggaranRinciController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_anggaran_rinci.index', ['records' => KeuanganTaAnggaranRinci::paginate(10)]);
+        return KeuanganTaAnggaranRinci::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class TwebRtmHubunganController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_rtm_hubungan.index', ['records' => TwebRtmHubungan::paginate(10)]);
+        return TwebRtmHubungan::paginate(10);
     }    /**
      * Display the specified resource.
      *

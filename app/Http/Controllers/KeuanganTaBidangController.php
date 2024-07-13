@@ -24,7 +24,7 @@ class KeuanganTaBidangController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_bidang.index', ['records' => KeuanganTaBidang::paginate(10)]);
+        return KeuanganTaBidang::paginate(10);
     }    /**
      * Display the specified resource.
      *

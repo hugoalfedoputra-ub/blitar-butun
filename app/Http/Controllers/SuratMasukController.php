@@ -23,7 +23,7 @@ class SuratMasukController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.surat_masuk.index', ['records' => SuratMasuk::paginate(10)]);
+        return SuratMasuk::paginate(10);
     }    /**
      * Display the specified resource.
      *

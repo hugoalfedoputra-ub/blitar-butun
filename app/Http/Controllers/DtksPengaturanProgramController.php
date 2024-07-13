@@ -24,7 +24,7 @@ class DtksPengaturanProgramController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.dtks_pengaturan_program.index', ['records' => DtksPengaturanProgram::paginate(10)]);
+        return DtksPengaturanProgram::paginate(10);
     }    /**
      * Display the specified resource.
      *

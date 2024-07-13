@@ -24,7 +24,7 @@ class Covid19PantauController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.covid19_pantau.index', ['records' => Covid19Pantau::paginate(10)]);
+        return Covid19Pantau::paginate(10);
     }    /**
      * Display the specified resource.
      *

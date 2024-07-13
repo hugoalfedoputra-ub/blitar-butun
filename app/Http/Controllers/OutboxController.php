@@ -23,7 +23,7 @@ class OutboxController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.outbox.index', ['records' => Outbox::paginate(10)]);
+        return Outbox::paginate(10);
     }    /**
      * Display the specified resource.
      *

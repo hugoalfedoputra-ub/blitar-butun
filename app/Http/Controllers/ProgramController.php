@@ -23,7 +23,7 @@ class ProgramController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.program.index', ['records' => Program::paginate(10)]);
+        return Program::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class AreaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.area.index', ['records' => Area::paginate(10)]);
+        return Area::paginate(10);
     }    /**
      * Display the specified resource.
      *

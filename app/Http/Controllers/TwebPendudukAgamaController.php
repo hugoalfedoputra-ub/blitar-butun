@@ -23,7 +23,7 @@ class TwebPendudukAgamaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_agama.index', ['records' => TwebPendudukAgama::paginate(10)]);
+        return TwebPendudukAgama::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class LokasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.lokasi.index', ['records' => Lokasi::paginate(10)]);
+        return Lokasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

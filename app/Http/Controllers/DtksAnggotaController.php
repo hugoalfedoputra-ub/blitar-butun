@@ -26,7 +26,7 @@ class DtksAnggotaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.dtks_anggota.index', ['records' => DtksAnggota::paginate(10)]);
+        return DtksAnggota::paginate(10);
     }    /**
      * Display the specified resource.
      *

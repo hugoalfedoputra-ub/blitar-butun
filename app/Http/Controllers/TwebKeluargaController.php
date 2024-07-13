@@ -23,7 +23,7 @@ class TwebKeluargaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_keluarga.index', ['records' => TwebKeluarga::paginate(10)]);
+        return TwebKeluarga::paginate(10);
     }    /**
      * Display the specified resource.
      *

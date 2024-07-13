@@ -23,7 +23,7 @@ class InboxController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.inbox.index', ['records' => Inbox::paginate(10)]);
+        return Inbox::paginate(10);
     }    /**
      * Display the specified resource.
      *

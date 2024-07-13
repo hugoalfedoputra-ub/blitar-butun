@@ -23,7 +23,7 @@ class PermohonanSuratController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.permohonan_surat.index', ['records' => PermohonanSurat::paginate(10)]);
+        return PermohonanSurat::paginate(10);
     }    /**
      * Display the specified resource.
      *

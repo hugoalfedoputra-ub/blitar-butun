@@ -23,7 +23,7 @@ class TwebSakitMenahunController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_sakit_menahun.index', ['records' => TwebSakitMenahun::paginate(10)]);
+        return TwebSakitMenahun::paginate(10);
     }    /**
      * Display the specified resource.
      *

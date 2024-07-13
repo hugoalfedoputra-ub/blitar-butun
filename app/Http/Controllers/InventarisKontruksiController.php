@@ -23,7 +23,7 @@ class InventarisKontruksiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.inventaris_kontruksi.index', ['records' => InventarisKontruksi::paginate(10)]);
+        return InventarisKontruksi::paginate(10);
     }    /**
      * Display the specified resource.
      *

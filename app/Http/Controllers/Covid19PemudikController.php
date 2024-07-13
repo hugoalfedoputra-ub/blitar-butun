@@ -24,7 +24,7 @@ class Covid19PemudikController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.covid19_pemudik.index', ['records' => Covid19Pemudik::paginate(10)]);
+        return Covid19Pemudik::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class InventarisAssetController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.inventaris_asset.index', ['records' => InventarisAsset::paginate(10)]);
+        return InventarisAsset::paginate(10);
     }    /**
      * Display the specified resource.
      *

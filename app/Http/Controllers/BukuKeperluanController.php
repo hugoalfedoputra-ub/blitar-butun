@@ -23,7 +23,7 @@ class BukuKeperluanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.buku_keperluan.index', ['records' => BukuKeperluan::paginate(10)]);
+        return BukuKeperluan::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -24,7 +24,7 @@ class KeuanganTaMutasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_mutasi.index', ['records' => KeuanganTaMutasi::paginate(10)]);
+        return KeuanganTaMutasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

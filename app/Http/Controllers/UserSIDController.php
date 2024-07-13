@@ -23,7 +23,7 @@ class UserSIDController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.user.index', ['records' => UserSID::paginate(10)]);
+        return UserSID::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class RefSyaratSuratController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_syarat_surat.index', ['records' => RefSyaratSurat::paginate(10)]);
+        return RefSyaratSurat::paginate(10);
     }    /**
      * Display the specified resource.
      *

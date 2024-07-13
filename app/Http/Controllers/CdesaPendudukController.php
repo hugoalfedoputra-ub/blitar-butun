@@ -24,7 +24,7 @@ class CdesaPendudukController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.cdesa_penduduk.index', ['records' => CdesaPenduduk::paginate(10)]);
+        return CdesaPenduduk::paginate(10);
     }    /**
      * Display the specified resource.
      *

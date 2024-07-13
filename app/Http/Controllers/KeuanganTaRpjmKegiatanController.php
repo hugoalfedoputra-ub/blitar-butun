@@ -24,7 +24,7 @@ class KeuanganTaRpjmKegiatanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_rpjm_kegiatan.index', ['records' => KeuanganTaRpjmKegiatan::paginate(10)]);
+        return KeuanganTaRpjmKegiatan::paginate(10);
     }    /**
      * Display the specified resource.
      *

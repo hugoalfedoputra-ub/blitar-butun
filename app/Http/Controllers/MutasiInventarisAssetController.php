@@ -24,7 +24,7 @@ class MutasiInventarisAssetController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.mutasi_inventaris_asset.index', ['records' => MutasiInventarisAsset::paginate(10)]);
+        return MutasiInventarisAsset::paginate(10);
     }    /**
      * Display the specified resource.
      *

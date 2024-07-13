@@ -23,7 +23,7 @@ class SentitemsController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.sentitems.index', ['records' => Sentitems::paginate(10)]);
+        return Sentitems::paginate(10);
     }    /**
      * Display the specified resource.
      *

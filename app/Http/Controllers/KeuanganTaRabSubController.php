@@ -24,7 +24,7 @@ class KeuanganTaRabSubController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_rab_sub.index', ['records' => KeuanganTaRabSub::paginate(10)]);
+        return KeuanganTaRabSub::paginate(10);
     }    /**
      * Display the specified resource.
      *

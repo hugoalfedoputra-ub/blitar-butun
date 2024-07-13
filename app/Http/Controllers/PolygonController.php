@@ -23,7 +23,7 @@ class PolygonController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.polygon.index', ['records' => Polygon::paginate(10)]);
+        return Polygon::paginate(10);
     }    /**
      * Display the specified resource.
      *

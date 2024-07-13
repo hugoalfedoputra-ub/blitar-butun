@@ -23,7 +23,7 @@ class TwebAsetController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_aset.index', ['records' => TwebAset::paginate(10)]);
+        return TwebAset::paginate(10);
     }    /**
      * Display the specified resource.
      *

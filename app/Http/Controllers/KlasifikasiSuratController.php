@@ -23,7 +23,7 @@ class KlasifikasiSuratController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.klasifikasi_surat.index', ['records' => KlasifikasiSurat::paginate(10)]);
+        return KlasifikasiSurat::paginate(10);
     }    /**
      * Display the specified resource.
      *

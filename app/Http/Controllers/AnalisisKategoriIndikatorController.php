@@ -23,7 +23,7 @@ class AnalisisKategoriIndikatorController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_kategori_indikator.index', ['records' => AnalisisKategoriIndikator::paginate(10)]);
+        return AnalisisKategoriIndikator::paginate(10);
     }    /**
      * Display the specified resource.
      *

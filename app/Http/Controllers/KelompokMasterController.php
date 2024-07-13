@@ -23,7 +23,7 @@ class KelompokMasterController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kelompok_master.index', ['records' => KelompokMaster::paginate(10)]);
+        return KelompokMaster::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -24,7 +24,7 @@ class KeuanganTaRpjmPaguIndikatifController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_rpjm_pagu_indikatif.index', ['records' => KeuanganTaRpjmPaguIndikatif::paginate(10)]);
+        return KeuanganTaRpjmPaguIndikatif::paginate(10);
     }    /**
      * Display the specified resource.
      *

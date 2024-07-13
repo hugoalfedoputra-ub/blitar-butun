@@ -23,7 +23,7 @@ class RefPersilKelasController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_persil_kelas.index', ['records' => RefPersilKelas::paginate(10)]);
+        return RefPersilKelas::paginate(10);
     }    /**
      * Display the specified resource.
      *

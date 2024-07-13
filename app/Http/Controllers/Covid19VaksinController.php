@@ -23,7 +23,7 @@ class Covid19VaksinController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.covid19_vaksin.index', ['records' => Covid19Vaksin::paginate(10)]);
+        return Covid19Vaksin::paginate(10);
     }    /**
      * Display the specified resource.
      *

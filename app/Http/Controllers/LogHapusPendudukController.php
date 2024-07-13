@@ -23,7 +23,7 @@ class LogHapusPendudukController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.log_hapus_penduduk.index', ['records' => LogHapusPenduduk::paginate(10)]);
+        return LogHapusPenduduk::paginate(10);
     }    /**
      * Display the specified resource.
      *

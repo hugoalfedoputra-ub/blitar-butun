@@ -23,7 +23,7 @@ class TwebRtmController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_rtm.index', ['records' => TwebRtm::paginate(10)]);
+        return TwebRtm::paginate(10);
     }    /**
      * Display the specified resource.
      *

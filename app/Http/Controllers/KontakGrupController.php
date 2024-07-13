@@ -23,7 +23,7 @@ class KontakGrupController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kontak_grup.index', ['records' => KontakGrup::paginate(10)]);
+        return KontakGrup::paginate(10);
     }    /**
      * Display the specified resource.
      *

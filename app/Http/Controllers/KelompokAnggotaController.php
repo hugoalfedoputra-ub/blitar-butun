@@ -24,7 +24,7 @@ class KelompokAnggotaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kelompok_anggota.index', ['records' => KelompokAnggota::paginate(10)]);
+        return KelompokAnggota::paginate(10);
     }    /**
      * Display the specified resource.
      *

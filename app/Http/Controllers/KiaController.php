@@ -23,7 +23,7 @@ class KiaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kia.index', ['records' => Kia::paginate(10)]);
+        return Kia::paginate(10);
     }    /**
      * Display the specified resource.
      *

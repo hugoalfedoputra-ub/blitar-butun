@@ -23,7 +23,7 @@ class LogBackupController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.log_backup.index', ['records' => LogBackup::paginate(10)]);
+        return LogBackup::paginate(10);
     }    /**
      * Display the specified resource.
      *

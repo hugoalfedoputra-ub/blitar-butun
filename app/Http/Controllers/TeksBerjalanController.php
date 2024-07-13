@@ -23,7 +23,7 @@ class TeksBerjalanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.teks_berjalan.index', ['records' => TeksBerjalan::paginate(10)]);
+        return TeksBerjalan::paginate(10);
     }    /**
      * Display the specified resource.
      *

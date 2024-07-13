@@ -23,7 +23,7 @@ class TwebSuratFormatController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_surat_format.index', ['records' => TwebSuratFormat::paginate(10)]);
+        return TwebSuratFormat::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class SysTrafficController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.sys_traffic.index', ['records' => SysTraffic::paginate(10)]);
+        return SysTraffic::paginate(10);
     }    /**
      * Display the specified resource.
      *

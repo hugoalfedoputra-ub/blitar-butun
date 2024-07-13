@@ -23,7 +23,7 @@ class TwebPendudukUmurController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_umur.index', ['records' => TwebPendudukUmur::paginate(10)]);
+        return TwebPendudukUmur::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class TwebStatusKtpController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_status_ktp.index', ['records' => TwebStatusKtp::paginate(10)]);
+        return TwebStatusKtp::paginate(10);
     }    /**
      * Display the specified resource.
      *

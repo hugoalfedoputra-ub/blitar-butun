@@ -24,7 +24,6 @@ class AgendaController extends Controller
      */
     public function index(Request $request)
     {
-        // return view('pages.agenda.index', ['records' => Agenda::paginate(10)]);
         return Agenda::paginate(10);
     }
     /**

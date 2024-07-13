@@ -23,7 +23,7 @@ class GambarGalleryController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.gambar_gallery.index', ['records' => GambarGallery::paginate(10)]);
+        return GambarGallery::paginate(10);
     }    /**
      * Display the specified resource.
      *

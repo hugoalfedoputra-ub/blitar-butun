@@ -23,7 +23,7 @@ class UrlsController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.urls.index', ['records' => Urls::paginate(10)]);
+        return Urls::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class TwebPendudukKawinController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_kawin.index', ['records' => TwebPendudukKawin::paginate(10)]);
+        return TwebPendudukKawin::paginate(10);
     }    /**
      * Display the specified resource.
      *

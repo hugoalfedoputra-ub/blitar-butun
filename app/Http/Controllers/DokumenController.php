@@ -23,7 +23,7 @@ class DokumenController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.dokumen.index', ['records' => Dokumen::paginate(10)]);
+        return Dokumen::paginate(10);
     }    /**
      * Display the specified resource.
      *

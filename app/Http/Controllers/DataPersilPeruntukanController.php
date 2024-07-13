@@ -23,7 +23,7 @@ class DataPersilPeruntukanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.data_persil_peruntukan.index', ['records' => DataPersilPeruntukan::paginate(10)]);
+        return DataPersilPeruntukan::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class TwebPendudukHubunganController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_hubungan.index', ['records' => TwebPendudukHubungan::paginate(10)]);
+        return TwebPendudukHubungan::paginate(10);
     }    /**
      * Display the specified resource.
      *

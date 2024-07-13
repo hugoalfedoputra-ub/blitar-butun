@@ -23,7 +23,7 @@ class RefPendudukBidangController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_penduduk_bidang.index', ['records' => RefPendudukBidang::paginate(10)]);
+        return RefPendudukBidang::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class TanahDesaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tanah_desa.index', ['records' => TanahDesa::paginate(10)]);
+        return TanahDesa::paginate(10);
     }    /**
      * Display the specified resource.
      *

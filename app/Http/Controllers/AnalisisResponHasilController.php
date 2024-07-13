@@ -23,7 +23,7 @@ class AnalisisResponHasilController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_respon_hasil.index', ['records' => AnalisisResponHasil::paginate(10)]);
+        return AnalisisResponHasil::paginate(10);
     }    /**
      * Display the specified resource.
      *

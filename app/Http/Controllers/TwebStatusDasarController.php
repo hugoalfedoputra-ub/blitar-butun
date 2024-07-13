@@ -23,7 +23,7 @@ class TwebStatusDasarController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_status_dasar.index', ['records' => TwebStatusDasar::paginate(10)]);
+        return TwebStatusDasar::paginate(10);
     }    /**
      * Display the specified resource.
      *

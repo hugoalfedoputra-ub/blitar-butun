@@ -24,7 +24,7 @@ class KeuanganTaSpjpotController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_spjpot.index', ['records' => KeuanganTaSpjpot::paginate(10)]);
+        return KeuanganTaSpjpot::paginate(10);
     }    /**
      * Display the specified resource.
      *

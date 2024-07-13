@@ -23,7 +23,7 @@ class DokumenHidupController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.dokumen_hidup.index', ['records' => DokumenHidup::paginate(10)]);
+        return DokumenHidup::paginate(10);
     }    /**
      * Display the specified resource.
      *

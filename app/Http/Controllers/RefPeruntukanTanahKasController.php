@@ -23,7 +23,7 @@ class RefPeruntukanTanahKasController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_peruntukan_tanah_kas.index', ['records' => RefPeruntukanTanahKas::paginate(10)]);
+        return RefPeruntukanTanahKas::paginate(10);
     }    /**
      * Display the specified resource.
      *

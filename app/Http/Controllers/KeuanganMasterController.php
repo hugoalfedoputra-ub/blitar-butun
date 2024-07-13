@@ -23,7 +23,7 @@ class KeuanganMasterController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_master.index', ['records' => KeuanganMaster::paginate(10)]);
+        return KeuanganMaster::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class PembangunanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.pembangunan.index', ['records' => Pembangunan::paginate(10)]);
+        return Pembangunan::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class PesanDetailController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.pesan_detail.index', ['records' => PesanDetail::paginate(10)]);
+        return PesanDetail::paginate(10);
     }    /**
      * Display the specified resource.
      *

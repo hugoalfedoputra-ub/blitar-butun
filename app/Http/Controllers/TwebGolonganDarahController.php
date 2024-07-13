@@ -23,7 +23,7 @@ class TwebGolonganDarahController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_golongan_darah.index', ['records' => TwebGolonganDarah::paginate(10)]);
+        return TwebGolonganDarah::paginate(10);
     }    /**
      * Display the specified resource.
      *

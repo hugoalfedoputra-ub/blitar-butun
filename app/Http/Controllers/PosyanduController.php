@@ -23,7 +23,7 @@ class PosyanduController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.posyandu.index', ['records' => Posyandu::paginate(10)]);
+        return Posyandu::paginate(10);
     }    /**
      * Display the specified resource.
      *

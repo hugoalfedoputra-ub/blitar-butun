@@ -23,7 +23,7 @@ class LogSinkronisasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.log_sinkronisasi.index', ['records' => LogSinkronisasi::paginate(10)]);
+        return LogSinkronisasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class PasswordResetsController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.password_resets.index', ['records' => PasswordResets::paginate(10)]);
+        return PasswordResets::paginate(10);
     }    /**
      * Display the specified resource.
      *

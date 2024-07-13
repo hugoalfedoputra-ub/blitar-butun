@@ -23,7 +23,7 @@ class PersilController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.persil.index', ['records' => Persil::paginate(10)]);
+        return Persil::paginate(10);
     }    /**
      * Display the specified resource.
      *

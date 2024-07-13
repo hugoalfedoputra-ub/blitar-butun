@@ -23,7 +23,7 @@ class InventarisPeralatanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.inventaris_peralatan.index', ['records' => InventarisPeralatan::paginate(10)]);
+        return InventarisPeralatan::paginate(10);
     }    /**
      * Display the specified resource.
      *

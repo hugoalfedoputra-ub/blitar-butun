@@ -25,7 +25,7 @@ class DtksRefLampiranController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.dtks_ref_lampiran.index', ['records' => DtksRefLampiran::paginate(10)]);
+        return DtksRefLampiran::paginate(10);
     }    /**
      * Display the specified resource.
      *

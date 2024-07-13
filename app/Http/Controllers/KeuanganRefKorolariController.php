@@ -24,7 +24,7 @@ class KeuanganRefKorolariController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ref_korolari.index', ['records' => KeuanganRefKorolari::paginate(10)]);
+        return KeuanganRefKorolari::paginate(10);
     }    /**
      * Display the specified resource.
      *

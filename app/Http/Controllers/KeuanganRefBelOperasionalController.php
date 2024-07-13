@@ -24,7 +24,7 @@ class KeuanganRefBelOperasionalController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ref_bel_operasional.index', ['records' => KeuanganRefBelOperasional::paginate(10)]);
+        return KeuanganRefBelOperasional::paginate(10);
     }    /**
      * Display the specified resource.
      *

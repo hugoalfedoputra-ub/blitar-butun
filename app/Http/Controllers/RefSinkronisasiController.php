@@ -23,7 +23,7 @@ class RefSinkronisasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_sinkronisasi.index', ['records' => RefSinkronisasi::paginate(10)]);
+        return RefSinkronisasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

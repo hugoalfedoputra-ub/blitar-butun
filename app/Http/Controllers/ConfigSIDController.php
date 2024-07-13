@@ -23,7 +23,7 @@ class ConfigSIDController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.config.index', ['records' => ConfigSID::paginate(10)]);
+        return ConfigSID::paginate(10);
     }
     /**
      * Display the specified resource.

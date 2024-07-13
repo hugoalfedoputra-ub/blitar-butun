@@ -24,7 +24,7 @@ class KeuanganRefDesaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ref_desa.index', ['records' => KeuanganRefDesa::paginate(10)]);
+        return KeuanganRefDesa::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class MediaSosialController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.media_sosial.index', ['records' => MediaSosial::paginate(10)]);
+        return MediaSosial::paginate(10);
     }    /**
      * Display the specified resource.
      *

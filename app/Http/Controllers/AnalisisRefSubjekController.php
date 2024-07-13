@@ -23,7 +23,7 @@ class AnalisisRefSubjekController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_ref_subjek.index', ['records' => AnalisisRefSubjek::paginate(10)]);
+        return AnalisisRefSubjek::paginate(10);
     }    /**
      * Display the specified resource.
      *

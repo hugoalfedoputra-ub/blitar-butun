@@ -23,7 +23,7 @@ class UserGrupController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.user_grup.index', ['records' => UserGrup::paginate(10)]);
+        return UserGrup::paginate(10);
     }    /**
      * Display the specified resource.
      *

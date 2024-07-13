@@ -24,7 +24,7 @@ class TwebPendudukMandiriController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_mandiri.index', ['records' => TwebPendudukMandiri::paginate(10)]);
+        return TwebPendudukMandiri::paginate(10);
     }    /**
      * Display the specified resource.
      *

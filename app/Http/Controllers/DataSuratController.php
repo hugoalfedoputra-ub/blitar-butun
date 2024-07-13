@@ -23,7 +23,7 @@ class DataSuratController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.data_surat.index', ['records' => DataSurat::paginate(10)]);
+        return DataSurat::paginate(10);
     }    /**
      * Display the specified resource.
      *

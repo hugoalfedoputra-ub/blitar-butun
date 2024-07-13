@@ -23,7 +23,7 @@ class AnalisisResponController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_respon.index', ['records' => AnalisisRespon::paginate(10)]);
+        return AnalisisRespon::paginate(10);
     }    /**
      * Display the specified resource.
      *

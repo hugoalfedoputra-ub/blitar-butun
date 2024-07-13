@@ -23,7 +23,7 @@ class KeuanganManualRinciController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_manual_rinci.index', ['records' => KeuanganManualRinci::paginate(10)]);
+        return KeuanganManualRinci::paginate(10);
     }    /**
      * Display the specified resource.
      *

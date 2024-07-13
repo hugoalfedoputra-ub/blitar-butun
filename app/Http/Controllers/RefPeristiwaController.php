@@ -23,7 +23,7 @@ class RefPeristiwaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_peristiwa.index', ['records' => RefPeristiwa::paginate(10)]);
+        return RefPeristiwa::paginate(10);
     }    /**
      * Display the specified resource.
      *

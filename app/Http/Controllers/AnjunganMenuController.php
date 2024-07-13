@@ -23,7 +23,7 @@ class AnjunganMenuController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.anjungan_menu.index', ['records' => AnjunganMenu::paginate(10)]);
+        return AnjunganMenu::paginate(10);
     }    /**
      * Display the specified resource.
      *

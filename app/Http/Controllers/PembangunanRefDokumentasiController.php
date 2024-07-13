@@ -23,7 +23,7 @@ class PembangunanRefDokumentasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.pembangunan_ref_dokumentasi.index', ['records' => PembangunanRefDokumentasi::paginate(10)]);
+        return PembangunanRefDokumentasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class SettingModulController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.setting_modul.index', ['records' => SettingModul::paginate(10)]);
+        return SettingModul::paginate(10);
     }    /**
      * Display the specified resource.
      *

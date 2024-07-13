@@ -23,7 +23,7 @@ class TwebPendudukStatusController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_status.index', ['records' => TwebPendudukStatus::paginate(10)]);
+        return TwebPendudukStatus::paginate(10);
     }    /**
      * Display the specified resource.
      *

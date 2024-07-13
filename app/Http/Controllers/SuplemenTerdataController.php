@@ -24,7 +24,7 @@ class SuplemenTerdataController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.suplemen_terdata.index', ['records' => SuplemenTerdata::paginate(10)]);
+        return SuplemenTerdata::paginate(10);
     }    /**
      * Display the specified resource.
      *

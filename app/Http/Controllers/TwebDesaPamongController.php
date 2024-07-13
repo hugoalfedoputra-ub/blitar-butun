@@ -23,7 +23,7 @@ class TwebDesaPamongController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_desa_pamong.index', ['records' => TwebDesaPamong::paginate(10)]);
+        return TwebDesaPamong::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -25,7 +25,7 @@ class GrupAksesController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.grup_akses.index', ['records' => GrupAkses::paginate(10)]);
+        return GrupAkses::paginate(10);
     }    /**
      * Display the specified resource.
      *

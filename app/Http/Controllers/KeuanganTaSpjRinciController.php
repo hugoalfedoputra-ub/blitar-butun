@@ -24,7 +24,7 @@ class KeuanganTaSpjRinciController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_spj_rinci.index', ['records' => KeuanganTaSpjRinci::paginate(10)]);
+        return KeuanganTaSpjRinci::paginate(10);
     }    /**
      * Display the specified resource.
      *

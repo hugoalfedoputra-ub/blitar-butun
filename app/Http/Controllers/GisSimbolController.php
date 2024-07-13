@@ -23,7 +23,7 @@ class GisSimbolController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.gis_simbol.index', ['records' => GisSimbol::paginate(10)]);
+        return GisSimbol::paginate(10);
     }    /**
      * Display the specified resource.
      *

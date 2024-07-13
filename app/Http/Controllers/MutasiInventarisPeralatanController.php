@@ -24,7 +24,7 @@ class MutasiInventarisPeralatanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.mutasi_inventaris_peralatan.index', ['records' => MutasiInventarisPeralatan::paginate(10)]);
+        return MutasiInventarisPeralatan::paginate(10);
     }    /**
      * Display the specified resource.
      *

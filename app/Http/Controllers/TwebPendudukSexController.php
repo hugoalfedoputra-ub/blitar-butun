@@ -23,7 +23,7 @@ class TwebPendudukSexController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_sex.index', ['records' => TwebPendudukSex::paginate(10)]);
+        return TwebPendudukSex::paginate(10);
     }    /**
      * Display the specified resource.
      *

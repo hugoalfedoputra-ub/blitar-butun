@@ -23,7 +23,7 @@ class MigrasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.migrasi.index', ['records' => Migrasi::paginate(10)]);
+        return Migrasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

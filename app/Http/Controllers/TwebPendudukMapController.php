@@ -23,7 +23,7 @@ class TwebPendudukMapController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_map.index', ['records' => TwebPendudukMap::paginate(10)]);
+        return TwebPendudukMap::paginate(10);
     }    /**
      * Display the specified resource.
      *

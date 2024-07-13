@@ -23,7 +23,7 @@ class RefJabatanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_jabatan.index', ['records' => RefJabatan::paginate(10)]);
+        return RefJabatan::paginate(10);
     }    /**
      * Display the specified resource.
      *

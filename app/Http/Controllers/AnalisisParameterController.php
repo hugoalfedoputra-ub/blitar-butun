@@ -23,7 +23,7 @@ class AnalisisParameterController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_parameter.index', ['records' => AnalisisParameter::paginate(10)]);
+        return AnalisisParameter::paginate(10);
     }    /**
      * Display the specified resource.
      *

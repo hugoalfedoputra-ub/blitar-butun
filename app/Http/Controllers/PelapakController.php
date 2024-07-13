@@ -23,7 +23,7 @@ class PelapakController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.pelapak.index', ['records' => Pelapak::paginate(10)]);
+        return Pelapak::paginate(10);
     }    /**
      * Display the specified resource.
      *

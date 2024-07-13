@@ -23,7 +23,7 @@ class AnalisisRefStateController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_ref_state.index', ['records' => AnalisisRefState::paginate(10)]);
+        return AnalisisRefState::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class BukuPertanyaanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.buku_pertanyaan.index', ['records' => BukuPertanyaan::paginate(10)]);
+        return BukuPertanyaan::paginate(10);
     }    /**
      * Display the specified resource.
      *

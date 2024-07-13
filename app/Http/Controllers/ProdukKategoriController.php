@@ -23,7 +23,7 @@ class ProdukKategoriController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.produk_kategori.index', ['records' => ProdukKategori::paginate(10)]);
+        return ProdukKategori::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class DataPersilJenisController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.data_persil_jenis.index', ['records' => DataPersilJenis::paginate(10)]);
+        return DataPersilJenis::paginate(10);
     }    /**
      * Display the specified resource.
      *

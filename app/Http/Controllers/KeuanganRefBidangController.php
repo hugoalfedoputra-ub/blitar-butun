@@ -24,7 +24,7 @@ class KeuanganRefBidangController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ref_bidang.index', ['records' => KeuanganRefBidang::paginate(10)]);
+        return KeuanganRefBidang::paginate(10);
     }    /**
      * Display the specified resource.
      *

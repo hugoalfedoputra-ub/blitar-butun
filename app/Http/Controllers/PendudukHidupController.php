@@ -23,7 +23,7 @@ class PendudukHidupController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.penduduk_hidup.index', ['records' => PendudukHidup::paginate(10)]);
+        return PendudukHidup::paginate(10);
     }    /**
      * Display the specified resource.
      *

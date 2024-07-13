@@ -24,7 +24,7 @@ class MutasiInventarisTanahController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.mutasi_inventaris_tanah.index', ['records' => MutasiInventarisTanah::paginate(10)]);
+        return MutasiInventarisTanah::paginate(10);
     }    /**
      * Display the specified resource.
      *

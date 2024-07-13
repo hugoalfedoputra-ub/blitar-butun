@@ -23,7 +23,7 @@ class RefPersilMutasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ref_persil_mutasi.index', ['records' => RefPersilMutasi::paginate(10)]);
+        return RefPersilMutasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

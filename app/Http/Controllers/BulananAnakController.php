@@ -23,7 +23,7 @@ class BulananAnakController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.bulanan_anak.index', ['records' => BulananAnak::paginate(10)]);
+        return BulananAnak::paginate(10);
     }    /**
      * Display the specified resource.
      *

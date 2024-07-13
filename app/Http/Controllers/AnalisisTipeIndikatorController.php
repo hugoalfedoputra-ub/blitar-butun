@@ -23,7 +23,7 @@ class AnalisisTipeIndikatorController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_tipe_indikator.index', ['records' => AnalisisTipeIndikator::paginate(10)]);
+        return AnalisisTipeIndikator::paginate(10);
     }    /**
      * Display the specified resource.
      *

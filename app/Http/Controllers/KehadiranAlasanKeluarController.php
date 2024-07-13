@@ -23,7 +23,7 @@ class KehadiranAlasanKeluarController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kehadiran_alasan_keluar.index', ['records' => KehadiranAlasanKeluar::paginate(10)]);
+        return KehadiranAlasanKeluar::paginate(10);
     }    /**
      * Display the specified resource.
      *

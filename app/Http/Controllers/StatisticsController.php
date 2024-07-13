@@ -23,7 +23,7 @@ class StatisticsController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.statistics.index', ['records' => Statistics::paginate(10)]);
+        return Statistics::paginate(10);
     }    /**
      * Display the specified resource.
      *

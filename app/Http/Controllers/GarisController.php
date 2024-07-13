@@ -23,7 +23,7 @@ class GarisController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.garis.index', ['records' => Garis::paginate(10)]);
+        return Garis::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class RekapMutasiInventarisController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.rekap_mutasi_inventaris.index', ['records' => RekapMutasiInventaris::paginate(10)]);
+        return RekapMutasiInventaris::paginate(10);
     }    /**
      * Display the specified resource.
      *

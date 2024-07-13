@@ -26,7 +26,7 @@ class AnggotaGrupKontakController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.anggota_grup_kontak.index', ['records' => AnggotaGrupKontak::paginate(10)]);
+        return AnggotaGrupKontak::paginate(10);
     }    /**
      * Display the specified resource.
      *

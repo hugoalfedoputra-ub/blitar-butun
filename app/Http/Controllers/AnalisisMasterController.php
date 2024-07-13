@@ -23,7 +23,7 @@ class AnalisisMasterController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.analisis_master.index', ['records' => AnalisisMaster::paginate(10)]);
+        return AnalisisMaster::paginate(10);
     }    /**
      * Display the specified resource.
      *

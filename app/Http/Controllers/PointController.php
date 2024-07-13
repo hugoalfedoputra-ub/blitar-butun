@@ -23,7 +23,7 @@ class PointController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.point.index', ['records' => Point::paginate(10)]);
+        return Point::paginate(10);
     }    /**
      * Display the specified resource.
      *

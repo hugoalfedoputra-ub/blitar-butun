@@ -23,7 +23,7 @@ class LogTolakController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.log_tolak.index', ['records' => LogTolak::paginate(10)]);
+        return LogTolak::paginate(10);
     }    /**
      * Display the specified resource.
      *

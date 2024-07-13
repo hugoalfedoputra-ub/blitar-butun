@@ -24,7 +24,7 @@ class KeuanganTaRpjmMisiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_rpjm_misi.index', ['records' => KeuanganTaRpjmMisi::paginate(10)]);
+        return KeuanganTaRpjmMisi::paginate(10);
     }    /**
      * Display the specified resource.
      *

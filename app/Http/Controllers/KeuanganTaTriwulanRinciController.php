@@ -24,7 +24,7 @@ class KeuanganTaTriwulanRinciController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_triwulan_rinci.index', ['records' => KeuanganTaTriwulanRinci::paginate(10)]);
+        return KeuanganTaTriwulanRinci::paginate(10);
     }    /**
      * Display the specified resource.
      *

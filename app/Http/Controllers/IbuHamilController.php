@@ -23,7 +23,7 @@ class IbuHamilController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.ibu_hamil.index', ['records' => IbuHamil::paginate(10)]);
+        return IbuHamil::paginate(10);
     }    /**
      * Display the specified resource.
      *

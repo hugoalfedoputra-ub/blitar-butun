@@ -23,7 +23,7 @@ class InventarisJalanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.inventaris_jalan.index', ['records' => InventarisJalan::paginate(10)]);
+        return InventarisJalan::paginate(10);
     }    /**
      * Display the specified resource.
      *

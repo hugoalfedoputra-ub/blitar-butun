@@ -23,7 +23,7 @@ class NotifikasiController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.notifikasi.index', ['records' => Notifikasi::paginate(10)]);
+        return Notifikasi::paginate(10);
     }    /**
      * Display the specified resource.
      *

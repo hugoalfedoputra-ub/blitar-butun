@@ -23,7 +23,7 @@ class TwebCaraKbController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_cara_kb.index', ['records' => TwebCaraKb::paginate(10)]);
+        return TwebCaraKb::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -25,7 +25,7 @@ class DtksController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.dtks.index', ['records' => Dtks::paginate(10)]);
+        return Dtks::paginate(10);
     }    /**
      * Display the specified resource.
      *

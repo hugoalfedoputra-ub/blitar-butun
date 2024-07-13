@@ -23,7 +23,7 @@ class TwebCacatController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_cacat.index', ['records' => TwebCacat::paginate(10)]);
+        return TwebCacat::paginate(10);
     }    /**
      * Display the specified resource.
      *

@@ -23,7 +23,7 @@ class KaderPemberdayaanMasyarakatController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kader_pemberdayaan_masyarakat.index', ['records' => KaderPemberdayaanMasyarakat::paginate(10)]);
+        return KaderPemberdayaanMasyarakat::paginate(10);
     }    /**
      * Display the specified resource.
      *

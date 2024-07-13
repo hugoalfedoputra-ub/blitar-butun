@@ -24,7 +24,7 @@ class KeuanganTaSaldoAwalController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_ta_saldo_awal.index', ['records' => KeuanganTaSaldoAwal::paginate(10)]);
+        return KeuanganTaSaldoAwal::paginate(10);
     }    /**
      * Display the specified resource.
      *

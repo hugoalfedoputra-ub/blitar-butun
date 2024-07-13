@@ -23,7 +23,7 @@ class TwebPendudukPendidikanController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.tweb_penduduk_pendidikan.index', ['records' => TwebPendudukPendidikan::paginate(10)]);
+        return TwebPendudukPendidikan::paginate(10);
     }    /**
      * Display the specified resource.
      *

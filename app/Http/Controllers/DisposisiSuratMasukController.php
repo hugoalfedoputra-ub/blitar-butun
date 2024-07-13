@@ -25,7 +25,7 @@ class DisposisiSuratMasukController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.disposisi_surat_masuk.index', ['records' => DisposisiSuratMasuk::paginate(10)]);
+        return DisposisiSuratMasuk::paginate(10);
     }    /**
      * Display the specified resource.
      *

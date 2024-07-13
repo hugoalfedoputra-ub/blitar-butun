@@ -23,7 +23,7 @@ class KeuanganManualRefRek1Controller extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.keuangan_manual_ref_rek1.index', ['records' => KeuanganManualRefRek1::paginate(10)]);
+        return KeuanganManualRefRek1::paginate(10);
     }    /**
      * Display the specified resource.
      *

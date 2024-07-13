@@ -23,7 +23,7 @@ class KehadiranJamKerjaController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.kehadiran_jam_kerja.index', ['records' => KehadiranJamKerja::paginate(10)]);
+        return KehadiranJamKerja::paginate(10);
     }    /**
      * Display the specified resource.
      *

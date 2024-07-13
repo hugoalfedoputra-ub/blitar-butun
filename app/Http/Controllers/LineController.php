@@ -23,7 +23,7 @@ class LineController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.line.index', ['records' => Line::paginate(10)]);
+        return Line::paginate(10);
     }    /**
      * Display the specified resource.
      *

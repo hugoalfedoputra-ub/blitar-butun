@@ -23,7 +23,7 @@ class LogSuratController extends Controller
      */
     public function index(Request $request)
     {
-        return view('pages.log_surat.index', ['records' => LogSurat::paginate(10)]);
+        return LogSurat::paginate(10);
     }    /**
      * Display the specified resource.
      *
