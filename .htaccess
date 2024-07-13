@@ -35,5 +35,5 @@ Require all denied
 
 
 <IfModule mod_alias.c>
-RedirectMatch 301 ^/$ https://dev.blitar-butun.desa.id/public
+RedirectMatch 301 ^/$ https://api.blitar-butun.desa.id/public
 </IfModule>
