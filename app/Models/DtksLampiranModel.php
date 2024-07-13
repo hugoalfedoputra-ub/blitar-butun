@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_rtm id rtm
 @property varchar $judul judul
@@ -13,47 +15,46 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $dtksRefLampiran hasMany
    
  */
-class DtksLampiranModel extends Model 
+class DtksLampiran extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'dtks_lampiran';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_rtm',
-'judul',
-'keterangan',
-'foto'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_rtm',
+        'judul',
+        'keterangan',
+        'foto'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idRtm
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idRtm
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idRtm()
     {
-        return $this->belongsTo(TwebRtm::class,'id_rtm');
+        return $this->belongsTo(TwebRtm::class, 'id_rtm');
     }
 
     /**
-    * dtksRefLampirans
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * dtksRefLampirans
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function dtksRefLampirans()
     {
-        return $this->hasMany(DtksRefLampiran::class,'id_lampiran');
+        return $this->hasMany(DtksRefLampiran::class, 'id_lampiran');
     }
-
-
-
 }

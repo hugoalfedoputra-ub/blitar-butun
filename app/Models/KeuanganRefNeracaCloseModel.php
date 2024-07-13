@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_keuangan_master id keuangan master
 @property varchar $Kd_Rincian Kd Rincian
@@ -9,38 +11,36 @@ use Illuminate\Database\Eloquent\Model;
 @property IdKeuanganMaster $keuanganMaster belongsTo
    
  */
-class KeuanganRefNeracaCloseModel extends Model 
+class KeuanganRefNeracaClose extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'keuangan_ref_neraca_close';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['Kelompok',
-'id_keuangan_master',
-'Kd_Rincian',
-'Kelompok'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'Kelompok',
+        'id_keuangan_master',
+        'Kd_Rincian',
+        'Kelompok'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idKeuanganMaster
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKeuanganMaster
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKeuanganMaster()
     {
-        return $this->belongsTo(KeuanganMaster::class,'id_keuangan_master');
+        return $this->belongsTo(KeuanganMaster::class, 'id_keuangan_master');
     }
-
-
-
-
 }

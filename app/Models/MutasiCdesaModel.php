@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_cdesa_masuk id cdesa masuk
 @property int $cdesa_keluar cdesa keluar
@@ -17,46 +19,44 @@ use Illuminate\Database\Eloquent\Model;
 @property IdCdesaMasuk $cdesa belongsTo
    
  */
-class MutasiCdesaModel extends Model 
+class MutasiCdesa extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'mutasi_cdesa';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_peta',
-'id_cdesa_masuk',
-'cdesa_keluar',
-'jenis_mutasi',
-'tanggal_mutasi',
-'keterangan',
-'id_persil',
-'no_bidang_persil',
-'luas',
-'no_objek_pajak',
-'path',
-'id_peta'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_peta',
+        'id_cdesa_masuk',
+        'cdesa_keluar',
+        'jenis_mutasi',
+        'tanggal_mutasi',
+        'keterangan',
+        'id_persil',
+        'no_bidang_persil',
+        'luas',
+        'no_objek_pajak',
+        'path',
+        'id_peta'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_mutasi'];
+     * Date time columns.
+     */
+    protected $dates = ['tanggal_mutasi'];
 
     /**
-    * idCdesaMasuk
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idCdesaMasuk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idCdesaMasuk()
     {
-        return $this->belongsTo(Cdesa::class,'id_cdesa_masuk');
+        return $this->belongsTo(Cdesa::class, 'id_cdesa_masuk');
     }
-
-
-
-
 }

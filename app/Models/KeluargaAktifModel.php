@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $no_kk no kk
 @property varchar $nik_kepala nik kepala
@@ -14,34 +16,34 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class KeluargaAktifModel extends Model 
+class KeluargaAktif extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'keluarga_aktif';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'no_kk',
-'nik_kepala',
-'tgl_daftar',
-'kelas_sosial',
-'tgl_cetak_kk',
-'alamat',
-'id_cluster',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'no_kk',
+        'nik_kepala',
+        'tgl_daftar',
+        'kelas_sosial',
+        'tgl_cetak_kk',
+        'alamat',
+        'id_cluster',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_daftar',
-'tgl_cetak_kk'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [
+        'tgl_daftar',
+        'tgl_cetak_kk'
+    ];
 }

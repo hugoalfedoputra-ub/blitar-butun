@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama_barang nama barang
 @property varchar $kode_barang kode barang
@@ -25,51 +27,50 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $mutasiInventarisTanah hasMany
    
  */
-class InventarisTanahModel extends Model 
+class InventarisTanah extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'inventaris_tanah';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['visible',
-'nama_barang',
-'kode_barang',
-'register',
-'luas',
-'tahun_pengadaan',
-'letak',
-'hak',
-'no_sertifikat',
-'tanggal_sertifikat',
-'penggunaan',
-'asal',
-'harga',
-'keterangan',
-'created_by',
-'updated_by',
-'status',
-'visible'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'visible',
+        'nama_barang',
+        'kode_barang',
+        'register',
+        'luas',
+        'tahun_pengadaan',
+        'letak',
+        'hak',
+        'no_sertifikat',
+        'tanggal_sertifikat',
+        'penggunaan',
+        'asal',
+        'harga',
+        'keterangan',
+        'created_by',
+        'updated_by',
+        'status',
+        'visible'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_sertifikat'];
+     * Date time columns.
+     */
+    protected $dates = ['tanggal_sertifikat'];
 
     /**
-    * mutasiInventarisTanahs
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * mutasiInventarisTanahs
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function mutasiInventarisTanahs()
     {
-        return $this->hasMany(MutasiInventarisTanah::class,'id_inventaris_tanah');
+        return $this->hasMany(MutasiInventarisTanah::class, 'id_inventaris_tanah');
     }
-
-
-
 }

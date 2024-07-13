@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property mediumtext $path path
@@ -12,32 +14,30 @@ use Illuminate\Database\Eloquent\Model;
 @property mediumtext $desk desk
    
  */
-class AreaModel extends Model 
+class Area extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'area';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['desk',
-'nama',
-'path',
-'enabled',
-'ref_polygon',
-'foto',
-'id_cluster',
-'desk'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'desk',
+        'nama',
+        'path',
+        'enabled',
+        'ref_polygon',
+        'foto',
+        'id_cluster',
+        'desk'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

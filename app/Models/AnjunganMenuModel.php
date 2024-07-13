@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property text $icon icon
@@ -15,33 +17,31 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class AnjunganMenuModel extends Model 
+class AnjunganMenu extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'anjungan_menu';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'nama',
-'icon',
-'link',
-'link_tipe',
-'urut',
-'status',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'nama',
+        'icon',
+        'link',
+        'link_tipe',
+        'urut',
+        'status',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

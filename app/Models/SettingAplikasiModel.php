@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $judul judul
 @property varchar $key key
@@ -13,33 +15,31 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $kategori kategori
    
  */
-class SettingAplikasiModel extends Model 
+class SettingAplikasi extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'setting_aplikasi';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['kategori',
-'judul',
-'key',
-'value',
-'keterangan',
-'jenis',
-'option',
-'attribute',
-'kategori'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'kategori',
+        'judul',
+        'key',
+        'value',
+        'keterangan',
+        'jenis',
+        'option',
+        'attribute',
+        'kategori'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id id
 @property varchar $nama_barang nama barang
@@ -12,31 +14,29 @@ use Illuminate\Database\Eloquent\Model;
 @property decimal $tahun_pengadaan tahun pengadaan
    
  */
-class MasterInventarisModel extends Model 
+class MasterInventaris extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'master_inventaris';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['tahun_pengadaan',
-'nama_barang',
-'kode_barang',
-'kondisi',
-'keterangan',
-'asal',
-'tahun_pengadaan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'tahun_pengadaan',
+        'nama_barang',
+        'kode_barang',
+        'kondisi',
+        'keterangan',
+        'asal',
+        'tahun_pengadaan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

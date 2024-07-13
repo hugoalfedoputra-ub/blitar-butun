@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_grup id grup
 @property varchar $subjek subjek
@@ -13,40 +15,38 @@ use Illuminate\Database\Eloquent\Model;
 @property IdGrup $kontakGrup belongsTo
    
  */
-class HubungWargaModel extends Model 
+class HubungWarga extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'hubung_warga';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'id_grup',
-'subjek',
-'isi',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'id_grup',
+        'subjek',
+        'isi',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idGrup
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idGrup
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idGrup()
     {
-        return $this->belongsTo(KontakGrup::class,'id_grup');
+        return $this->belongsTo(KontakGrup::class, 'id_grup');
     }
-
-
-
-
 }

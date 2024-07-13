@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property varchar $sex sex
@@ -21,41 +23,39 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $kepala_kk kepala kk
    
  */
-class DataSuratModel extends Model 
+class DataSurat extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'data_surat';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['kepala_kk',
-'nama',
-'sex',
-'tempatlahir',
-'tanggallahir',
-'umur',
-'status_kawin',
-'warganegara',
-'agama',
-'pendidikan',
-'pekerjaan',
-'nik',
-'rt',
-'rw',
-'dusun',
-'no_kk',
-'kepala_kk'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'kepala_kk',
+        'nama',
+        'sex',
+        'tempatlahir',
+        'tanggallahir',
+        'umur',
+        'status_kawin',
+        'warganegara',
+        'agama',
+        'pendidikan',
+        'pekerjaan',
+        'nik',
+        'rt',
+        'rw',
+        'dusun',
+        'no_kk',
+        'kepala_kk'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggallahir'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tanggallahir'];
 }

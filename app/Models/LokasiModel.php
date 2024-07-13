@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property mediumtext $desk desk
 @property varchar $nama nama
@@ -13,33 +15,31 @@ use Illuminate\Database\Eloquent\Model;
 @property int $id_cluster id cluster
    
  */
-class LokasiModel extends Model 
+class Lokasi extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'lokasi';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_cluster',
-'desk',
-'nama',
-'enabled',
-'lat',
-'lng',
-'ref_point',
-'foto',
-'id_cluster'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_cluster',
+        'desk',
+        'nama',
+        'enabled',
+        'lat',
+        'lng',
+        'ref_point',
+        'foto',
+        'id_cluster'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

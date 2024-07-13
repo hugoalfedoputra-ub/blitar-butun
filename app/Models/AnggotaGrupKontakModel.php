@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_grup id grup
 @property int $id_kontak id kontak
@@ -13,57 +15,55 @@ use Illuminate\Database\Eloquent\Model;
 @property IdGrup $kontakGrup belongsTo
    
  */
-class AnggotaGrupKontakModel extends Model 
+class AnggotaGrupKontak extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'anggota_grup_kontak';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_grup',
-'id_kontak',
-'id_penduduk'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_grup',
+        'id_kontak',
+        'id_penduduk'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idPenduduk
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idPenduduk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idPenduduk()
     {
-        return $this->belongsTo(TwebPenduduk::class,'id_penduduk');
+        return $this->belongsTo(TwebPenduduk::class, 'id_penduduk');
     }
 
     /**
-    * idKontak
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKontak
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKontak()
     {
-        return $this->belongsTo(Kontak::class,'id_kontak');
+        return $this->belongsTo(Kontak::class, 'id_kontak');
     }
 
     /**
-    * idGrup
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idGrup
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idGrup()
     {
-        return $this->belongsTo(KontakGrup::class,'id_grup');
+        return $this->belongsTo(KontakGrup::class, 'id_grup');
     }
-
-
-
-
 }

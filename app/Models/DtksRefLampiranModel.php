@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_dtks id dtks
 @property int $id_lampiran id lampiran
@@ -9,47 +11,45 @@ use Illuminate\Database\Eloquent\Model;
 @property IdDtk $dtk belongsTo
    
  */
-class DtksRefLampiranModel extends Model 
+class DtksRefLampiran extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'dtks_ref_lampiran';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_lampiran',
-'id_dtks',
-'id_lampiran'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_lampiran',
+        'id_dtks',
+        'id_lampiran'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idLampiran
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idLampiran
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idLampiran()
     {
-        return $this->belongsTo(DtksLampiran::class,'id_lampiran');
+        return $this->belongsTo(DtksLampiran::class, 'id_lampiran');
     }
 
     /**
-    * idDtk
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idDtk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idDtk()
     {
-        return $this->belongsTo(Dtk::class,'id_dtks');
+        return $this->belongsTo(Dtk::class, 'id_dtks');
     }
-
-
-
-
 }

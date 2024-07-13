@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nik nik
 @property varchar $nama nama
@@ -17,37 +19,35 @@ use Illuminate\Database\Eloquent\Model;
 @property timestamp $rdate rdate
    
  */
-class DataPersilModel extends Model 
+class DataPersil extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'data_persil';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['rdate',
-'nik',
-'nama',
-'persil_jenis_id',
-'id_clusterdesa',
-'luas',
-'no_sppt_pbb',
-'kelas',
-'persil_peruntukan_id',
-'alamat_ext',
-'userID',
-'peta',
-'rdate'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'rdate',
+        'nik',
+        'nama',
+        'persil_jenis_id',
+        'id_clusterdesa',
+        'luas',
+        'no_sppt_pbb',
+        'kelas',
+        'persil_peruntukan_id',
+        'alamat_ext',
+        'userID',
+        'peta',
+        'rdate'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['rdate'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['rdate'];
 }

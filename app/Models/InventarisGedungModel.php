@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama_barang nama barang
 @property varchar $kode_barang kode barang
@@ -28,54 +30,53 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $mutasiInventarisGedung hasMany
    
  */
-class InventarisGedungModel extends Model 
+class InventarisGedung extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'inventaris_gedung';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['visible',
-'nama_barang',
-'kode_barang',
-'register',
-'kondisi_bangunan',
-'kontruksi_bertingkat',
-'kontruksi_beton',
-'luas_bangunan',
-'letak',
-'tanggal_dokument',
-'no_dokument',
-'luas',
-'status_tanah',
-'kode_tanah',
-'asal',
-'harga',
-'keterangan',
-'created_by',
-'updated_by',
-'status',
-'visible'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'visible',
+        'nama_barang',
+        'kode_barang',
+        'register',
+        'kondisi_bangunan',
+        'kontruksi_bertingkat',
+        'kontruksi_beton',
+        'luas_bangunan',
+        'letak',
+        'tanggal_dokument',
+        'no_dokument',
+        'luas',
+        'status_tanah',
+        'kode_tanah',
+        'asal',
+        'harga',
+        'keterangan',
+        'created_by',
+        'updated_by',
+        'status',
+        'visible'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_dokument'];
+     * Date time columns.
+     */
+    protected $dates = ['tanggal_dokument'];
 
     /**
-    * mutasiInventarisGedungs
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * mutasiInventarisGedungs
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function mutasiInventarisGedungs()
     {
-        return $this->hasMany(MutasiInventarisGedung::class,'id_inventaris_gedung');
+        return $this->hasMany(MutasiInventarisGedung::class, 'id_inventaris_gedung');
     }
-
-
-
 }

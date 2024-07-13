@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $parrent parrent
 @property varchar $gambar gambar
@@ -13,33 +15,31 @@ use Illuminate\Database\Eloquent\Model;
 @property int $urut urut
    
  */
-class GambarGalleryModel extends Model 
+class GambarGallery extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'gambar_gallery';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['urut',
-'parrent',
-'gambar',
-'nama',
-'enabled',
-'tgl_upload',
-'tipe',
-'slider',
-'urut'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'urut',
+        'parrent',
+        'gambar',
+        'nama',
+        'enabled',
+        'tgl_upload',
+        'tipe',
+        'slider',
+        'urut'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_upload'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tgl_upload'];
 }

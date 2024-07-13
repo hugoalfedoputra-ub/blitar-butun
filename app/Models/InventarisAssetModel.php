@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama_barang nama barang
 @property varchar $kode_barang kode barang
@@ -30,56 +32,55 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $mutasiInventarisAsset hasMany
    
  */
-class InventarisAssetModel extends Model 
+class InventarisAsset extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'inventaris_asset';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['visible',
-'nama_barang',
-'kode_barang',
-'register',
-'jenis',
-'judul_buku',
-'spesifikasi_buku',
-'asal_daerah',
-'pencipta',
-'bahan',
-'jenis_hewan',
-'ukuran_hewan',
-'jenis_tumbuhan',
-'ukuran_tumbuhan',
-'jumlah',
-'tahun_pengadaan',
-'asal',
-'harga',
-'keterangan',
-'created_by',
-'updated_by',
-'status',
-'visible'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'visible',
+        'nama_barang',
+        'kode_barang',
+        'register',
+        'jenis',
+        'judul_buku',
+        'spesifikasi_buku',
+        'asal_daerah',
+        'pencipta',
+        'bahan',
+        'jenis_hewan',
+        'ukuran_hewan',
+        'jenis_tumbuhan',
+        'ukuran_tumbuhan',
+        'jumlah',
+        'tahun_pengadaan',
+        'asal',
+        'harga',
+        'keterangan',
+        'created_by',
+        'updated_by',
+        'status',
+        'visible'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * mutasiInventarisAssets
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * mutasiInventarisAssets
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function mutasiInventarisAssets()
     {
-        return $this->hasMany(MutasiInventarisAsset::class,'id_inventaris_asset');
+        return $this->hasMany(MutasiInventarisAsset::class, 'id_inventaris_asset');
     }
-
-
-
 }

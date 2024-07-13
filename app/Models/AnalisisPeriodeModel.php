@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_master id master
 @property varchar $nama nama
@@ -11,31 +13,29 @@ use Illuminate\Database\Eloquent\Model;
 @property year $tahun_pelaksanaan tahun pelaksanaan
    
  */
-class AnalisisPeriodeModel extends Model 
+class AnalisisPeriode extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'analisis_periode';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['tahun_pelaksanaan',
-'id_master',
-'nama',
-'id_state',
-'aktif',
-'keterangan',
-'tahun_pelaksanaan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'tahun_pelaksanaan',
+        'id_master',
+        'nama',
+        'id_state',
+        'aktif',
+        'keterangan',
+        'tahun_pelaksanaan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

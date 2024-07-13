@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $versi_kuisioner versi kuisioner
 @property varchar $kode kode
@@ -14,40 +16,38 @@ use Illuminate\Database\Eloquent\Model;
 @property IdBantuan $program belongsTo
    
  */
-class DtksPengaturanProgramModel extends Model 
+class DtksPengaturanProgram extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'dtks_pengaturan_program';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['versi_kuisioner',
-'kode',
-'id_bantuan',
-'nilai_default',
-'target_table',
-'target_field'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'versi_kuisioner',
+        'kode',
+        'id_bantuan',
+        'nilai_default',
+        'target_table',
+        'target_field'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idBantuan
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idBantuan
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idBantuan()
     {
-        return $this->belongsTo(Program::class,'id_bantuan');
+        return $this->belongsTo(Program::class, 'id_bantuan');
     }
-
-
-
-
 }

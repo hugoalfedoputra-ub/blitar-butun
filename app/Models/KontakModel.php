@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property varchar $telepon telepon
@@ -14,39 +16,38 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $anggotagrup belongsToMany
    
  */
-class KontakModel extends Model 
+class Kontak extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'kontak';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['nama',
-'telepon',
-'email',
-'telegram',
-'hubung_warga',
-'keterangan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'nama',
+        'telepon',
+        'email',
+        'telegram',
+        'hubung_warga',
+        'keterangan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * anggotagrups
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    */
+     * anggotagrups
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function anggotagrups()
     {
-        return $this->belongsToMany(Anggotagrup::class,'anggota_grup_kontak');
+        return $this->belongsToMany(AnggotaGrupKontak::class, 'anggota_grup_kontak');
     }
-
-
-
 }

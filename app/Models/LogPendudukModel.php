@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_pend id pend
 @property int $kode_peristiwa kode peristiwa
@@ -26,62 +28,63 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $logKeluarga hasMany
    
  */
-class LogPendudukModel extends Model 
+class LogPenduduk extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'log_penduduk';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['maksud_tujuan_kedatangan',
-'id_pend',
-'kode_peristiwa',
-'meninggal_di',
-'jam_mati',
-'sebab',
-'penolong_mati',
-'akta_mati',
-'alamat_tujuan',
-'tgl_lapor',
-'tgl_peristiwa',
-'catatan',
-'no_kk',
-'nama_kk',
-'ref_pindah',
-'created_by',
-'updated_by',
-'maksud_tujuan_kedatangan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'maksud_tujuan_kedatangan',
+        'id_pend',
+        'kode_peristiwa',
+        'meninggal_di',
+        'jam_mati',
+        'sebab',
+        'penolong_mati',
+        'akta_mati',
+        'alamat_tujuan',
+        'tgl_lapor',
+        'tgl_peristiwa',
+        'catatan',
+        'no_kk',
+        'nama_kk',
+        'ref_pindah',
+        'created_by',
+        'updated_by',
+        'maksud_tujuan_kedatangan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_lapor',
-'tgl_peristiwa'];
+     * Date time columns.
+     */
+    protected $dates = [
+        'tgl_lapor',
+        'tgl_peristiwa'
+    ];
 
     /**
-    * refPindah
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * refPindah
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function refPindah()
     {
-        return $this->belongsTo(RefPindah::class,'ref_pindah');
+        return $this->belongsTo(RefPindah::class, 'ref_pindah');
     }
 
     /**
-    * logKeluargas
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * logKeluargas
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function logKeluargas()
     {
-        return $this->hasMany(LogKeluarga::class,'id_log_penduduk');
+        return $this->hasMany(LogKeluarga::class, 'id_log_penduduk');
     }
-
-
-
 }

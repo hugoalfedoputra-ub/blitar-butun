@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $vaksin_1 vaksin 1
 @property date $tgl_vaksin_1 tgl vaksin 1
@@ -20,42 +22,42 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $surat_dokter surat dokter
    
  */
-class Covid19VaksinModel extends Model 
+class Covid19Vaksin extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'covid19_vaksin';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['surat_dokter',
-'vaksin_1',
-'tgl_vaksin_1',
-'dokumen_vaksin_1',
-'jenis_vaksin_1',
-'vaksin_2',
-'tgl_vaksin_2',
-'dokumen_vaksin_2',
-'jenis_vaksin_2',
-'vaksin_3',
-'tgl_vaksin_3',
-'dokumen_vaksin_3',
-'jenis_vaksin_3',
-'tunda',
-'keterangan',
-'surat_dokter'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'surat_dokter',
+        'vaksin_1',
+        'tgl_vaksin_1',
+        'dokumen_vaksin_1',
+        'jenis_vaksin_1',
+        'vaksin_2',
+        'tgl_vaksin_2',
+        'dokumen_vaksin_2',
+        'jenis_vaksin_2',
+        'vaksin_3',
+        'tgl_vaksin_3',
+        'dokumen_vaksin_3',
+        'jenis_vaksin_3',
+        'tunda',
+        'keterangan',
+        'surat_dokter'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_vaksin_1',
-'tgl_vaksin_2',
-'tgl_vaksin_3'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [
+        'tgl_vaksin_1',
+        'tgl_vaksin_2',
+        'tgl_vaksin_3'
+    ];
 }

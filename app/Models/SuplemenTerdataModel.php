@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_suplemen id suplemen
 @property varchar $id_terdata id terdata
@@ -10,39 +12,37 @@ use Illuminate\Database\Eloquent\Model;
 @property IdSupleman $supleman belongsTo
    
  */
-class SuplemenTerdataModel extends Model 
+class SuplemenTerdata extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'suplemen_terdata';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['keterangan',
-'id_suplemen',
-'id_terdata',
-'sasaran',
-'keterangan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'keterangan',
+        'id_suplemen',
+        'id_terdata',
+        'sasaran',
+        'keterangan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idSupleman
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idSupleman
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idSupleman()
     {
-        return $this->belongsTo(Supleman::class,'id_suplemen');
+        return $this->belongsTo(Suplemen::class, 'id_suplemen');
     }
-
-
-
-
 }

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property varchar $link link
@@ -11,31 +13,29 @@ use Illuminate\Database\Eloquent\Model;
 @property int $urut urut
    
  */
-class MenuModel extends Model 
+class Menu extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'menu';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['urut',
-'nama',
-'link',
-'parrent',
-'link_tipe',
-'enabled',
-'urut'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'urut',
+        'nama',
+        'link',
+        'parrent',
+        'link_tipe',
+        'enabled',
+        'urut'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

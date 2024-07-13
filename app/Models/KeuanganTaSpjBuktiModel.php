@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_keuangan_master id keuangan master
 @property varchar $Tahun Tahun
@@ -27,56 +29,54 @@ use Illuminate\Database\Eloquent\Model;
 @property IdKeuanganMaster $keuanganMaster belongsTo
    
  */
-class KeuanganTaSpjBuktiModel extends Model 
+class KeuanganTaSpjBukti extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'keuangan_ta_spj_bukti';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['Validasi',
-'id_keuangan_master',
-'Tahun',
-'No_SPJ',
-'Kd_Keg',
-'Kd_Rincian',
-'No_Bukti',
-'Tgl_Bukti',
-'Sumberdana',
-'Kd_Desa',
-'Nm_Penerima',
-'Alamat',
-'Rek_Bank',
-'Nm_Bank',
-'NPWP',
-'Keterangan',
-'Nilai',
-'Kd_SubRinci',
-'Kd_Bank',
-'Ref_Bayar',
-'Tgl_Bayar',
-'Validasi'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'Validasi',
+        'id_keuangan_master',
+        'Tahun',
+        'No_SPJ',
+        'Kd_Keg',
+        'Kd_Rincian',
+        'No_Bukti',
+        'Tgl_Bukti',
+        'Sumberdana',
+        'Kd_Desa',
+        'Nm_Penerima',
+        'Alamat',
+        'Rek_Bank',
+        'Nm_Bank',
+        'NPWP',
+        'Keterangan',
+        'Nilai',
+        'Kd_SubRinci',
+        'Kd_Bank',
+        'Ref_Bayar',
+        'Tgl_Bayar',
+        'Validasi'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idKeuanganMaster
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKeuanganMaster
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKeuanganMaster()
     {
-        return $this->belongsTo(KeuanganMaster::class,'id_keuangan_master');
+        return $this->belongsTo(KeuanganMaster::class, 'id_keuangan_master');
     }
-
-
-
-
 }

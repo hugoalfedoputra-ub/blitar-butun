@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $namespace namespace
 @property varchar $code code
@@ -10,30 +12,28 @@ use Illuminate\Database\Eloquent\Model;
 @property mediumblob $audio_data audio data
    
  */
-class CaptchaCodesModel extends Model 
+class CaptchaCodes extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'captcha_codes';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['audio_data',
-'namespace',
-'code',
-'code_display',
-'created',
-'audio_data'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'audio_data',
+        'namespace',
+        'code',
+        'code_display',
+        'created',
+        'audio_data'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

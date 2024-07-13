@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_pend id pend
 @property varchar $telepon telepon
@@ -12,40 +14,39 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $produk hasMany
    
  */
-class PelapakModel extends Model 
+class Pelapak extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'pelapak';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['status',
-'id_pend',
-'telepon',
-'lat',
-'lng',
-'zoom',
-'status'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'status',
+        'id_pend',
+        'telepon',
+        'lat',
+        'lng',
+        'zoom',
+        'status'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * produks
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * produks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function produks()
     {
-        return $this->hasMany(Produk::class,'id_pelapak');
+        return $this->hasMany(Produk::class, 'id_pelapak');
     }
-
-
-
 }

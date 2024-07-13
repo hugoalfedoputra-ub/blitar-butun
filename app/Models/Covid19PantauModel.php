@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_pemudik id pemudik
 @property datetime $tanggal_jam tanggal jam
@@ -14,43 +16,41 @@ use Illuminate\Database\Eloquent\Model;
 @property IdPemudik $covid19Pemudik belongsTo
    
  */
-class Covid19PantauModel extends Model 
+class Covid19Pantau extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'covid19_pantau';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['status_covid',
-'id_pemudik',
-'tanggal_jam',
-'suhu_tubuh',
-'batuk',
-'flu',
-'sesak_nafas',
-'keluhan_lain',
-'status_covid'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'status_covid',
+        'id_pemudik',
+        'tanggal_jam',
+        'suhu_tubuh',
+        'batuk',
+        'flu',
+        'sesak_nafas',
+        'keluhan_lain',
+        'status_covid'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_jam'];
+     * Date time columns.
+     */
+    protected $dates = ['tanggal_jam'];
 
     /**
-    * idPemudik
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idPemudik
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idPemudik()
     {
-        return $this->belongsTo(Covid19Pemudik::class,'id_pemudik');
+        return $this->belongsTo(Covid19Pemudik::class, 'id_pemudik');
     }
-
-
-
-
 }

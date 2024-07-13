@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property tinyint $is_draft is draft
 @property int $id_rtm id rtm
@@ -145,199 +147,200 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $dtksRefLampiran hasMany
    
  */
-class DtksModel extends Model 
+class Dtks extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'dtks';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['tulis_bahasa_daerah',
-'is_draft',
-'id_rtm',
-'id_keluarga',
-'versi_kuisioner',
-'catatan',
-'kode_provinsi',
-'kode_kabupaten',
-'kode_kecamatan',
-'kode_desa',
-'kode_sls_non_sls',
-'kode_sub_sls',
-'nama_sls_non_sls',
-'no_urut_bangunan_tinggal',
-'no_urut_keluarga_verif',
-'status_keluarga',
-'kode_landmark_wilkerstat',
-'kd_kk',
-'no_urut_ruta',
-'tanggal_pencacahan',
-'nama_petugas_pencacahan',
-'kode_petugas_pencacahan',
-'tanggal_pemeriksaan',
-'nama_pemeriksa',
-'kode_pemeriksa',
-'nama_responden',
-'kd_hasil_pencacahan_ruta',
-'tanggal_pendataan',
-'nama_ppl',
-'kode_ppl',
-'nama_pml',
-'kode_pml',
-'kd_hasil_pendataan_keluarga',
-'no_hp_responden',
-'kd_stat_bangunan_tinggal',
-'kd_stat_lahan_tinggal',
-'kd_sertiv_lahan_milik',
-'luas_lantai',
-'kd_jenis_lantai_terluas',
-'kd_jenis_dinding',
-'kd_kondisi_dinding',
-'kd_jenis_atap',
-'kd_kondisi_atap',
-'jumlah_kamar_tidur',
-'kd_sumber_air_minum',
-'kd_jarak_sumber_air_ke_tpl',
-'kd_memperoleh_air_minum',
-'kd_sumber_penerangan_utama',
-'kd_daya_terpasang',
-'kd_daya_terpasang2',
-'kd_daya_terpasang3',
-'kode_pelanggan_daya',
-'kd_bahan_bakar_memasak',
-'kd_fasilitas_tempat_bab',
-'kd_jenis_kloset',
-'kd_pembuangan_akhir_tinja',
-'kd_tabung_gas_3_kg',
-'kd_tabung_gas_5_5_kg',
-'kd_tabung_gas_12_kg',
-'kd_lemari_es',
-'kd_ac',
-'kd_pemanas_air',
-'kd_telepon_rumah',
-'kd_televisi',
-'kd_perhiasan_10_gr_emas',
-'kd_rek_aktif',
-'kd_komputer_laptop',
-'kd_sepeda_motor',
-'kd_mobil',
-'kd_perahu',
-'kd_kapal_perahu_motor',
-'kd_featured_phone',
-'kd_smartphone',
-'kd_sepeda',
-'kd_lahan',
-'luas_lahan',
-'kd_ada_sertiv_lahan',
-'kd_rumah_ditempat_lain',
-'jumlah_sapi',
-'jumlah_kerbau',
-'jumlah_kuda',
-'jumlah_babi',
-'jumlah_kambing_domba',
-'jumlah_unggas',
-'jumlah_ikan',
-'jumlah_lainnya',
-'kd_ada_art_usaha_sendiri_bersama',
-'kd_internet_sebulan',
-'kd_pengeluaran_pulsa_dan_data',
-'kd_ada_art_lanjut_usia',
-'kd_bss_bnpt',
-'bulan_bss_bnpt',
-'tahun_bss_bnpt',
-'kd_pkh',
-'bulan_pkh',
-'tahun_pkh',
-'kd_bst_covid19',
-'bulan_bst_covid19',
-'tahun_bst_covid19',
-'kd_blt_dana_desa',
-'bulan_blt_dana_desa',
-'tahun_blt_dana_desa',
-'kd_subsidi_listrik',
-'bulan_subsidi_listrik',
-'tahun_subsidi_listrik',
-'kd_asuransi_lain',
-'bulan_asuransi_lain',
-'tahun_asuransi_lain',
-'kd_bantuan_pemprov',
-'bulan_bantuan_pemprov',
-'tahun_bantuan_pemprov',
-'kd_bantuan_pemkabkot',
-'bulan_bantuan_pemkabkot',
-'tahun_bantuan_pemkabkot',
-'kd_bantuan_pemdes',
-'bulan_bantuan_pemdes',
-'tahun_bantuan_pemdes',
-'kd_bantuan_pemda',
-'bulan_bantuan_pemda',
-'tahun_bantuan_pemda',
-'kd_bantuan_masyarakat',
-'bulan_bantuan_masyarakat',
-'tahun_bantuan_masyarakat',
-'kd_subsidi_pupuk',
-'bulan_subsidi_pupuk',
-'tahun_subsidi_pupuk',
-'kd_subsidi_lpg',
-'bulan_subsidi_lpg',
-'tahun_subsidi_lpg',
-'kd_konsumsi_daging',
-'kd_makan',
-'kd_beli_pakaian_baru',
-'kd_bayar_biaya_pengobatan',
-'kd_bahasa_wawancara',
-'tulis_bahasa_daerah'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'tulis_bahasa_daerah',
+        'is_draft',
+        'id_rtm',
+        'id_keluarga',
+        'versi_kuisioner',
+        'catatan',
+        'kode_provinsi',
+        'kode_kabupaten',
+        'kode_kecamatan',
+        'kode_desa',
+        'kode_sls_non_sls',
+        'kode_sub_sls',
+        'nama_sls_non_sls',
+        'no_urut_bangunan_tinggal',
+        'no_urut_keluarga_verif',
+        'status_keluarga',
+        'kode_landmark_wilkerstat',
+        'kd_kk',
+        'no_urut_ruta',
+        'tanggal_pencacahan',
+        'nama_petugas_pencacahan',
+        'kode_petugas_pencacahan',
+        'tanggal_pemeriksaan',
+        'nama_pemeriksa',
+        'kode_pemeriksa',
+        'nama_responden',
+        'kd_hasil_pencacahan_ruta',
+        'tanggal_pendataan',
+        'nama_ppl',
+        'kode_ppl',
+        'nama_pml',
+        'kode_pml',
+        'kd_hasil_pendataan_keluarga',
+        'no_hp_responden',
+        'kd_stat_bangunan_tinggal',
+        'kd_stat_lahan_tinggal',
+        'kd_sertiv_lahan_milik',
+        'luas_lantai',
+        'kd_jenis_lantai_terluas',
+        'kd_jenis_dinding',
+        'kd_kondisi_dinding',
+        'kd_jenis_atap',
+        'kd_kondisi_atap',
+        'jumlah_kamar_tidur',
+        'kd_sumber_air_minum',
+        'kd_jarak_sumber_air_ke_tpl',
+        'kd_memperoleh_air_minum',
+        'kd_sumber_penerangan_utama',
+        'kd_daya_terpasang',
+        'kd_daya_terpasang2',
+        'kd_daya_terpasang3',
+        'kode_pelanggan_daya',
+        'kd_bahan_bakar_memasak',
+        'kd_fasilitas_tempat_bab',
+        'kd_jenis_kloset',
+        'kd_pembuangan_akhir_tinja',
+        'kd_tabung_gas_3_kg',
+        'kd_tabung_gas_5_5_kg',
+        'kd_tabung_gas_12_kg',
+        'kd_lemari_es',
+        'kd_ac',
+        'kd_pemanas_air',
+        'kd_telepon_rumah',
+        'kd_televisi',
+        'kd_perhiasan_10_gr_emas',
+        'kd_rek_aktif',
+        'kd_komputer_laptop',
+        'kd_sepeda_motor',
+        'kd_mobil',
+        'kd_perahu',
+        'kd_kapal_perahu_motor',
+        'kd_featured_phone',
+        'kd_smartphone',
+        'kd_sepeda',
+        'kd_lahan',
+        'luas_lahan',
+        'kd_ada_sertiv_lahan',
+        'kd_rumah_ditempat_lain',
+        'jumlah_sapi',
+        'jumlah_kerbau',
+        'jumlah_kuda',
+        'jumlah_babi',
+        'jumlah_kambing_domba',
+        'jumlah_unggas',
+        'jumlah_ikan',
+        'jumlah_lainnya',
+        'kd_ada_art_usaha_sendiri_bersama',
+        'kd_internet_sebulan',
+        'kd_pengeluaran_pulsa_dan_data',
+        'kd_ada_art_lanjut_usia',
+        'kd_bss_bnpt',
+        'bulan_bss_bnpt',
+        'tahun_bss_bnpt',
+        'kd_pkh',
+        'bulan_pkh',
+        'tahun_pkh',
+        'kd_bst_covid19',
+        'bulan_bst_covid19',
+        'tahun_bst_covid19',
+        'kd_blt_dana_desa',
+        'bulan_blt_dana_desa',
+        'tahun_blt_dana_desa',
+        'kd_subsidi_listrik',
+        'bulan_subsidi_listrik',
+        'tahun_subsidi_listrik',
+        'kd_asuransi_lain',
+        'bulan_asuransi_lain',
+        'tahun_asuransi_lain',
+        'kd_bantuan_pemprov',
+        'bulan_bantuan_pemprov',
+        'tahun_bantuan_pemprov',
+        'kd_bantuan_pemkabkot',
+        'bulan_bantuan_pemkabkot',
+        'tahun_bantuan_pemkabkot',
+        'kd_bantuan_pemdes',
+        'bulan_bantuan_pemdes',
+        'tahun_bantuan_pemdes',
+        'kd_bantuan_pemda',
+        'bulan_bantuan_pemda',
+        'tahun_bantuan_pemda',
+        'kd_bantuan_masyarakat',
+        'bulan_bantuan_masyarakat',
+        'tahun_bantuan_masyarakat',
+        'kd_subsidi_pupuk',
+        'bulan_subsidi_pupuk',
+        'tahun_subsidi_pupuk',
+        'kd_subsidi_lpg',
+        'bulan_subsidi_lpg',
+        'tahun_subsidi_lpg',
+        'kd_konsumsi_daging',
+        'kd_makan',
+        'kd_beli_pakaian_baru',
+        'kd_bayar_biaya_pengobatan',
+        'kd_bahasa_wawancara',
+        'tulis_bahasa_daerah'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_pencacahan',
-'tanggal_pemeriksaan',
-'tanggal_pendataan'];
+     * Date time columns.
+     */
+    protected $dates = [
+        'tanggal_pencacahan',
+        'tanggal_pemeriksaan',
+        'tanggal_pendataan'
+    ];
 
     /**
-    * idKeluarga
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKeluarga
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKeluarga()
     {
-        return $this->belongsTo(TwebKeluarga::class,'id_keluarga');
+        return $this->belongsTo(TwebKeluarga::class, 'id_keluarga');
     }
 
     /**
-    * idRtm
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idRtm
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idRtm()
     {
-        return $this->belongsTo(TwebRtm::class,'id_rtm');
+        return $this->belongsTo(TwebRtm::class, 'id_rtm');
     }
 
     /**
-    * dtksAnggota
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * dtksAnggota
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function dtksAnggota()
     {
-        return $this->hasMany(DtksAnggotum::class,'id_dtks');
+        return $this->hasMany(DtksAnggotum::class, 'id_dtks');
     }
     /**
-    * dtksRefLampirans
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * dtksRefLampirans
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function dtksRefLampirans()
     {
-        return $this->hasMany(DtksRefLampiran::class,'id_dtks');
+        return $this->hasMany(DtksRefLampiran::class, 'id_dtks');
     }
-
-
-
 }

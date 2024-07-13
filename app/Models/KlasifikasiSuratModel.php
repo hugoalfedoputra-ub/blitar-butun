@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $kode kode
 @property varchar $nama nama
@@ -9,29 +11,27 @@ use Illuminate\Database\Eloquent\Model;
 @property int $enabled enabled
    
  */
-class KlasifikasiSuratModel extends Model 
+class KlasifikasiSurat extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'klasifikasi_surat';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['enabled',
-'kode',
-'nama',
-'uraian',
-'enabled'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'enabled',
+        'kode',
+        'nama',
+        'uraian',
+        'enabled'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

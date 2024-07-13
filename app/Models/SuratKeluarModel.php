@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property smallint $nomor_urut nomor urut
 @property varchar $nomor_surat nomor surat
@@ -22,42 +24,42 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $lokasi_arsip lokasi arsip
    
  */
-class SuratKeluarModel extends Model 
+class SuratKeluar extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'surat_keluar';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['lokasi_arsip',
-'nomor_urut',
-'nomor_surat',
-'kode_surat',
-'tanggal_surat',
-'tanggal_catat',
-'tujuan',
-'isi_singkat',
-'berkas_scan',
-'ekspedisi',
-'tanggal_pengiriman',
-'tanda_terima',
-'keterangan',
-'created_by',
-'updated_by',
-'lokasi_arsip'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'lokasi_arsip',
+        'nomor_urut',
+        'nomor_surat',
+        'kode_surat',
+        'tanggal_surat',
+        'tanggal_catat',
+        'tujuan',
+        'isi_singkat',
+        'berkas_scan',
+        'ekspedisi',
+        'tanggal_pengiriman',
+        'tanda_terima',
+        'keterangan',
+        'created_by',
+        'updated_by',
+        'lokasi_arsip'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_surat',
-'tanggal_catat',
-'tanggal_pengiriman'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [
+        'tanggal_surat',
+        'tanggal_catat',
+        'tanggal_pengiriman'
+    ];
 }

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_dtks id dtks
 @property int $id_penduduk id penduduk
@@ -77,122 +79,120 @@ use Illuminate\Database\Eloquent\Model;
 @property IdDtk $dtk belongsTo
    
  */
-class DtksAnggotaModel extends Model 
+class DtksAnggota extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'dtks_anggota';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['kd_guna_internet_usaha',
-'id_dtks',
-'id_penduduk',
-'id_keluarga',
-'kd_ket_keberadaan_art',
-'bulan_meninggal',
-'tahun_meninggal',
-'kd_punya_akta_meniggal',
-'bulan_pindah_tempat',
-'tahun_pindah_tempat',
-'kd_tempat_tinggal_saat_ini',
-'bulan_masuk_ruta',
-'tahun_masuk_ruta',
-'kd_alasan_masuk_ruta',
-'kd_hubungan_dg_krt',
-'kd_hubungan_dg_kk',
-'kd_jenis_kelamin',
-'kd_punya_aktanikah_cerai',
-'kd_punya_kartuid',
-'kd_sulit_penglihatan',
-'kd_sulit_pendengaran',
-'kd_sulit_jalan_naiktangga',
-'kd_sulit_gerak_tangan_jari',
-'kd_sulit_belajar_intelektual',
-'kd_sulit_ingat_konsentrasi',
-'kd_sulit_perilaku_emosi',
-'kd_sulit_paham_bicara_kom',
-'kd_sulit_mandiri',
-'kd_sering_sedih_depresi',
-'kd_memiliki_perawat',
-'kd_merokok_sebulan_akhir',
-'kd_penyakit_kronis_menahun',
-'kd_partisipasi_sekolah',
-'kd_pendidikan_tertinggi',
-'kd_kelas_tertinggi',
-'kd_ijazah_tertinggi',
-'kd_bekerja_seminggu_lalu',
-'jumlah_jam_kerja_seminggu_lalu',
-'pendapatan_sebulan_terakhir',
-'kd_punya_npwp',
-'npwp',
-'kd_lapangan_usaha_pekerjaan',
-'kd_kedudukan_di_pekerjaan',
-'kd_gizi_seimbang',
-'kd_imunasasi_lengkap',
-'kd_bantuan_pempus',
-'kd_bantuan_pemkot',
-'kd_bantuan_pemdes',
-'kd_jamkes_setahun',
-'kd_ikut_pbijkn_bpjssehat',
-'kd_ikut_bpjssehat_nonpbi',
-'kd_ikut_jamsostek_bpjsk',
-'kd_ikut_pip',
-'kd_ikut_prakerja',
-'kd_ikut_kur',
-'kd_ikut_umi',
-'jumlah_jamket_kerja',
-'is_usaha_sendiri_bersama',
-'kd_punya_usaha_sendiri_bersama',
-'jumlah_usaha_sendiri_bersama',
-'kd_lapangan_usaha_dr_usaha',
-'tulis_lapangan_usaha_dr_usaha',
-'tulis_lapangan_usaha_pekerjaan',
-'jumlah_pekerja_dibayar',
-'jumlah_pekerja_tidak_dibayar',
-'kd_kepemilikan_ijin_usaha',
-'kd_omset_usaha_perbulan',
-'kd_guna_internet_usaha'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'kd_guna_internet_usaha',
+        'id_dtks',
+        'id_penduduk',
+        'id_keluarga',
+        'kd_ket_keberadaan_art',
+        'bulan_meninggal',
+        'tahun_meninggal',
+        'kd_punya_akta_meniggal',
+        'bulan_pindah_tempat',
+        'tahun_pindah_tempat',
+        'kd_tempat_tinggal_saat_ini',
+        'bulan_masuk_ruta',
+        'tahun_masuk_ruta',
+        'kd_alasan_masuk_ruta',
+        'kd_hubungan_dg_krt',
+        'kd_hubungan_dg_kk',
+        'kd_jenis_kelamin',
+        'kd_punya_aktanikah_cerai',
+        'kd_punya_kartuid',
+        'kd_sulit_penglihatan',
+        'kd_sulit_pendengaran',
+        'kd_sulit_jalan_naiktangga',
+        'kd_sulit_gerak_tangan_jari',
+        'kd_sulit_belajar_intelektual',
+        'kd_sulit_ingat_konsentrasi',
+        'kd_sulit_perilaku_emosi',
+        'kd_sulit_paham_bicara_kom',
+        'kd_sulit_mandiri',
+        'kd_sering_sedih_depresi',
+        'kd_memiliki_perawat',
+        'kd_merokok_sebulan_akhir',
+        'kd_penyakit_kronis_menahun',
+        'kd_partisipasi_sekolah',
+        'kd_pendidikan_tertinggi',
+        'kd_kelas_tertinggi',
+        'kd_ijazah_tertinggi',
+        'kd_bekerja_seminggu_lalu',
+        'jumlah_jam_kerja_seminggu_lalu',
+        'pendapatan_sebulan_terakhir',
+        'kd_punya_npwp',
+        'npwp',
+        'kd_lapangan_usaha_pekerjaan',
+        'kd_kedudukan_di_pekerjaan',
+        'kd_gizi_seimbang',
+        'kd_imunasasi_lengkap',
+        'kd_bantuan_pempus',
+        'kd_bantuan_pemkot',
+        'kd_bantuan_pemdes',
+        'kd_jamkes_setahun',
+        'kd_ikut_pbijkn_bpjssehat',
+        'kd_ikut_bpjssehat_nonpbi',
+        'kd_ikut_jamsostek_bpjsk',
+        'kd_ikut_pip',
+        'kd_ikut_prakerja',
+        'kd_ikut_kur',
+        'kd_ikut_umi',
+        'jumlah_jamket_kerja',
+        'is_usaha_sendiri_bersama',
+        'kd_punya_usaha_sendiri_bersama',
+        'jumlah_usaha_sendiri_bersama',
+        'kd_lapangan_usaha_dr_usaha',
+        'tulis_lapangan_usaha_dr_usaha',
+        'tulis_lapangan_usaha_pekerjaan',
+        'jumlah_pekerja_dibayar',
+        'jumlah_pekerja_tidak_dibayar',
+        'kd_kepemilikan_ijin_usaha',
+        'kd_omset_usaha_perbulan',
+        'kd_guna_internet_usaha'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idKeluarga
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKeluarga
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKeluarga()
     {
-        return $this->belongsTo(TwebKeluarga::class,'id_keluarga');
+        return $this->belongsTo(TwebKeluarga::class, 'id_keluarga');
     }
 
     /**
-    * idPenduduk
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idPenduduk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idPenduduk()
     {
-        return $this->belongsTo(TwebPenduduk::class,'id_penduduk');
+        return $this->belongsTo(TwebPenduduk::class, 'id_penduduk');
     }
 
     /**
-    * idDtk
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idDtk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idDtk()
     {
-        return $this->belongsTo(Dtk::class,'id_dtks');
+        return $this->belongsTo(Dtk::class, 'id_dtks');
     }
-
-
-
-
 }

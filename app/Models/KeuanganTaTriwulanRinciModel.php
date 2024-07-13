@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_keuangan_master id keuangan master
 @property varchar $KdPosting KdPosting
@@ -34,63 +36,61 @@ use Illuminate\Database\Eloquent\Model;
 @property IdKeuanganMaster $keuanganMaster belongsTo
    
  */
-class KeuanganTaTriwulanRinciModel extends Model 
+class KeuanganTaTriwulanRinci extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'keuangan_ta_triwulan_rinci';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['Des',
-'id_keuangan_master',
-'KdPosting',
-'KURincianSD',
-'Tahun',
-'Sifat',
-'SumberDana',
-'Kd_Desa',
-'Kd_Keg',
-'Kd_Rincian',
-'Anggaran',
-'AnggaranPAK',
-'Tw1Rinci',
-'Tw2Rinci',
-'Tw3Rinci',
-'Tw4Rinci',
-'KunciData',
-'Jan',
-'Peb',
-'Mar',
-'Apr',
-'Mei',
-'Jun',
-'Jul',
-'Agt',
-'Sep',
-'Okt',
-'Nop',
-'Des'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'Des',
+        'id_keuangan_master',
+        'KdPosting',
+        'KURincianSD',
+        'Tahun',
+        'Sifat',
+        'SumberDana',
+        'Kd_Desa',
+        'Kd_Keg',
+        'Kd_Rincian',
+        'Anggaran',
+        'AnggaranPAK',
+        'Tw1Rinci',
+        'Tw2Rinci',
+        'Tw3Rinci',
+        'Tw4Rinci',
+        'KunciData',
+        'Jan',
+        'Peb',
+        'Mar',
+        'Apr',
+        'Mei',
+        'Jun',
+        'Jul',
+        'Agt',
+        'Sep',
+        'Okt',
+        'Nop',
+        'Des'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idKeuanganMaster
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKeuanganMaster
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKeuanganMaster()
     {
-        return $this->belongsTo(KeuanganMaster::class,'id_keuangan_master');
+        return $this->belongsTo(KeuanganMaster::class, 'id_keuangan_master');
     }
-
-
-
-
 }

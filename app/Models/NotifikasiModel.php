@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $kode kode
 @property varchar $judul judul
@@ -16,35 +18,33 @@ use Illuminate\Database\Eloquent\Model;
 @property tinyint $aktif aktif
    
  */
-class NotifikasiModel extends Model 
+class Notifikasi extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'notifikasi';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['aktif',
-'kode',
-'judul',
-'jenis',
-'isi',
-'server',
-'tgl_berikutnya',
-'updated_by',
-'frekuensi',
-'aksi',
-'aktif'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'aktif',
+        'kode',
+        'judul',
+        'jenis',
+        'isi',
+        'server',
+        'tgl_berikutnya',
+        'updated_by',
+        'frekuensi',
+        'aksi',
+        'aktif'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_berikutnya'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tgl_berikutnya'];
 }

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property smallint $nomor_urut nomor urut
 @property date $tanggal_penerimaan tanggal penerimaan
@@ -16,45 +18,46 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $disposisi belongsToMany
    
  */
-class SuratMasukModel extends Model 
+class SuratMasuk extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'surat_masuk';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['lokasi_arsip',
-'nomor_urut',
-'tanggal_penerimaan',
-'nomor_surat',
-'kode_surat',
-'tanggal_surat',
-'pengirim',
-'isi_singkat',
-'isi_disposisi',
-'berkas_scan',
-'lokasi_arsip'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'lokasi_arsip',
+        'nomor_urut',
+        'tanggal_penerimaan',
+        'nomor_surat',
+        'kode_surat',
+        'tanggal_surat',
+        'pengirim',
+        'isi_singkat',
+        'isi_disposisi',
+        'berkas_scan',
+        'lokasi_arsip'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_penerimaan',
-'tanggal_surat'];
+     * Date time columns.
+     */
+    protected $dates = [
+        'tanggal_penerimaan',
+        'tanggal_surat'
+    ];
 
     /**
-    * disposisis
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    */
+     * disposisis
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function disposisis()
     {
-        return $this->belongsToMany(Disposisi::class,'disposisi_surat_masuk');
+        return $this->belongsToMany(DisposisiSuratMasuk::class, 'disposisi_surat_masuk');
     }
-
-
-
 }

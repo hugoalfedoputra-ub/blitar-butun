@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_artikel id artikel
 @property varchar $owner owner
@@ -17,36 +19,34 @@ use Illuminate\Database\Eloquent\Model;
 @property text $permohonan permohonan
    
  */
-class KomentarModel extends Model 
+class Komentar extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'komentar';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['permohonan',
-'id_artikel',
-'owner',
-'email',
-'subjek',
-'komentar',
-'tgl_upload',
-'status',
-'tipe',
-'no_hp',
-'is_archived',
-'permohonan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'permohonan',
+        'id_artikel',
+        'owner',
+        'email',
+        'subjek',
+        'komentar',
+        'tgl_upload',
+        'status',
+        'tipe',
+        'no_hp',
+        'is_archived',
+        'permohonan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_upload'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tgl_upload'];
 }

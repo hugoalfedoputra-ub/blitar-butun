@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $kategori kategori
 @property varchar $slug slug
@@ -9,37 +11,36 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $produk hasMany
    
  */
-class ProdukKategoriModel extends Model 
+class ProdukKategori extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'produk_kategori';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['status',
-'kategori',
-'slug',
-'status'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'status',
+        'kategori',
+        'slug',
+        'status'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * produks
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * produks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function produks()
     {
-        return $this->hasMany(Produk::class,'id_produk_kategori');
+        return $this->hasMany(Produk::class, 'id_produk_kategori');
     }
-
-
-
 }

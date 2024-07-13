@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $peserta peserta
 @property int $program_id program id
@@ -19,37 +21,35 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class ProgramPesertaModel extends Model 
+class ProgramPeserta extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'program_peserta';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'peserta',
-'program_id',
-'no_id_kartu',
-'kartu_nik',
-'kartu_nama',
-'kartu_tempat_lahir',
-'kartu_tanggal_lahir',
-'kartu_alamat',
-'kartu_peserta',
-'kartu_id_pend',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'peserta',
+        'program_id',
+        'no_id_kartu',
+        'kartu_nik',
+        'kartu_nama',
+        'kartu_tempat_lahir',
+        'kartu_tanggal_lahir',
+        'kartu_alamat',
+        'kartu_peserta',
+        'kartu_id_pend',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['kartu_tanggal_lahir'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['kartu_tanggal_lahir'];
 }

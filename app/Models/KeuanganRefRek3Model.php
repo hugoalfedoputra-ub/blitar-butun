@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_keuangan_master id keuangan master
 @property varchar $Kelompok Kelompok
@@ -11,40 +13,38 @@ use Illuminate\Database\Eloquent\Model;
 @property IdKeuanganMaster $keuanganMaster belongsTo
    
  */
-class KeuanganRefRek3Model extends Model 
+class KeuanganRefRek3 extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'keuangan_ref_rek3';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['Formula',
-'id_keuangan_master',
-'Kelompok',
-'Jenis',
-'Nama_Jenis',
-'Formula'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'Formula',
+        'id_keuangan_master',
+        'Kelompok',
+        'Jenis',
+        'Nama_Jenis',
+        'Formula'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idKeuanganMaster
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKeuanganMaster
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKeuanganMaster()
     {
-        return $this->belongsTo(KeuanganMaster::class,'id_keuangan_master');
+        return $this->belongsTo(KeuanganMaster::class, 'id_keuangan_master');
     }
-
-
-
-
 }

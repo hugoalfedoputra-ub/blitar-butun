@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama_barang nama barang
 @property varchar $kode_barang kode barang
@@ -28,54 +30,53 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $mutasiInventarisJalan hasMany
    
  */
-class InventarisJalanModel extends Model 
+class InventarisJalan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'inventaris_jalan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['visible',
-'nama_barang',
-'kode_barang',
-'register',
-'kontruksi',
-'panjang',
-'lebar',
-'luas',
-'letak',
-'tanggal_dokument',
-'no_dokument',
-'status_tanah',
-'kode_tanah',
-'kondisi',
-'asal',
-'harga',
-'keterangan',
-'created_by',
-'updated_by',
-'status',
-'visible'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'visible',
+        'nama_barang',
+        'kode_barang',
+        'register',
+        'kontruksi',
+        'panjang',
+        'lebar',
+        'luas',
+        'letak',
+        'tanggal_dokument',
+        'no_dokument',
+        'status_tanah',
+        'kode_tanah',
+        'kondisi',
+        'asal',
+        'harga',
+        'keterangan',
+        'created_by',
+        'updated_by',
+        'status',
+        'visible'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_dokument'];
+     * Date time columns.
+     */
+    protected $dates = ['tanggal_dokument'];
 
     /**
-    * mutasiInventarisJalans
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * mutasiInventarisJalans
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function mutasiInventarisJalans()
     {
-        return $this->hasMany(MutasiInventarisJalan::class,'id_inventaris_jalan');
+        return $this->hasMany(MutasiInventarisJalan::class, 'id_inventaris_jalan');
     }
-
-
-
 }

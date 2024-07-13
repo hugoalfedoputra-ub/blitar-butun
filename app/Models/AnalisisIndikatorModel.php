@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_master id master
 @property varchar $nomor nomor
@@ -15,35 +17,33 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $referensi referensi
    
  */
-class AnalisisIndikatorModel extends Model 
+class AnalisisIndikator extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'analisis_indikator';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['referensi',
-'id_master',
-'nomor',
-'pertanyaan',
-'id_tipe',
-'bobot',
-'act_analisis',
-'id_kategori',
-'is_publik',
-'is_teks',
-'referensi'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'referensi',
+        'id_master',
+        'nomor',
+        'pertanyaan',
+        'id_tipe',
+        'bobot',
+        'act_analisis',
+        'id_kategori',
+        'is_publik',
+        'is_teks',
+        'referensi'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

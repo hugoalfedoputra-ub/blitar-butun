@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property text $gambar gambar
 @property text $link link
@@ -10,30 +12,28 @@ use Illuminate\Database\Eloquent\Model;
 @property int $enabled enabled
    
  */
-class MediaSosialModel extends Model 
+class MediaSosial extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'media_sosial';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['enabled',
-'gambar',
-'link',
-'nama',
-'tipe',
-'enabled'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'enabled',
+        'gambar',
+        'link',
+        'nama',
+        'tipe',
+        'enabled'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

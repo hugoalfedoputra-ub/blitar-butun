@@ -1,33 +1,33 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property date $tanggal tanggal
 @property text $keterangan keterangan
    
  */
-class KehadiranHariLiburModel extends Model 
+class KehadiranHariLibur extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'kehadiran_hari_libur';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['keterangan',
-'tanggal',
-'keterangan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'keterangan',
+        'tanggal',
+        'keterangan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tanggal'];
 }

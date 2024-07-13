@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_kk id kk
 @property int $id_peristiwa id peristiwa
@@ -12,41 +14,39 @@ use Illuminate\Database\Eloquent\Model;
 @property IdLogPenduduk $logPenduduk belongsTo
    
  */
-class LogKeluargaModel extends Model 
+class LogKeluarga extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'log_keluarga';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_log_penduduk',
-'id_kk',
-'id_peristiwa',
-'tgl_peristiwa',
-'id_pend',
-'updated_by',
-'id_log_penduduk'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_log_penduduk',
+        'id_kk',
+        'id_peristiwa',
+        'tgl_peristiwa',
+        'id_pend',
+        'updated_by',
+        'id_log_penduduk'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_peristiwa'];
+     * Date time columns.
+     */
+    protected $dates = ['tgl_peristiwa'];
 
     /**
-    * idLogPenduduk
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idLogPenduduk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idLogPenduduk()
     {
-        return $this->belongsTo(LogPenduduk::class,'id_log_penduduk');
+        return $this->belongsTo(LogPenduduk::class, 'id_log_penduduk');
     }
-
-
-
-
 }

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_inventaris_jalan id inventaris jalan
 @property varchar $jenis_mutasi jenis mutasi
@@ -18,45 +20,43 @@ use Illuminate\Database\Eloquent\Model;
 @property IdInventarisJalan $inventarisJalan belongsTo
    
  */
-class MutasiInventarisJalanModel extends Model 
+class MutasiInventarisJalan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'mutasi_inventaris_jalan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['status_mutasi',
-'id_inventaris_jalan',
-'jenis_mutasi',
-'tahun_mutasi',
-'harga_jual',
-'sumbangkan',
-'keterangan',
-'created_by',
-'updated_by',
-'visible',
-'status_mutasi'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'status_mutasi',
+        'id_inventaris_jalan',
+        'jenis_mutasi',
+        'tahun_mutasi',
+        'harga_jual',
+        'sumbangkan',
+        'keterangan',
+        'created_by',
+        'updated_by',
+        'visible',
+        'status_mutasi'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tahun_mutasi'];
+     * Date time columns.
+     */
+    protected $dates = ['tahun_mutasi'];
 
     /**
-    * idInventarisJalan
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idInventarisJalan
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idInventarisJalan()
     {
-        return $this->belongsTo(InventarisJalan::class,'id_inventaris_jalan');
+        return $this->belongsTo(InventarisJalan::class, 'id_inventaris_jalan');
     }
-
-
-
-
 }

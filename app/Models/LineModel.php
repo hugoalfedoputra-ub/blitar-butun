@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property varchar $simbol simbol
@@ -13,33 +15,31 @@ use Illuminate\Database\Eloquent\Model;
 @property int $enabled enabled
    
  */
-class LineModel extends Model 
+class Line extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'line';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['enabled',
-'nama',
-'simbol',
-'color',
-'tipe',
-'tebal',
-'jenis',
-'parrent',
-'enabled'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'enabled',
+        'nama',
+        'simbol',
+        'color',
+        'tipe',
+        'tebal',
+        'jenis',
+        'parrent',
+        'enabled'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

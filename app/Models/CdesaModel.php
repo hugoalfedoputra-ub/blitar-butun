@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nomor nomor
 @property varchar $nama_kepemilikan nama kepemilikan
@@ -16,50 +18,49 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $mutasiCdesa hasMany
    
  */
-class CdesaModel extends Model 
+class Cdesa extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'cdesa';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'nomor',
-'nama_kepemilikan',
-'jenis_pemilik',
-'nama_pemilik_luar',
-'alamat_pemilik_luar',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'nomor',
+        'nama_kepemilikan',
+        'jenis_pemilik',
+        'nama_pemilik_luar',
+        'alamat_pemilik_luar',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * cdesaPenduduks
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * cdesaPenduduks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function cdesaPenduduks()
     {
-        return $this->hasMany(CdesaPenduduk::class,'id_cdesa');
+        return $this->hasMany(CdesaPenduduk::class, 'id_cdesa');
     }
     /**
-    * mutasiCdesas
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * mutasiCdesas
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function mutasiCdesas()
     {
-        return $this->hasMany(MutasiCdesa::class,'id_cdesa_masuk');
+        return $this->hasMany(MutasiCdesa::class, 'id_cdesa_masuk');
     }
-
-
-
 }

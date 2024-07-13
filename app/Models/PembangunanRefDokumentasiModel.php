@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_pembangunan id pembangunan
 @property varchar $gambar gambar
@@ -11,28 +13,26 @@ use Illuminate\Database\Eloquent\Model;
 @property datetime $updated_at updated at
    
  */
-class PembangunanRefDokumentasiModel extends Model 
+class PembangunanRefDokumentasi extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'pembangunan_ref_dokumentasi';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_pembangunan',
-'gambar',
-'persentase',
-'keterangan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_pembangunan',
+        'gambar',
+        'persentase',
+        'keterangan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

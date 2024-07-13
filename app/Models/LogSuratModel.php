@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_format_surat id format surat
 @property int $id_pend id pend
@@ -31,49 +33,47 @@ use Illuminate\Database\Eloquent\Model;
 @property datetime $deleted_at deleted at
    
  */
-class LogSuratModel extends Model 
+class LogSurat extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'log_surat';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_format_surat',
-'id_pend',
-'id_pamong',
-'nama_pamong',
-'nama_jabatan',
-'id_user',
-'tanggal',
-'bulan',
-'tahun',
-'no_surat',
-'nama_surat',
-'lampiran',
-'nik_non_warga',
-'nama_non_warga',
-'keterangan',
-'lokasi_arsip',
-'urls_id',
-'status',
-'log_verifikasi',
-'tte',
-'verifikasi_operator',
-'verifikasi_kades',
-'verifikasi_sekdes',
-'isi_surat',
-'kecamatan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_format_surat',
+        'id_pend',
+        'id_pamong',
+        'nama_pamong',
+        'nama_jabatan',
+        'id_user',
+        'tanggal',
+        'bulan',
+        'tahun',
+        'no_surat',
+        'nama_surat',
+        'lampiran',
+        'nik_non_warga',
+        'nama_non_warga',
+        'keterangan',
+        'lokasi_arsip',
+        'urls_id',
+        'status',
+        'log_verifikasi',
+        'tte',
+        'verifikasi_operator',
+        'verifikasi_kades',
+        'verifikasi_sekdes',
+        'isi_surat',
+        'kecamatan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tanggal'];
 }

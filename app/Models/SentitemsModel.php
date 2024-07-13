@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property timestamp $InsertIntoDB InsertIntoDB
 @property timestamp $SendingDateTime SendingDateTime
@@ -23,70 +25,70 @@ use Illuminate\Database\Eloquent\Model;
 @property text $CreatorID CreatorID
    
  */
-class SentitemsModel extends Model 
+class Sentitems extends Model
 {
-    const STATUS_SENDINGOK='SendingOK';
+    const STATUS_SENDINGOK = 'SendingOK';
 
-const STATUS_SENDINGOKNOREPORT='SendingOKNoReport';
+    const STATUS_SENDINGOKNOREPORT = 'SendingOKNoReport';
 
-const STATUS_SENDINGERROR='SendingError';
+    const STATUS_SENDINGERROR = 'SendingError';
 
-const STATUS_DELIVERYOK='DeliveryOK';
+    const STATUS_DELIVERYOK = 'DeliveryOK';
 
-const STATUS_DELIVERYFAILED='DeliveryFailed';
+    const STATUS_DELIVERYFAILED = 'DeliveryFailed';
 
-const STATUS_DELIVERYPENDING='DeliveryPending';
+    const STATUS_DELIVERYPENDING = 'DeliveryPending';
 
-const STATUS_DELIVERYUNKNOWN='DeliveryUnknown';
+    const STATUS_DELIVERYUNKNOWN = 'DeliveryUnknown';
 
-const STATUS_ERROR='Error';
+    const STATUS_ERROR = 'Error';
 
-const CODING_DEFAULT_NO_COMPRESSION='Default_No_Compression';
+    const CODING_DEFAULT_NO_COMPRESSION = 'Default_No_Compression';
 
-const CODING_UNICODE_NO_COMPRESSION='Unicode_No_Compression';
+    const CODING_UNICODE_NO_COMPRESSION = 'Unicode_No_Compression';
 
-const CODING_8BIT='8bit';
+    const CODING_8BIT = '8bit';
 
-const CODING_DEFAULT_COMPRESSION='Default_Compression';
+    const CODING_DEFAULT_COMPRESSION = 'Default_Compression';
 
-const CODING_UNICODE_COMPRESSION='Unicode_Compression';
+    const CODING_UNICODE_COMPRESSION = 'Unicode_Compression';
 
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'sentitems';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['CreatorID',
-'InsertIntoDB',
-'SendingDateTime',
-'DeliveryDateTime',
-'Text',
-'DestinationNumber',
-'Coding',
-'UDH',
-'SMSCNumber',
-'Class',
-'TextDecoded',
-'ID',
-'SenderID',
-'SequencePosition',
-'Status',
-'StatusError',
-'TPMR',
-'RelativeValidity',
-'CreatorID'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'CreatorID',
+        'InsertIntoDB',
+        'SendingDateTime',
+        'DeliveryDateTime',
+        'Text',
+        'DestinationNumber',
+        'Coding',
+        'UDH',
+        'SMSCNumber',
+        'Class',
+        'TextDecoded',
+        'ID',
+        'SenderID',
+        'SequencePosition',
+        'Status',
+        'StatusError',
+        'TPMR',
+        'RelativeValidity',
+        'CreatorID'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['InsertIntoDB',
-'SendingDateTime',
-'DeliveryDateTime'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [
+        'InsertIntoDB',
+        'SendingDateTime',
+        'DeliveryDateTime'
+    ];
 }

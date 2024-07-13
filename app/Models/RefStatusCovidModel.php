@@ -1,31 +1,31 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
    
  */
-class RefStatusCovidModel extends Model 
+class RefStatusCovid extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'ref_status_covid';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['nama',
-'nama'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'nama',
+        'nama'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

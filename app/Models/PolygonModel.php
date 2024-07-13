@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property varchar $simbol simbol
@@ -11,31 +13,29 @@ use Illuminate\Database\Eloquent\Model;
 @property int $enabled enabled
    
  */
-class PolygonModel extends Model 
+class Polygon extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'polygon';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['enabled',
-'nama',
-'simbol',
-'color',
-'tipe',
-'parrent',
-'enabled'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'enabled',
+        'nama',
+        'simbol',
+        'color',
+        'tipe',
+        'parrent',
+        'enabled'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

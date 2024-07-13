@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property tinyint $id_periode id periode
 @property int $id_subjek id subjek
@@ -9,29 +11,27 @@ use Illuminate\Database\Eloquent\Model;
 @property timestamp $tgl_update tgl update
    
  */
-class AnalisisResponBuktiModel extends Model 
+class AnalisisResponBukti extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'analisis_respon_bukti';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['tgl_update',
-'id_periode',
-'id_subjek',
-'pengesahan',
-'tgl_update'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'tgl_update',
+        'id_periode',
+        'id_subjek',
+        'pengesahan',
+        'tgl_update'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_update'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tgl_update'];
 }

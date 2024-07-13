@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $ip_address ip address
 @property varchar $keterangan keterangan
@@ -19,37 +21,35 @@ use Illuminate\Database\Eloquent\Model;
 @property tinyint $tipe tipe
    
  */
-class AnjunganModel extends Model 
+class Anjungan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'anjungan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['tipe',
-'ip_address',
-'keterangan',
-'keyboard',
-'status',
-'status_alasan',
-'created_by',
-'updated_by',
-'mac_address',
-'printer_ip',
-'printer_port',
-'id_pengunjung',
-'tipe'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'tipe',
+        'ip_address',
+        'keterangan',
+        'keyboard',
+        'status',
+        'status_alasan',
+        'created_by',
+        'updated_by',
+        'mac_address',
+        'printer_ip',
+        'printer_port',
+        'id_pengunjung',
+        'tipe'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

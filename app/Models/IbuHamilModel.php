@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $posyandu_id posyandu id
 @property int $kia_id kia id
@@ -23,41 +25,39 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class IbuHamilModel extends Model 
+class IbuHamil extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'ibu_hamil';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'posyandu_id',
-'kia_id',
-'status_kehamilan',
-'usia_kehamilan',
-'tanggal_melahirkan',
-'pemeriksaan_kehamilan',
-'konsumsi_pil_fe',
-'butir_pil_fe',
-'pemeriksaan_nifas',
-'konseling_gizi',
-'kunjungan_rumah',
-'akses_air_bersih',
-'kepemilikan_jamban',
-'jaminan_kesehatan',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'posyandu_id',
+        'kia_id',
+        'status_kehamilan',
+        'usia_kehamilan',
+        'tanggal_melahirkan',
+        'pemeriksaan_kehamilan',
+        'konsumsi_pil_fe',
+        'butir_pil_fe',
+        'pemeriksaan_nifas',
+        'konseling_gizi',
+        'kunjungan_rumah',
+        'akses_air_bersih',
+        'kepemilikan_jamban',
+        'jaminan_kesehatan',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_melahirkan'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tanggal_melahirkan'];
 }

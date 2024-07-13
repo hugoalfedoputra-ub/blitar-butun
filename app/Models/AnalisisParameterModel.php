@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_indikator id indikator
 @property varchar $jawaban jawaban
@@ -10,30 +12,28 @@ use Illuminate\Database\Eloquent\Model;
 @property tinyint $asign asign
    
  */
-class AnalisisParameterModel extends Model 
+class AnalisisParameter extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'analisis_parameter';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['asign',
-'id_indikator',
-'jawaban',
-'nilai',
-'kode_jawaban',
-'asign'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'asign',
+        'id_indikator',
+        'jawaban',
+        'nilai',
+        'kode_jawaban',
+        'asign'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

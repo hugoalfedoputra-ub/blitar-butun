@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $ukuran ukuran
 @property varchar $path path
@@ -13,30 +15,28 @@ use Illuminate\Database\Eloquent\Model;
 @property timestamp $updated_at updated at
    
  */
-class LogBackupModel extends Model 
+class LogBackup extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'log_backup';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['ukuran',
-'path',
-'permanen',
-'downloaded_at',
-'status',
-'pid_process'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'ukuran',
+        'path',
+        'permanen',
+        'downloaded_at',
+        'status',
+        'pid_process'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['downloaded_at'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['downloaded_at'];
 }

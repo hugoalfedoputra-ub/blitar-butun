@@ -1,31 +1,31 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $ref_syarat_nama ref syarat nama
    
  */
-class RefSyaratSuratModel extends Model 
+class RefSyaratSurat extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'ref_syarat_surat';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['ref_syarat_nama',
-'ref_syarat_nama'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'ref_syarat_nama',
+        'ref_syarat_nama'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

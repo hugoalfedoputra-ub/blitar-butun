@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property datetime $waktu waktu
 @property tinyint $status status
@@ -10,30 +12,28 @@ use Illuminate\Database\Eloquent\Model;
 @property int $id_pamong id pamong
    
  */
-class KehadiranPengaduanModel extends Model 
+class KehadiranPengaduan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'kehadiran_pengaduan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_pamong',
-'waktu',
-'status',
-'keterangan',
-'id_penduduk',
-'id_pamong'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_pamong',
+        'waktu',
+        'status',
+        'keterangan',
+        'id_penduduk',
+        'id_pamong'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['waktu'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['waktu'];
 }

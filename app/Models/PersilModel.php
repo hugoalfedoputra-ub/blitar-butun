@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nomor nomor
 @property smallint $nomor_urut_bidang nomor urut bidang
@@ -14,34 +16,32 @@ use Illuminate\Database\Eloquent\Model;
 @property int $id_peta id peta
    
  */
-class PersilModel extends Model 
+class Persil extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'persil';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['id_peta',
-'nomor',
-'nomor_urut_bidang',
-'kelas',
-'luas_persil',
-'id_wilayah',
-'lokasi',
-'path',
-'cdesa_awal',
-'id_peta'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'id_peta',
+        'nomor',
+        'nomor_urut_bidang',
+        'kelas',
+        'luas_persil',
+        'id_wilayah',
+        'lokasi',
+        'path',
+        'cdesa_awal',
+        'id_peta'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

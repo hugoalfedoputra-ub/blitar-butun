@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_terdata id terdata
 @property tinyint $pantau pantau
@@ -19,56 +21,55 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $covid19Pantau hasMany
    
  */
-class Covid19PemudikModel extends Model 
+class Covid19Pemudik extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'covid19_pemudik';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['is_wajib_pantau',
-'id_terdata',
-'pantau',
-'tanggal_datang',
-'asal_mudik',
-'durasi_mudik',
-'tujuan_mudik',
-'keluhan_kesehatan',
-'status_covid',
-'no_hp',
-'email',
-'keterangan',
-'is_wajib_pantau'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'is_wajib_pantau',
+        'id_terdata',
+        'pantau',
+        'tanggal_datang',
+        'asal_mudik',
+        'durasi_mudik',
+        'tujuan_mudik',
+        'keluhan_kesehatan',
+        'status_covid',
+        'no_hp',
+        'email',
+        'keterangan',
+        'is_wajib_pantau'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tanggal_datang'];
+     * Date time columns.
+     */
+    protected $dates = ['tanggal_datang'];
 
     /**
-    * idTerdatum
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idTerdatum
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idTerdatum()
     {
-        return $this->belongsTo(TwebPenduduk::class,'id_terdata');
+        return $this->belongsTo(TwebPenduduk::class, 'id_terdata');
     }
 
     /**
-    * covid19Pantaus
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * covid19Pantaus
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function covid19Pantaus()
     {
-        return $this->hasMany(Covid19Pantau::class,'id_pemudik');
+        return $this->hasMany(Covid19Pantau::class, 'id_pemudik');
     }
-
-
-
 }

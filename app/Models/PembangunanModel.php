@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_lokasi id lokasi
 @property varchar $sumber_dana sumber dana
@@ -31,49 +33,47 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $sifat_proyek sifat proyek
    
  */
-class PembangunanModel extends Model 
+class Pembangunan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'pembangunan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['sifat_proyek',
-'id_lokasi',
-'sumber_dana',
-'judul',
-'slug',
-'keterangan',
-'lokasi',
-'lat',
-'lng',
-'volume',
-'tahun_anggaran',
-'pelaksana_kegiatan',
-'status',
-'foto',
-'anggaran',
-'perubahan_anggaran',
-'sumber_biaya_pemerintah',
-'sumber_biaya_provinsi',
-'sumber_biaya_kab_kota',
-'sumber_biaya_swadaya',
-'sumber_biaya_jumlah',
-'manfaat',
-'waktu',
-'satuan_waktu',
-'sifat_proyek'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'sifat_proyek',
+        'id_lokasi',
+        'sumber_dana',
+        'judul',
+        'slug',
+        'keterangan',
+        'lokasi',
+        'lat',
+        'lng',
+        'volume',
+        'tahun_anggaran',
+        'pelaksana_kegiatan',
+        'status',
+        'foto',
+        'anggaran',
+        'perubahan_anggaran',
+        'sumber_biaya_pemerintah',
+        'sumber_biaya_provinsi',
+        'sumber_biaya_kab_kota',
+        'sumber_biaya_swadaya',
+        'sumber_biaya_jumlah',
+        'manfaat',
+        'waktu',
+        'satuan_waktu',
+        'sifat_proyek'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

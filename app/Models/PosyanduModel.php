@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property varchar $alamat alamat
@@ -11,29 +13,27 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class PosyanduModel extends Model 
+class Posyandu extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'posyandu';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'nama',
-'alamat',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'nama',
+        'alamat',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

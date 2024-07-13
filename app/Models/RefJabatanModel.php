@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property longtext $tupoksi tupoksi
@@ -12,30 +14,28 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class RefJabatanModel extends Model 
+class RefJabatan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'ref_jabatan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'nama',
-'tupoksi',
-'jenis',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'nama',
+        'tupoksi',
+        'jenis',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

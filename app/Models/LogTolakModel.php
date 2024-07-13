@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_surat id surat
 @property longtext $keterangan keterangan
@@ -11,29 +13,27 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class LogTolakModel extends Model 
+class LogTolak extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'log_tolak';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'id_surat',
-'keterangan',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'id_surat',
+        'keterangan',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

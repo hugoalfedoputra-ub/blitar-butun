@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama_desa nama desa
 @property varchar $kode_desa kode desa
@@ -34,52 +36,50 @@ use Illuminate\Database\Eloquent\Model;
 @property int $pamong_id pamong id
    
  */
-class ConfigModel extends Model 
+class Config extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'config';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['pamong_id',
-'nama_desa',
-'kode_desa',
-'kode_pos',
-'nama_kecamatan',
-'kode_kecamatan',
-'nama_kepala_camat',
-'nip_kepala_camat',
-'nama_kabupaten',
-'kode_kabupaten',
-'nama_propinsi',
-'kode_propinsi',
-'logo',
-'lat',
-'lng',
-'zoom',
-'map_tipe',
-'path',
-'alamat_kantor',
-'email_desa',
-'telepon',
-'nomor_operator',
-'website',
-'kantor_desa',
-'warna',
-'created_by',
-'updated_by',
-'pamong_id'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'pamong_id',
+        'nama_desa',
+        'kode_desa',
+        'kode_pos',
+        'nama_kecamatan',
+        'kode_kecamatan',
+        'nama_kepala_camat',
+        'nip_kepala_camat',
+        'nama_kabupaten',
+        'kode_kabupaten',
+        'nama_propinsi',
+        'kode_propinsi',
+        'logo',
+        'lat',
+        'lng',
+        'zoom',
+        'map_tipe',
+        'path',
+        'alamat_kantor',
+        'email_desa',
+        'telepon',
+        'nomor_operator',
+        'website',
+        'kantor_desa',
+        'warna',
+        'created_by',
+        'updated_by',
+        'pamong_id'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_keuangan_master id keuangan master
 @property varchar $Tahun Tahun
@@ -19,48 +21,46 @@ use Illuminate\Database\Eloquent\Model;
 @property IdKeuanganMaster $keuanganMaster belongsTo
    
  */
-class KeuanganTaJurnalUmumRinciModel extends Model 
+class KeuanganTaJurnalUmumRinci extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'keuangan_ta_jurnal_umum_rinci';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['Kredit',
-'id_keuangan_master',
-'Tahun',
-'NoBukti',
-'Kd_Keg',
-'RincianSD',
-'NoID',
-'Kd_Desa',
-'Akun',
-'Kd_Rincian',
-'Sumberdana',
-'DK',
-'Debet',
-'Kredit'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'Kredit',
+        'id_keuangan_master',
+        'Tahun',
+        'NoBukti',
+        'Kd_Keg',
+        'RincianSD',
+        'NoID',
+        'Kd_Desa',
+        'Akun',
+        'Kd_Rincian',
+        'Sumberdana',
+        'DK',
+        'Debet',
+        'Kredit'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * idKeuanganMaster
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * idKeuanganMaster
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function idKeuanganMaster()
     {
-        return $this->belongsTo(KeuanganMaster::class,'id_keuangan_master');
+        return $this->belongsTo(KeuanganMaster::class, 'id_keuangan_master');
     }
-
-
-
-
 }

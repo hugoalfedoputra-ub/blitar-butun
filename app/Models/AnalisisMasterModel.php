@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $nama nama
 @property tinyint $subjek_tipe subjek tipe
@@ -18,38 +20,36 @@ use Illuminate\Database\Eloquent\Model;
 @property datetime $gform_last_sync gform last sync
    
  */
-class AnalisisMasterModel extends Model 
+class AnalisisMaster extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'analisis_master';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['gform_last_sync',
-'nama',
-'subjek_tipe',
-'lock',
-'deskripsi',
-'kode_analisis',
-'id_kelompok',
-'pembagi',
-'id_child',
-'format_impor',
-'jenis',
-'gform_id',
-'gform_nik_item_id',
-'gform_last_sync'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'gform_last_sync',
+        'nama',
+        'subjek_tipe',
+        'lock',
+        'deskripsi',
+        'kode_analisis',
+        'id_kelompok',
+        'pembagi',
+        'id_child',
+        'format_impor',
+        'jenis',
+        'gform_id',
+        'gform_nik_item_id',
+        'gform_last_sync'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['gform_last_sync'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['gform_last_sync'];
 }

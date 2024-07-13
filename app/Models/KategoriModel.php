@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $kategori kategori
 @property int $tipe tipe
@@ -11,31 +13,29 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $slug slug
    
  */
-class KategoriModel extends Model 
+class Kategori extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'kategori';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['slug',
-'kategori',
-'tipe',
-'urut',
-'enabled',
-'parrent',
-'slug'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'slug',
+        'kategori',
+        'tipe',
+        'urut',
+        'enabled',
+        'parrent',
+        'slug'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

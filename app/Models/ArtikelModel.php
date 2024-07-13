@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $gambar gambar
 @property text $isi isi
@@ -24,52 +26,51 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $agenda hasMany
    
  */
-class ArtikelModel extends Model 
+class Artikel extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'artikel';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['jenis_widget',
-'gambar',
-'isi',
-'enabled',
-'tgl_upload',
-'id_kategori',
-'id_user',
-'judul',
-'headline',
-'gambar1',
-'gambar2',
-'gambar3',
-'dokumen',
-'link_dokumen',
-'boleh_komentar',
-'slug',
-'hit',
-'urut',
-'jenis_widget'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'jenis_widget',
+        'gambar',
+        'isi',
+        'enabled',
+        'tgl_upload',
+        'id_kategori',
+        'id_user',
+        'judul',
+        'headline',
+        'gambar1',
+        'gambar2',
+        'gambar3',
+        'dokumen',
+        'link_dokumen',
+        'boleh_komentar',
+        'slug',
+        'hit',
+        'urut',
+        'jenis_widget'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_upload'];
+     * Date time columns.
+     */
+    protected $dates = ['tgl_upload'];
 
     /**
-    * agendas
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * agendas
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function agendas()
     {
-        return $this->hasMany(Agenda::class,'id_artikel');
+        return $this->hasMany(Agenda::class, 'id_artikel');
     }
-
-
-
 }

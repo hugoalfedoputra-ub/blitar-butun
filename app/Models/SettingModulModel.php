@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $modul modul
 @property varchar $slug slug
@@ -16,44 +18,43 @@ use Illuminate\Database\Eloquent\Model;
 @property \Illuminate\Database\Eloquent\Collection $grupAkse hasMany
    
  */
-class SettingModulModel extends Model 
+class SettingModul extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'setting_modul';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['parent',
-'modul',
-'slug',
-'url',
-'aktif',
-'ikon',
-'urut',
-'level',
-'hidden',
-'ikon_kecil',
-'parent'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'parent',
+        'modul',
+        'slug',
+        'url',
+        'aktif',
+        'ikon',
+        'urut',
+        'level',
+        'hidden',
+        'ikon_kecil',
+        'parent'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
+     * Date time columns.
+     */
+    protected $dates = [];
 
     /**
-    * grupAkses
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
+     * grupAkses
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function grupAkses()
     {
-        return $this->hasMany(GrupAkse::class,'id_modul');
+        return $this->hasMany(GrupAkses::class, 'id_modul');
     }
-
-
-
 }

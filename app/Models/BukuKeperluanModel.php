@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $keperluan keperluan
 @property tinyint $status status
@@ -9,26 +11,24 @@ use Illuminate\Database\Eloquent\Model;
 @property timestamp $updated_at updated at
    
  */
-class BukuKeperluanModel extends Model 
+class BukuKeperluan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'buku_keperluan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['keperluan',
-'status'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'keperluan',
+        'status'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

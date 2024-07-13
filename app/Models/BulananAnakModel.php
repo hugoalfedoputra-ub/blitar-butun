@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $posyandu_id posyandu id
 @property int $kia_id kia id
@@ -28,46 +30,44 @@ use Illuminate\Database\Eloquent\Model;
 @property int $updated_by updated by
    
  */
-class BulananAnakModel extends Model 
+class BulananAnak extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'bulanan_anak';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['updated_by',
-'posyandu_id',
-'kia_id',
-'status_gizi',
-'umur_bulan',
-'status_tikar',
-'pemberian_imunisasi_dasar',
-'pemberian_imunisasi_campak',
-'pengukuran_berat_badan',
-'berat_badan',
-'pengukuran_tinggi_badan',
-'tinggi_badan',
-'konseling_gizi_ayah',
-'konseling_gizi_ibu',
-'kunjungan_rumah',
-'air_bersih',
-'kepemilikan_jamban',
-'akta_lahir',
-'jaminan_kesehatan',
-'pengasuhan_paud',
-'created_by',
-'updated_by'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'updated_by',
+        'posyandu_id',
+        'kia_id',
+        'status_gizi',
+        'umur_bulan',
+        'status_tikar',
+        'pemberian_imunisasi_dasar',
+        'pemberian_imunisasi_campak',
+        'pengukuran_berat_badan',
+        'berat_badan',
+        'pengukuran_tinggi_badan',
+        'tinggi_badan',
+        'konseling_gizi_ayah',
+        'konseling_gizi_ibu',
+        'kunjungan_rumah',
+        'air_bersih',
+        'kepemilikan_jamban',
+        'akta_lahir',
+        'jaminan_kesehatan',
+        'pengasuhan_paud',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

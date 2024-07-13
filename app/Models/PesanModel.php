@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $judul judul
 @property varchar $jenis jenis
@@ -11,28 +13,26 @@ use Illuminate\Database\Eloquent\Model;
 @property timestamp $updated_at updated at
    
  */
-class PesanModel extends Model 
+class Pesan extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'pesan';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['judul',
-'jenis',
-'sudah_dibaca',
-'diarsipkan'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'judul',
+        'jenis',
+        'sudah_dibaca',
+        'diarsipkan'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

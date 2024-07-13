@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property int $id_pemohon id pemohon
 @property int $id_surat id surat
@@ -16,34 +18,32 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $no_antrian no antrian
    
  */
-class PermohonanSuratModel extends Model 
+class PermohonanSurat extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'permohonan_surat';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['no_antrian',
-'id_pemohon',
-'id_surat',
-'isian_form',
-'status',
-'alasan',
-'keterangan',
-'no_hp_aktif',
-'syarat',
-'no_antrian'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'no_antrian',
+        'id_pemohon',
+        'id_surat',
+        'isian_form',
+        'status',
+        'alasan',
+        'keterangan',
+        'no_hp_aktif',
+        'syarat',
+        'no_antrian'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }

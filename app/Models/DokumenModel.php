@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $satuan satuan
 @property varchar $nama nama
@@ -25,43 +27,41 @@ use Illuminate\Database\Eloquent\Model;
 @property varchar $lokasi_arsip lokasi arsip
    
  */
-class DokumenModel extends Model 
+class Dokumen extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'dokumen';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['lokasi_arsip',
-'satuan',
-'nama',
-'enabled',
-'tgl_upload',
-'id_pend',
-'kategori',
-'attr',
-'tipe',
-'url',
-'tahun',
-'kategori_info_publik',
-'deleted',
-'id_syarat',
-'id_parent',
-'created_by',
-'updated_by',
-'dok_warga',
-'lokasi_arsip'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'lokasi_arsip',
+        'satuan',
+        'nama',
+        'enabled',
+        'tgl_upload',
+        'id_pend',
+        'kategori',
+        'attr',
+        'tipe',
+        'url',
+        'tahun',
+        'kategori_info_publik',
+        'deleted',
+        'id_syarat',
+        'id_parent',
+        'created_by',
+        'updated_by',
+        'dok_warga',
+        'lokasi_arsip'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=['tgl_upload'];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = ['tgl_upload'];
 }

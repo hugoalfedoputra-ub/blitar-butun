@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 /**
    @property varchar $Tahun Tahun
 @property varchar $Kd_Akun Kd Akun
@@ -11,31 +13,29 @@ use Illuminate\Database\Eloquent\Model;
 @property decimal $Nilai_Realisasi Nilai Realisasi
    
  */
-class KeuanganManualRinciModel extends Model 
+class KeuanganManualRinci extends Model
 {
-    
+
     /**
-    * Database table name
-    */
+     * Database table name
+     */
     protected $table = 'keuangan_manual_rinci';
 
     /**
-    * Mass assignable columns
-    */
-    protected $fillable=['Nilai_Realisasi',
-'Tahun',
-'Kd_Akun',
-'Kd_Keg',
-'Kd_Rincian',
-'Nilai_Anggaran',
-'Nilai_Realisasi'];
+     * Mass assignable columns
+     */
+    protected $fillable = [
+        'Nilai_Realisasi',
+        'Tahun',
+        'Kd_Akun',
+        'Kd_Keg',
+        'Kd_Rincian',
+        'Nilai_Anggaran',
+        'Nilai_Realisasi'
+    ];
 
     /**
-    * Date time columns.
-    */
-    protected $dates=[];
-
-
-
-
+     * Date time columns.
+     */
+    protected $dates = [];
 }
