@@ -28,6 +28,7 @@ use App\Http\Controllers\CaptchaCodesController;
 use App\Http\Controllers\CdesaController;
 use App\Http\Controllers\CdesaPendudukController;
 use App\Http\Controllers\ConfigSIDController;
+use App\Http\Controllers\ConnectionController;
 use App\Http\Controllers\Covid19PantauController;
 use App\Http\Controllers\Covid19PemudikController;
 use App\Http\Controllers\Covid19VaksinController;
@@ -271,6 +272,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+Route::resource('connection', ConnectionController::class);
 
 Route::resource('agenda', AgendaController::class);
 
