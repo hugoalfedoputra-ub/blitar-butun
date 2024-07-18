@@ -23,8 +23,19 @@ class ArtikelController extends Controller
      */
     public function index(Request $request)
     {
-        return Artikel::paginate(10);
-    }    /**
+        $query = Artikel::query();
+
+        if ($request->has('search') && $request->input('search') !== null) {
+            $search = $request->input('search');
+            $query->where('judul', 'LIKE', '%' . $search . '%');
+        }
+
+        $query->orderBy('tgl_upload', 'desc');
+
+        return $query->paginate(5);
+    }    
+    
+    /**
      * Display the specified resource.
      *
      * @param  Request  $request
