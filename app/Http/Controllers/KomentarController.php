@@ -24,7 +24,8 @@ class KomentarController extends Controller
     public function index(Request $request)
     {
         return Komentar::paginate(10);
-    }    /**
+    }    
+    /**
      * Display the specified resource.
      *
      * @param  Request  $request
@@ -38,7 +39,8 @@ class KomentarController extends Controller
             return response()->json($komentar);
         }
         return response()->json(['message' => 'Komentar not found'], 404);
-    }    /**
+    }    
+    /**
      * Show the form for creating a new resource.
      *
      * @param  Request  $request
@@ -47,11 +49,9 @@ class KomentarController extends Controller
     public function create(Request $request)
     {
 
-        return view('pages.komentar.create', [
-            'model' => new Komentar,
-
-        ]);
-    }    /**
+        return;
+    }    
+    /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
@@ -59,18 +59,9 @@ class KomentarController extends Controller
      */
     public function store(Request $request)
     {
-        $model=new Komentar;
-        $model->fill($request->all());
-
-        if ($model->save()) {
-            
-            session()->flash('app_message', 'Komentar saved successfully');
-            return redirect()->route('komentar.index');
-            } else {
-                session()->flash('app_message', 'Something is wrong while saving Komentar');
-            }
-        return redirect()->back();
-    } /**
+        return ;
+    } 
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  Request  $request
@@ -80,11 +71,9 @@ class KomentarController extends Controller
     public function edit(Request $request, Komentar $komentar)
     {
 
-        return view('pages.komentar.edit', [
-            'model' => $komentar,
-
-            ]);
-    }    /**
+        return ;
+    }    
+    /**
      * Update a existing resource in storage.
      *
      * @param  Request  $request
@@ -93,17 +82,9 @@ class KomentarController extends Controller
      */
     public function update(Request $request,Komentar $komentar)
     {
-        $komentar->fill($request->all());
-
-        if ($komentar->save()) {
-            
-            session()->flash('app_message', 'Komentar successfully updated');
-            return redirect()->route('komentar.index');
-            } else {
-                session()->flash('app_error', 'Something is wrong while updating Komentar');
-            }
-        return redirect()->back();
-    }    /**
+        return;
+    }    
+    /**
      * Delete a  resource from  storage.
      *
      * @param  Request  $request
@@ -113,12 +94,17 @@ class KomentarController extends Controller
      */
     public function destroy(Request $request, Komentar $komentar)
     {
-        if ($komentar->delete()) {
-                session()->flash('app_message', 'Komentar successfully deleted');
-            } else {
-                session()->flash('app_error', 'Error occurred while deleting Komentar');
-            }
+        return;
+    }
 
-        return redirect()->back();
+    public function getCommentsByArticleId(string $articleId)
+    {
+        $comments = Komentar::where('id_artikel', $articleId)
+            ->where('status', 1)  // Only approved comments
+            ->where('is_archived', 0)  // Not archived
+            ->orderBy('tgl_upload', 'desc')
+            ->get();
+
+        return response()->json($comments);
     }
 }
